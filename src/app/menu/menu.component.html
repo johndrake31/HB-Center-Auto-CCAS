@@ -1,0 +1,60 @@
+<section >
+  <div class="flexrow">
+
+    <!--START of Expermintal Section -->
+    <div class="myLi">
+      <button (click)="marqueBool? marqueBool = !marqueBool: marqueBool = true">{{marqueString}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="marqueBool" >
+          <li class="global-z" *ngFor="let item of marques" (click)="changeStringMQ(item)">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="myLi">
+      <button [disabled]="marqueString =='Marque'? true: false"
+      (click)="modeleBool? modeleBool = !modeleBool: modeleBool = true">{{modeleString}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="modeleBool">
+          <li *ngFor="let item of modele" (click)="changeStringMD(item)">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="myLi">
+      <button (click)="carbBool? carbBool = !carbBool: carbBool = true">{{carbString}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="carbBool">
+          <li *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+
+<!-- END of Expermintal Section -->
+
+      <!-- <ul>
+
+        <label for="annee">l’Année:</label>
+        <select name="annee" id="annee">
+
+          <option value="annee">select</option>
+        </select>
+      </ul>
+      <ul>
+        <label for="kilometrage">Kilométrage</label>
+        <select name="kilometrage" id="kilometrage">
+
+          <option value="kilometrage">select</option>
+        </select>
+      </ul>
+      <ul>
+        <label for="prix">Prix</label>
+        <select name="prix" id="prix">
+
+          <option value="prix">select</option>
+        </select>
+      </ul>
+      <ul>
+        <li class="myBtn">valider</li>
+      </ul> -->
+  </div>
+</section>

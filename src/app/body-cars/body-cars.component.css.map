@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,OAAO,EAAE,EAAE;CACZ;;AACD,AAAA,CAAC,CAAA;EACC,KAAK,EAAC,MAAM;CACb",
+    "sources": [
+        "body-cars.component.scss"
+    ],
+    "names": [],
+    "file": "body-cars.component.css"
+}

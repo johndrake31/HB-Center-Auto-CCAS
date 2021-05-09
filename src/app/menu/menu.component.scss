@@ -1,0 +1,69 @@
+section{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+//search btn
+.myBtn{
+  padding: 5px 15px;
+  background-color: white;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
+}
+.menu-selector{
+  position: relative;
+}
+ul{
+  position: absolute;
+  z-index: 1000;
+  padding: 0;
+  li:first-of-type{
+    padding-top: 5px;
+  }
+}
+
+li{
+border: 1px solid black;
+border-radius: 0 0 12px 12px;
+border-right: none;
+border-left: none;
+border-top: none;
+padding: 3px 5px;
+background-color: white;
+text-align: center;
+  &:hover{
+    background-color: black;
+    color: white;
+  }
+}
+div{
+  position: relative;
+}
+div>button{
+min-width: 85px;
+background-color: white;
+border-radius: 2px;
+border: 1px solid black;
+border-right: none;
+border-left: none;
+border-top: none;
+position: relative;
+&:hover{
+    background-color: black;
+    color: white;
+  }
+&:hover:disabled{
+    background-color: white;
+    color: rgb(150, 148, 148);
+}
+}
+
+.myLi{
+  &:not(last-of-type){
+    padding-right: 12px;
+  }
+}
