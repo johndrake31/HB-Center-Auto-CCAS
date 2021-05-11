@@ -1,18 +1,22 @@
-<section >
-  <div class="flexrow">
-
-    <!--START of Expermintal Section -->
+<div class="menu-toggle">
+  <button (click)="menuDisplayed = !menuDisplayed" >{{menuDisplayed? "✕": "❖"}}</button>
+</div>
+<section id="menu" *ngIf="menuDisplayed">
+  <div class="flexrow" >
     <div class="myLi">
-      <button (click)="marqueBool? marqueBool = !marqueBool: marqueBool = true">{{marqueString}}</button>
+      <button (click)="marqueBool = !marqueBool">{{marqueString}}</button>
       <div class="menu-selector">
         <ul *ngIf="marqueBool" >
-          <li class="global-z" *ngFor="let item of marques" (click)="changeStringMQ(item)">{{item}}</li>
+          <li class="global-z" *ngFor="let item of marques" (click)="changeStringMQ(item)">
+          {{item}}
+          </li>
         </ul>
       </div>
     </div>
+
     <div class="myLi">
       <button [disabled]="marqueString =='Marque'? true: false"
-      (click)="modeleBool? modeleBool = !modeleBool: modeleBool = true">{{modeleString}}</button>
+      (click)="modeleBool = !modeleBool">{{modeleString}}</button>
       <div class="menu-selector">
         <ul *ngIf="modeleBool">
           <li *ngFor="let item of modele" (click)="changeStringMD(item)">{{item}}</li>
@@ -21,7 +25,7 @@
     </div>
 
     <div class="myLi">
-      <button (click)="carbBool? carbBool = !carbBool: carbBool = true">{{carbString}}</button>
+      <button (click)="carbBool = !carbBool">{{carbString}}</button>
       <div class="menu-selector">
         <ul *ngIf="carbBool">
           <li *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item}}</li>
@@ -29,32 +33,53 @@
       </div>
     </div>
 
-<!-- END of Expermintal Section -->
+    <!-- sliders -->
+    <div class="myLi  ">
+      <button (click)="this.slideBool = !this.slideBool">{{slideNombre}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="slideBool">
+          <li><input
+            *ngIf="slideBool"
+            (mouseup)="this.slideBool = !this.slideBool"
+            (mouseout)="this.slideBool = !this.slideBool"
+            type="range" min="1920" [max]="currentYear" value="50" name ="annee" class="range" [(ngModel)]="slideNombre" ></li>
+        </ul>
+      </div>
+    </div>
 
-      <!-- <ul>
+    <div class="myLi  ">
+      <button (click)="this.kmBool = !this.kmBool">{{kilometrage}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="kmBool">
+          <li><input
+            *ngIf="kmBool"
+            (mouseup)="this.kmBool = !this.kmBool"
+            (mouseout)="this.kmBool = !this.kmBool"
+            type="range" min="0" max="150000" value="4000" name ="kilometrage" class="range" [(ngModel)]="kilometrage"></li>
+        </ul>
+      </div>
+    </div>
 
-        <label for="annee">l’Année:</label>
-        <select name="annee" id="annee">
+    <div class="myLi  ">
+      <button (click)="this.prixBool = !this.prixBool">{{prix !== "prix"? prix + "€": prix}}</button>
+      <div class="menu-selector">
+        <ul *ngIf="prixBool">
+          <li><input
+            *ngIf="prixBool"
+            (mouseup)="this.prixBool = !this.prixBool"
+            (mouseout)="this.prixBool = !this.prixBool"
+            type="range" min="0" max="100000" value="4000" name ="kilometrage" class="range" [(ngModel)]="prix"></li>
+        </ul>
+      </div>
+    </div>
 
-          <option value="annee">select</option>
-        </select>
-      </ul>
-      <ul>
-        <label for="kilometrage">Kilométrage</label>
-        <select name="kilometrage" id="kilometrage">
-
-          <option value="kilometrage">select</option>
-        </select>
-      </ul>
-      <ul>
-        <label for="prix">Prix</label>
-        <select name="prix" id="prix">
-
-          <option value="prix">select</option>
-        </select>
-      </ul>
-      <ul>
-        <li class="myBtn">valider</li>
-      </ul> -->
+    <div class="myLi">
+      <button (click)="myBigValider()" id="valider">valider</button>
+    </div>
   </div>
+
 </section>
+
+
+<!-- <button (click)="toggleFatMenu()">hello</button> -->
+
