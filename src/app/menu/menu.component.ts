@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   carb: string[]= ["Carburant", "diesel", "essence", "électrique"]
 
   //bools
-  menuDisplayed = true;
+  menuDisplayed = false;
 
   marqueBool =  false;
   modeleBool = false;

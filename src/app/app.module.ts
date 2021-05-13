@@ -12,6 +12,8 @@ import { CarCardsComponent } from './car-cards/car-cards.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { GarageComponent } from './garage/garage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import { GarageComponent } from './garage/garage.component';
     CarCardsComponent,
     FooterComponent,
     LoginComponent,
-    GarageComponent
+    GarageComponent,
+    PageNotFoundComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,

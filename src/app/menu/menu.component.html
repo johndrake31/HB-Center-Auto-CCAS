@@ -5,8 +5,8 @@
   <div class="flexrow" >
     <div class="myLi">
       <button (click)="marqueBool = !marqueBool">{{marqueString}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="marqueBool" >
+      <div class="menu-selector" >
+        <ul *ngIf="marqueBool"  >
           <li class="global-z" *ngFor="let item of marques" (click)="changeStringMQ(item)">
           {{item}}
           </li>
