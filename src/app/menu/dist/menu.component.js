@@ -43,9 +43,11 @@ var MenuComponent = /** @class */ (function () {
             marqueStringa: "",
             modeleString: "",
             carbString: "",
-            slideNombre: "",
-            kilometrage: "",
-            prix: ""
+            slideNombre: this.slideNombre,
+            kilometrage: this.kilometrage,
+            prix: this.prix,
+            search: function () {
+            }
         };
     }
     MenuComponent.prototype.ngOnInit = function () {
@@ -55,6 +57,7 @@ var MenuComponent = /** @class */ (function () {
     MenuComponent.prototype.changeStringMQ = function (val) {
         var _this = this;
         this.marqueString = val;
+        this.searchObject.marqueStringa = val;
         this.modeleString = "Modèle";
         var tempArr = this.carListingTbl.filter(function (e) { return e.marque.toLocaleLowerCase() == _this.marqueString.toLocaleLowerCase(); });
         var tempArr2 = tempArr.map(function (e) { return e.model; });
@@ -69,18 +72,23 @@ var MenuComponent = /** @class */ (function () {
     };
     MenuComponent.prototype.changeStringMD = function (val) {
         this.modeleString = val;
+        this.searchObject.modeleString = val;
         this.modeleBool = !this.modeleBool;
     };
     MenuComponent.prototype.changeStringCarb = function (val) {
         this.carbString = val;
+        this.searchObject.carbString = val;
         this.carbBool = !this.carbBool;
     };
-    MenuComponent.prototype.toggleFatMenu = function () {
-        if (window.innerWidth) {
-        }
+    MenuComponent.prototype.getPrice = function ($event) {
+        console.log($event);
+        this.searchObject.prix = $event.target.value;
     };
+    //reset menu values
     MenuComponent.prototype.myBigValider = function () {
-        //reset
+        //replace with  search and populate
+        console.log(this.searchObject);
+        //the big reset
         this.marqueString = "Marque";
         this.modeleString = "Modèle";
         this.carbString = "Carburant";

@@ -60,15 +60,15 @@
       </div>
     </div>
 
-    <div class="myLi  ">
-      <button (click)="this.prixBool = !this.prixBool">{{prix !== "prix"? prix + "€": prix}}</button>
+    <div class="myLi ">
+      <button (click)="this.prixBool = !this.prixBool">{{ prix == "prix"? "prix" : prix +"€"}}</button>
       <div class="menu-selector">
         <ul *ngIf="prixBool">
           <li><input
             *ngIf="prixBool"
-            (mouseup)="this.prixBool = !this.prixBool"
+            (mouseup)="getPrice($event)"
             (mouseout)="this.prixBool = !this.prixBool"
-            type="range" min="0" max="100000" value="4000" name ="kilometrage" class="range" [(ngModel)]="prix"></li>
+            type="range" min="0" max="100000" value="4000" name ="prix" class="range" [(ngModel)]="prix"></li>
         </ul>
       </div>
     </div>

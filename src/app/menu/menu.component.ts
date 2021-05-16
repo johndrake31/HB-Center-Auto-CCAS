@@ -48,14 +48,19 @@ export class MenuComponent implements OnInit {
     marqueStringa: "",
     modeleString: "",
     carbString: "",
-    slideNombre: "",
-    kilometrage: "",
-    prix: "",
+    slideNombre: this.slideNombre,
+    kilometrage: this.kilometrage,
+    prix: this.prix,
+
+    search(){
+
+    }
   }
 
 
   changeStringMQ(val: string): void{
     this.marqueString = val;
+    this.searchObject.marqueStringa=val;
     this.modeleString = "Modèle";
     const tempArr = this.carListingTbl.filter( e => e.marque.toLocaleLowerCase() == this.marqueString.toLocaleLowerCase())
     const tempArr2 = tempArr.map(e => e.model);
@@ -71,29 +76,32 @@ export class MenuComponent implements OnInit {
 
   changeStringMD(val: string): void{
     this.modeleString = val;
+    this.searchObject.modeleString = val;
     this.modeleBool = !this.modeleBool;
   }
 
 
   changeStringCarb(val: string){
     this.carbString = val;
+    this.searchObject.carbString = val;
     this.carbBool = !this.carbBool;
   }
+  getPrice($event: any): void{
+    console.log($event);
 
-  toggleFatMenu():void{
-    if(window.innerWidth){
-
-    }
+     this.searchObject.prix = $event.target.value;
   }
+  //reset menu values
   myBigValider():void{
+    //replace with  search and populate
+    console.log(this.searchObject);
 
-  //reset
+  //the big reset
   this.marqueString = "Marque";
   this.modeleString = "Modèle";
   this.carbString = "Carburant";
   this.slideNombre = "l'Annee";
   this.kilometrage = "kilometrage";
   this.prix = "prix";
-
   }
 }
