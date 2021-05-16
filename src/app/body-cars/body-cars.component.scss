@@ -1,7 +1,16 @@
-:host{
-  z-index: -1;
-}
+
 section{
+  width: 100%;
   padding-left: 8.3%;
   padding-right: 8.3%;
+}
+
+.my-flex-row{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.car-cards{
+  margin: 0px;
 }

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,OAAO,EAAE,EAAE;CACZ;;AACD,AAAA,CAAC,CAAA;EACC,KAAK,EAAC,MAAM;CACb",
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,OAAO,EAAE,EAAE;CACZ;;AACD,AAAA,OAAO,CAAA;EACL,YAAY,EAAE,IAAI;EAClB,aAAa,EAAE,IAAI;CACpB",
     "sources": [
         "body-cars.component.scss"
     ],

@@ -1,5 +1,10 @@
 <hr>
 <section>
   <h4>Véhicules les plus récents</h4>
-  <app-car-cards></app-car-cards>
+  <div class="my-flex-row">
+
+   <app-car-cards *ngFor="let item of tempCars" [inputCars]="item"></app-car-cards>
+
+  </div>
+
 </section>

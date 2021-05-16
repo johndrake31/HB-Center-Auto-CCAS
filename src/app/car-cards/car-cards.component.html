@@ -1,1 +1,30 @@
-<p>car-cards works!</p>
+<div class="outer">
+  <div class="main-container" (click)="moreClicked = !moreClicked">
+    <!-- image area -->
+    <div class="my-image" >
+      <img src="../../assets/images/cars/{{inputCars.url}}"
+      alt="picture of {{inputCars.marque}} {{inputCars.model}}">
+      <p class="text-hov">Cliquez pour plus d'informations</p>
+    </div>
+
+    <div class="info">
+      <h4>{{inputCars.marque}}: {{inputCars.model}}</h4>
+      <p *ngIf="!moreClicked" >{{inputCars.discriptionSm}}</p>
+      <p *ngIf="moreClicked">{{inputCars.discriptionXl}}</p>
+
+      <h3>{{inputCars.prix | currency: '€'}}</h3>
+      <a *ngIf="!moreClicked" >plus d'informations</a>
+      <a *ngIf="moreClicked" >moins d'informations</a>
+
+    </div>
+    <!-- hidden until needed for more info overflow or light box? -->
+    <div *ngIf="moreClicked" class="click-for-more">
+      <h4>l'Année: <em>{{inputCars.anneeDeMise}}</em></h4>
+      <h4>Kilomètrage: <em>{{inputCars.kilometrage}}</em></h4>
+      <h4>Carburant: <em>{{inputCars.fuelType}}</em></h4>
+      <h4>Couleur: <em>{{inputCars.couleur}}</em></h4>
+      <p> réf: #az14pk{{inputCars.idVoiture}}</p>
+    </div>
+
+  </div>
+</div>

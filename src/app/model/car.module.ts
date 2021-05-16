@@ -2,16 +2,19 @@
 export class Car{
 
   constructor(
-    private idVoiture:string,
-    private url: string,
-    private model: string,
-    private marque: string,
-    private prix: string,
-    private couleur: string,
-    private annéeDeMise: string,
-    private dateAdded: string,
-    private kilométrage: string,
-    private fuelType: string
+    public idVoiture:string,
+    public url: string,
+    public model: string,
+    public marque: string,
+    public prix: string,
+    public couleur: string,
+    public anneeDeMise: string,
+    public dateAdded: string,
+    public kilometrage: string,
+    public fuelType: string,
+    public discriptionXl: string,
+    public discriptionSm: string
+
     ){}
 
 
