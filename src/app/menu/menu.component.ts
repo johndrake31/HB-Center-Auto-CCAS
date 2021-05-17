@@ -3,6 +3,7 @@ import { Car } from '../model/car.module';
 import { TempCarBddService } from '../temp-car-bdd.service';
 
 
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -87,7 +88,7 @@ export class MenuComponent implements OnInit {
     this.carbBool = !this.carbBool;
   }
   getPrice($event: any): void{
-    console.log($event);
+    console.log($event.target);
 
      this.searchObject.prix = $event.target.value;
   }

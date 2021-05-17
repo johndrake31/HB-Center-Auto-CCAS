@@ -81,7 +81,7 @@ var MenuComponent = /** @class */ (function () {
         this.carbBool = !this.carbBool;
     };
     MenuComponent.prototype.getPrice = function ($event) {
-        console.log($event);
+        console.log($event.target);
         this.searchObject.prix = $event.target.value;
     };
     //reset menu values
