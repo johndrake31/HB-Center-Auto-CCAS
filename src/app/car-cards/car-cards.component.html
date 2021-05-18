@@ -1,13 +1,13 @@
 <div class="outer">
-  <div class="main-container" (click)="moreClicked = !moreClicked">
+  <div class="main-container">
     <!-- image area -->
-    <div class="my-image" >
+    <div class="my-image" (click)="moreClicked = !moreClicked">
       <img src="../../assets/images/cars/{{inputCars.url}}"
       alt="picture of {{inputCars.marque}} {{inputCars.model}}">
       <p class="text-hov">Cliquez pour plus d'informations</p>
     </div>
 
-    <div class="info">
+    <div class="info" (click)="moreClicked = !moreClicked">
       <h4>{{inputCars.marque}}: {{inputCars.model}}</h4>
       <p *ngIf="!moreClicked" >{{inputCars.discriptionSm}}</p>
       <p *ngIf="moreClicked">{{inputCars.discriptionXl}}</p>
@@ -18,7 +18,7 @@
 
     </div>
     <!-- hidden until needed for more info overflow or light box? -->
-    <div *ngIf="moreClicked" class="click-for-more">
+    <div *ngIf="moreClicked" class="click-for-more" (click)="moreClicked = !moreClicked">
       <h4>l'Année: <em>{{inputCars.anneeDeMise}}</em></h4>
       <h4>Kilomètrage: <em>{{inputCars.kilometrage}}</em></h4>
       <h4>Carburant: <em>{{inputCars.fuelType}}</em></h4>
@@ -26,5 +26,6 @@
       <p> réf: #az14pk{{inputCars.idVoiture}}</p>
     </div>
 
+    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Devenir%20Vendeur&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: az14pk{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
   </div>
 </div>

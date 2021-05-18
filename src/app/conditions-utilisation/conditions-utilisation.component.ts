@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conditions-utilisation.component.scss']
 })
 export class ConditionsUtilisationComponent implements OnInit {
-
+  showMore = false;
   constructor() { }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conditions-generales.component.scss']
 })
 export class ConditionsGeneralesComponent implements OnInit {
-
+  showMore = false;
   constructor() { }
 
   ngOnInit(): void {
