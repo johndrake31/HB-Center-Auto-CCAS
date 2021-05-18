@@ -20,7 +20,7 @@ import { MentionsLegalComponent } from './mentions-legal/mentions-legal.componen
 import { PolitiqueConfidentialiteComponent } from './politique-confidentialite/politique-confidentialite.component';
 import { ConditionsUtilisationComponent } from './conditions-utilisation/conditions-utilisation.component';
 import { ConditionsGeneralesComponent } from './conditions-generales/conditions-generales.component';
-import { HomeBtnComponent } from './home-btn/home-btn.component';
+import { HomeBtnComponent } from './components/home-btn/home-btn.component';
 
 @NgModule({
   declarations: [

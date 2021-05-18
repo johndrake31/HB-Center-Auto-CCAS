@@ -21,6 +21,12 @@ var login_component_1 = require("./login/login.component");
 var garage_component_1 = require("./garage/garage.component");
 var page_not_found_component_1 = require("./page-not-found/page-not-found.component");
 var home_component_1 = require("./home/home.component");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
+var mentions_legal_component_1 = require("./mentions-legal/mentions-legal.component");
+var politique_confidentialite_component_1 = require("./politique-confidentialite/politique-confidentialite.component");
+var conditions_utilisation_component_1 = require("./conditions-utilisation/conditions-utilisation.component");
+var conditions_generales_component_1 = require("./conditions-generales/conditions-generales.component");
+var home_btn_component_1 = require("./components/home-btn/home-btn.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,11 +43,17 @@ var AppModule = /** @class */ (function () {
                 garage_component_1.GarageComponent,
                 page_not_found_component_1.PageNotFoundComponent,
                 home_component_1.HomeComponent,
+                mentions_legal_component_1.MentionsLegalComponent,
+                politique_confidentialite_component_1.PolitiqueConfidentialiteComponent,
+                conditions_utilisation_component_1.ConditionsUtilisationComponent,
+                conditions_generales_component_1.ConditionsGeneralesComponent,
+                home_btn_component_1.HomeBtnComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
                 app_routing_module_1.AppRoutingModule,
                 forms_1.FormsModule,
+                ng_bootstrap_1.NgbModule,
             ],
             providers: [],
             bootstrap: [app_component_1.AppComponent]

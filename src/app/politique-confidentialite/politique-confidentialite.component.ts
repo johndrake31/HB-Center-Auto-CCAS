@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./politique-confidentialite.component.scss']
 })
 export class PolitiqueConfidentialiteComponent implements OnInit {
-
+  displaymore=false;
   constructor() { }
 
   ngOnInit(): void {
