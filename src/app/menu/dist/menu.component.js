@@ -24,6 +24,8 @@ var MenuComponent = /** @class */ (function () {
         this.marques = ["Marque", "ford", "audi", "tesla", "porsche", "mercedes", "chevrolet", "volkswagen"];
         this.modele = ["Modèle", "mod 1", "mod2", "mod3"];
         this.carb = ["Carburant", "diesel", "essence", "électrique"];
+        //bootStrap Bool
+        this.isMenuCollapsed = true;
         //bools
         this.menuDisplayed = false;
         this.marqueBool = false;

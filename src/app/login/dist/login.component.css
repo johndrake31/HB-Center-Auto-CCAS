@@ -1,0 +1,25 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin-top: 30px;
+  background-image: linear-gradient(to top right, rgba(0, 0, 0, 0.483), rgba(255, 255, 255, 0.456)), url(../../assets/public/andrey-zvyagintsev-DTQxGDTeyj0-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+button {
+  width: 100px;
+}
+button:first-of-type {
+  margin-bottom: 20px;
+}
+
+h1, label, #emailHelp {
+  color: white;
+}
+
+input {
+  height: 40px;
+  font-size: large;
+  border: 1px solid black;
+}

@@ -27,6 +27,8 @@ export class MenuComponent implements OnInit {
   modele =["Modèle", "mod 1", "mod2","mod3"] ;
   carb: string[]= ["Carburant", "diesel", "essence", "électrique"]
 
+  //bootStrap Bool
+  isMenuCollapsed = true;
   //bools
   menuDisplayed = false;
   marqueBool =  false;

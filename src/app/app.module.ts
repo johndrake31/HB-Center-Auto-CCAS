@@ -15,6 +15,12 @@ import { LoginComponent } from './login/login.component';
 import { GarageComponent } from './garage/garage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MentionsLegalComponent } from './mentions-legal/mentions-legal.component';
+import { PolitiqueConfidentialiteComponent } from './politique-confidentialite/politique-confidentialite.component';
+import { ConditionsUtilisationComponent } from './conditions-utilisation/conditions-utilisation.component';
+import { ConditionsGeneralesComponent } from './conditions-generales/conditions-generales.component';
+import { HomeBtnComponent } from './home-btn/home-btn.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +34,18 @@ import { HomeComponent } from './home/home.component';
     GarageComponent,
     PageNotFoundComponent,
     HomeComponent,
+    MentionsLegalComponent,
+    PolitiqueConfidentialiteComponent,
+    ConditionsUtilisationComponent,
+    ConditionsGeneralesComponent,
+    HomeBtnComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
