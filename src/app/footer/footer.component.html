@@ -12,9 +12,15 @@
 
     <br>
     <h4>Mentions légales</h4>
-    <button routerLink="/mentionslegales" type="button" class="btn btn-dark mr-3">Mentions légales</button>
-    <button routerLink="/politique" type="button" class="btn btn-dark mr-3">Politique de confidentialité</button>
-    <button routerLink="/conditions-utilisation" type="button" class="btn btn-dark mr-3">Conditions générales d'utilisation</button>
-    <button routerLink="/conditions-generales" type="button" class="btn btn-dark">Conditions générales</button>
+    <ul>
+
+      <li  routerLinkActive="my-active" type="button" class="btn btn-dark mr-3"> <a routerLink="/mentionslegales">Mentions légales</a></li>
+
+      <li routerLinkActive="my-active" type="button" class="btn btn-dark mr-3"><a routerLink="/politique"> Politique de confidentialité</a></li>
+
+      <li routerLinkActive="my-active"  type="button" class="btn btn-dark mr-3"> <a routerLink="/conditions-utilisation"> Conditions générales d'utilisation</a></li>
+
+      <li routerLinkActive="my-active"  type="button" class="btn btn-dark"><a routerLink="/conditions-generales"> Conditions générales</a></li>
+    </ul>
   </div>
 </div>

@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.CarCardsComponent = void 0;
 var core_1 = require("@angular/core");
-var car_module_1 = require("../model/car.module");
+var car_module_1 = require("src/app/model/car.module");
 var CarCardsComponent = /** @class */ (function () {
     function CarCardsComponent() {
         this.moreClicked = false;
-        this.inputCars = new car_module_1.Car("17", "Mercedes-Benz-GLA-silver-2020.jpg", "GLA", "MERCEDES", "32000", "Gris", "2019-06-13", "2021-07-24", "21300", "Diesel", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque");
+        this.inputCars = new car_module_1.Car("999999", "99929929292", "21212", "121221", "32000", "Gris", "2019-06-13", "2021-07-24", "21300", "Diesel", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque");
     }
     CarCardsComponent.prototype.ngOnInit = function () {
     };

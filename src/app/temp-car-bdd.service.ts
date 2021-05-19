@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Car } from './model/car.module';
 
 @Injectable({
@@ -9,7 +10,8 @@ export class TempCarBddService {
   constructor() { }
 
 
-  cr1 = new Car(
+  carList: Car[]=[
+    new Car(
     "12",
     "Mercedes-AMG-GTS-yellow-2016.jpg",
     "A-Class",
@@ -22,9 +24,8 @@ export class TempCarBddService {
     "Diesel",
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-    )
-
-  cr2 = new Car(
+    ),
+    new Car(
     "11",
      "Mercedes-AMG-GTS-2016.jpg",
     "A-Class",
@@ -37,9 +38,8 @@ export class TempCarBddService {
      "Essence",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-
-     )
-  cr3 = new Car(
+     ),
+    new Car(
      "9",
      "FORD-Ranger-Raptor-red-2018.jpeg",
      "Range",
@@ -52,8 +52,8 @@ export class TempCarBddService {
      "Essence",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-     )
- cr4 = new Car(
+     ),
+    new Car(
     "17",
     "Mercedes-Benz-GLA-silver-2020.jpg",
     "GLA",
@@ -67,8 +67,8 @@ export class TempCarBddService {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
- )
-  cr5 = new Car(
+ ),
+    new Car(
      "8",
      "FORD-Ranger-Raptor-blue-2017.jpg",
      "Range",
@@ -82,8 +82,8 @@ export class TempCarBddService {
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-  )
-  cr6 = new Car(
+  ),
+    new Car(
     "7",
     "Ford-fusion-silver-2016.jpg",
     "Fusion",
@@ -96,9 +96,8 @@ export class TempCarBddService {
     "Électrique",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-  )
-
-  cr7 = new Car(
+  ),
+    new Car(
     "15",
     "Mercedes-Benz-A-Class-White-2020.jpg",
     "AMG-GTS",
@@ -112,8 +111,8 @@ export class TempCarBddService {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-  )
-  cr8 = new Car(
+  ),
+    new Car(
     "14",
     "Mercedes-Benz-A-Class-Sedan-silver-2020.jpeg",
     "AMG-GTS",
@@ -126,8 +125,8 @@ export class TempCarBddService {
     "Essence",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-  )
-  cr9 = new Car(
+  ),
+    new Car(
     "6",
     "Ford-focus-st-orange-2019.jpg",
     "Focus",
@@ -141,8 +140,8 @@ export class TempCarBddService {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-  )
-  cr10 = new Car(
+  ),
+    new Car(
     "18",
     "Mercedes-Benz-GLE-blue-2020.jpg",
     "GLE",
@@ -156,9 +155,8 @@ export class TempCarBddService {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-  )
-
-    cr11 = new Car(
+  ),
+    new Car(
     "13",
     "Mercedes-Benz-A-Class-Sedan-RED-2017 .jpg",
     "AMG-GTR",
@@ -171,8 +169,8 @@ export class TempCarBddService {
     "Diesel",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-    )
-    cr12 = new Car(
+    ),
+    new Car(
     "21",
     "porsche_356_silver_1960.jpg",
     "356",
@@ -185,8 +183,8 @@ export class TempCarBddService {
     "Essence",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-    )
-    cr13 = new Car(
+    ),
+    new Car(
     "2",
     "Ford-Bronco-blue-2021.jpeg",
     "Bronco",
@@ -200,8 +198,8 @@ export class TempCarBddService {
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr14 = new Car(
+    ),
+    new Car(
     "20",
     "porsche_356_red_1960.jpg",
     "356",
@@ -215,8 +213,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr15 = new Car(
+    ),
+    new Car(
     "19",
     "mercedes-Benz-GLE-white-2020.jpg",
     "GLE",
@@ -230,8 +228,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr16 = new Car(
+    ),
+    new Car(
     "16",
     "Mercedes-Benz-C-Class-Sedan-silver-2016.jpg",
     "C-Class",
@@ -245,8 +243,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr17 = new Car(
+    ),
+    new Car(
     "5",
      "Ford-Focus-champian-2021.jpg",
      "Focus",
@@ -260,8 +258,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr18 = new Car(
+    ),
+    new Car(
       "4",
      "Ford-Focus-blue-2021.jpg",
      "Focus",
@@ -275,8 +273,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr19 = new Car(
+    ),
+    new Car(
     "3",
      "ford-edge-orange-2016.jpg",
      "Edge",
@@ -289,8 +287,8 @@ export class TempCarBddService {
      "Diesel",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
-    )
-    cr20 = new Car(
+    ),
+    new Car(
       '1',
      "ford-bronco-2-yellow-2021.jpg",
      "Bronco",
@@ -304,8 +302,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr21 = new Car(
+    ),
+    new Car(
       "10",
      "Mercedes-AMG-GTR-road-2017.jpg",
      "A-Class",
@@ -319,8 +317,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr22 = new Car(
+    ),
+    new Car(
       "22",
      "porsche_911_yellow_1975.jpg",
      "911",
@@ -334,8 +332,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr23 = new Car(
+    ),
+    new Car(
       "23",
      "porsche-911-carrera-navy-blue-1985.jpg",
      "911",
@@ -349,8 +347,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr24 = new Car(
+    ),
+    new Car(
       "24",
      "porsche-911-wide-body-white-1985.jpg",
      "911",
@@ -364,8 +362,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr25 = new Car(
+    ),
+    new Car(
       "26",
      "porsche-964-Carrera-black-1994.jpg",
      "964",
@@ -379,8 +377,8 @@ export class TempCarBddService {
     " Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
 
-    )
-    cr26 = new Car(
+    ),
+    new Car(
       "27",
      "porsche-gt3-white-2017.jpg",
      "GT3",
@@ -394,42 +392,13 @@ export class TempCarBddService {
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!",
      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque",
      )
-
-
-  carList: Car[]=[
-    this.cr1,
-    this.cr2,
-    this.cr3,
-    this.cr4,
-    this.cr5,
-    this.cr6,
-    this.cr7,
-    this.cr8,
-    this.cr9,
-    this.cr10,
-    this.cr11,
-    this.cr12,
-    this.cr13,
-    this.cr14,
-    this.cr15,
-    this.cr16,
-    this.cr17,
-    this.cr18,
-    this.cr19,
-    this.cr20,
-    this.cr21,
-    this.cr22,
-    this.cr23,
-    this.cr24,
-    this.cr25,
-    this.cr26,
   ];
 
-  getMarque(): string[]{
+  getMarque(): Observable<string[]>{
     const marqueArr = this.carList.map( e =>e.marque
     )
     const noDuplicates =  [...new Set(marqueArr)];
-    return noDuplicates;
+    return of(noDuplicates);
   }
 
 }

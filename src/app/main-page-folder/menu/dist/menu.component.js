@@ -53,7 +53,8 @@ var MenuComponent = /** @class */ (function () {
         };
     }
     MenuComponent.prototype.ngOnInit = function () {
-        this.marques = this.carServe.getMarque();
+        var _this = this;
+        this.carServe.getMarque().subscribe(function (marques) { return _this.marques = marques; });
         this.carListingTbl = this.carServe.carList;
     };
     MenuComponent.prototype.changeStringMQ = function (val) {

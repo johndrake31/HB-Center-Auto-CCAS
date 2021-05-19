@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from '../model/car.module';
-import { TempCarBddService } from '../temp-car-bdd.service';
+import { Car } from '../../model/car.module';
+import { TempCarBddService } from '../../temp-car-bdd.service';
 
 
 
@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   constructor( private carServe: TempCarBddService) { }
 
   ngOnInit(): void {
-    this.marques = this.carServe.getMarque();
+    this.carServe.getMarque().subscribe( marques => this.marques = marques);
     this.carListingTbl = this.carServe.carList;
   }
 

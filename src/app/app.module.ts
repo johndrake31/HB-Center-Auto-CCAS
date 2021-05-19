@@ -7,20 +7,29 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
-import { BodyCarsComponent } from './body-cars/body-cars.component';
-import { CarCardsComponent } from './car-cards/car-cards.component';
+import { MenuComponent } from './main-page-folder/menu/menu.component';
+import { BodyCarsComponent } from './main-page-folder/body-cars/body-cars.component';
+import { CarCardsComponent } from '../../src/app/main-page-folder/car-cards/car-cards.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { GarageComponent } from './garage/garage.component';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './main-page-folder/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MentionsLegalComponent } from './mentions-legal/mentions-legal.component';
-import { PolitiqueConfidentialiteComponent } from './politique-confidentialite/politique-confidentialite.component';
-import { ConditionsUtilisationComponent } from './conditions-utilisation/conditions-utilisation.component';
-import { ConditionsGeneralesComponent } from './conditions-generales/conditions-generales.component';
-import { HomeBtnComponent } from './home-btn/home-btn.component';
+import { MentionsLegalComponent } from './footer/legal/mentions-legal/mentions-legal.component';
+import { PolitiqueConfidentialiteComponent } from './footer/legal/politique-confidentialite/politique-confidentialite.component';
+import { ConditionsUtilisationComponent } from './footer/legal/conditions-utilisation/conditions-utilisation.component';
+import { ConditionsGeneralesComponent } from './footer/legal/conditions-generales/conditions-generales.component';
+import { HomeBtnComponent } from './simple-components/home-btn/home-btn.component';
+import { GarageListComponent } from './user-pro-folder/garage-list/garage-list.component';
+import { GarageAjouterComponent } from './user-pro-folder/garage-ajouter/garage-ajouter.component';
+import { GarageUpdateFormComponent } from './user-pro-folder/garage-update-form/garage-update-form.component';
+import { ProfileProComponent } from './user-pro-folder/profile-pro/profile-pro.component';
+import { ProfileProInfoFormComponent } from './user-pro-folder/profile-pro-info-form/profile-pro-info-form.component';
+import { GarageAnnounceBodyComponent } from './user-pro-folder/garage-announce-body/garage-announce-body.component';
+import { GarageAnnounceDetialedComponent } from './user-pro-folder/garage-announce-detialed/garage-announce-detialed.component';
+import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form/garage-add-car-form.component';
+import { GarageComponent } from './user-pro-folder/garage/garage.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +48,14 @@ import { HomeBtnComponent } from './home-btn/home-btn.component';
     ConditionsUtilisationComponent,
     ConditionsGeneralesComponent,
     HomeBtnComponent,
+    GarageListComponent,
+    GarageAjouterComponent,
+    GarageUpdateFormComponent,
+    ProfileProComponent,
+    ProfileProInfoFormComponent,
+    GarageAnnounceBodyComponent,
+    GarageAnnounceDetialedComponent,
+    GarageAddCarFormComponent,
   ],
   imports: [
     BrowserModule,

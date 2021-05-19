@@ -15,7 +15,6 @@ var BodyCarsComponent = /** @class */ (function () {
     }
     BodyCarsComponent.prototype.ngOnInit = function () {
         this.tempCars = this.carServe.carList;
-        console.log(this.tempCars[0].marque);
     };
     BodyCarsComponent = __decorate([
         core_1.Component({
