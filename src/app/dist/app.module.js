@@ -26,7 +26,7 @@ var mentions_legal_component_1 = require("./mentions-legal/mentions-legal.compon
 var politique_confidentialite_component_1 = require("./politique-confidentialite/politique-confidentialite.component");
 var conditions_utilisation_component_1 = require("./conditions-utilisation/conditions-utilisation.component");
 var conditions_generales_component_1 = require("./conditions-generales/conditions-generales.component");
-var home_btn_component_1 = require("./components/home-btn/home-btn.component");
+var home_btn_component_1 = require("./home-btn/home-btn.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }

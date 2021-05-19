@@ -23,9 +23,9 @@
       <h4>Kilomètrage: <em>{{inputCars.kilometrage}}</em></h4>
       <h4>Carburant: <em>{{inputCars.fuelType}}</em></h4>
       <h4>Couleur: <em>{{inputCars.couleur}}</em></h4>
-      <p> réf: #az14pk{{inputCars.idVoiture}}</p>
+      <p> réf: #{{inputCars.idVoiture}}</p>
     </div>
 
-    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Devenir%20Vendeur&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: az14pk{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
+    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.idVoiture}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
   </div>
 </div>
