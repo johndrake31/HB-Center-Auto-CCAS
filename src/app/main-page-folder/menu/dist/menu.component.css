@@ -30,14 +30,6 @@ section:first-of-type {
   color: white;
 }
 
-.menu-selector {
-  position: relative;
-}
-
-div {
-  position: relative;
-}
-
 div > button {
   min-width: 85px;
   background-color: white;
@@ -64,7 +56,7 @@ div > button:hover:disabled {
 }
 
 ul {
-  position: absolute;
+  position: relative;
   z-index: 1000;
   padding: 0;
 }
@@ -73,6 +65,7 @@ ul li:first-of-type {
 }
 
 li {
+  position: relative;
   border: 1px solid white;
   border-right: none;
   border-left: none;
@@ -89,6 +82,9 @@ li:hover {
   color: #c1c1c1;
 }
 
+.myLi {
+  z-index: 10;
+}
 .myLi:not(last-of-type) {
   padding-right: 12px;
 }
@@ -129,6 +125,16 @@ li:hover {
 }
 
 @media only screen and (max-width: 800px) {
+  ul, li, .myBtn, div > button {
+    position: static;
+    background-color: #212020;
+    color: white;
+  }
+  ul:hover, li:hover, .myBtn:hover, div > button:hover {
+    background-color: white;
+    color: black;
+  }
+
   .menu-toggle {
     display: block;
   }
@@ -138,7 +144,11 @@ li:hover {
   }
 
   div > button {
-    width: 25%;
+    width: 100%;
+  }
+
+  .range {
+    width: 100%;
   }
 
   #valider {

@@ -30,13 +30,7 @@ section:first-of-type{
     color: white;
   }
 }
-.menu-selector{
-  position: relative;
-}
 
-div{
-  position: relative;
-}
 div>button{
 min-width: 85px;
 background-color: white;
@@ -64,7 +58,7 @@ position: relative;
 
 //dropdown options
 ul{
-  position: absolute;
+  position: relative;
   z-index: 1000;
   padding: 0;
   li:first-of-type{
@@ -73,6 +67,7 @@ ul{
   }
 }
 li{
+position: relative;
 border: 1px solid white;
 border-right: none;
 border-left: none;
@@ -90,6 +85,7 @@ text-transform: uppercase;
 }
 
 .myLi{
+  z-index: 10;
   &:not(last-of-type){
     padding-right: 12px;
   }
@@ -130,7 +126,16 @@ text-transform: uppercase;
     border-top:  1px solid black;
   }
 }
+
 @media only screen and (max-width: 800px) {
+  ul, li, .myBtn, div>button{position: static;
+  background-color: rgb(33, 32, 32);
+  color:white;
+    &:hover{
+      background-color: white;
+      color: black;
+    }
+  }
 
   .menu-toggle{
     display: block;
@@ -140,7 +145,11 @@ text-transform: uppercase;
 
   }
   div>button{
-    width: 25%;
+    width: 100%;
+
+  }
+  .range{
+    width: 100%;
   }
   #valider{
     margin-top: 5px;
