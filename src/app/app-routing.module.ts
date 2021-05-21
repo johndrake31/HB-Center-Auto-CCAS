@@ -14,6 +14,7 @@ import { GarageComponent } from './user-pro-folder/garage/garage.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'home/:id', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   //mention Legal Routes

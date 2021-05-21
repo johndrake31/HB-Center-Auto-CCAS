@@ -1,16 +1,29 @@
 <hr>
 <section>
   <h4>Véhicules les plus récents</h4>
-  <button class="btn btn-dark text-light mt-3 mr-3"
-  *ngFor="let n of numSequence(tempCars.length/10);
-    let i = index;" (click)="changeSlice(i)">{{i+1}}</button>
+    <button class="btn btn-dark text-light mt-3 mr-3 "
+    *ngFor="let n of numSequence(tempCars.length/10);
+      let i = index;" (click)="changeSlice(i)"
+      >{{i+1}}</button>
+
 
   <div class="my-flex-row">
     <app-car-cards *ngFor="let item of tempCars | slice:paginMin:paginMax" [inputCars]="item"></app-car-cards>
   </div>
 
   <button class="btn btn-dark text-light mt-3 mr-3"
-  *ngFor="let n of numSequence(tempCars.length/10);
-    let i = index;" (click)="changeSlice(i)">{{i+1}}</button>
+    *ngFor="let n of numSequence(tempCars.length/10);
+    let i = index;" (click)="changeSlice(i)"
+
+    >{{i+1}}</button>
 
 </section>
+
+<!-- Notes for creating sudo info in the url...
+  <button class="btn btn-dark text-light mt-3 mr-3 "
+      *ngFor="let n of numSequence(tempCars.length/10);
+      let i = index;" (click)="changeSlice(i)"
+      [routerLink]="['/home', i+1]"
+      routerLinkActive="my-active"
+      >{{i+1}}
+    </button> -->

@@ -22,6 +22,7 @@ var garage_list_component_1 = require("./user-pro-folder/garage-list/garage-list
 var garage_component_1 = require("./user-pro-folder/garage/garage.component");
 var routes = [
     { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'home/:id', component: home_component_1.HomeComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     //mention Legal Routes
     { path: 'mentionslegales', component: mentions_legal_component_1.MentionsLegalComponent },

@@ -13,10 +13,12 @@ var BodyCarsComponent = /** @class */ (function () {
         this.carServe = carServe;
         this.paginMin = 0;
         this.paginMax = 10;
+        this.name = "9";
         this.tempCars = [];
     }
     BodyCarsComponent.prototype.ngOnInit = function () {
         this.tempCars = this.carServe.carList;
+        // this.route.snapshot.params.subscribe(v => console.log(v));
     };
     BodyCarsComponent.prototype.changeSlice = function (n) {
         this.paginMin = n * 10;
