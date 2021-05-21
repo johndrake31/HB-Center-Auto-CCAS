@@ -11,10 +11,20 @@ var core_1 = require("@angular/core");
 var BodyCarsComponent = /** @class */ (function () {
     function BodyCarsComponent(carServe) {
         this.carServe = carServe;
+        this.paginMin = 0;
+        this.paginMax = 10;
         this.tempCars = [];
     }
     BodyCarsComponent.prototype.ngOnInit = function () {
         this.tempCars = this.carServe.carList;
+    };
+    BodyCarsComponent.prototype.changeSlice = function (n) {
+        this.paginMin = n * 10;
+        n == 0 ? this.paginMax = 10 : this.paginMax = this.paginMin + 10;
+    };
+    BodyCarsComponent.prototype.numSequence = function (n) {
+        n = Math.ceil(n);
+        return Array(n);
     };
     BodyCarsComponent = __decorate([
         core_1.Component({

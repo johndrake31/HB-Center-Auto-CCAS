@@ -18,22 +18,23 @@ var core_1 = require("@angular/core");
 var MenuComponent = /** @class */ (function () {
     function MenuComponent(carServe) {
         this.carServe = carServe;
+        ///The horror Starts Here
         this.carListingTbl = [];
         this.currentYear = new Date().getFullYear();
         //tbls
-        this.marques = ["Marque", "ford", "audi", "tesla", "porsche", "mercedes", "chevrolet", "volkswagen"];
-        this.modele = ["Modèle", "mod 1", "mod2", "mod3"];
-        this.carb = ["Carburant", "diesel", "essence", "électrique"];
-        //bootStrap Bool
-        this.isMenuCollapsed = true;
+        this.marques = ["volkswagen"];
+        this.modele = ["Modèle"];
+        this.carb = ["Carburant", "Électrique", "Essence", "Diesel"];
         //bools
         this.menuDisplayed = false;
-        this.marqueBool = false;
-        this.modeleBool = false;
-        this.carbBool = false;
-        this.slideBool = false;
-        this.kmBool = false;
-        this.prixBool = false;
+        this.boolTbl = {
+            marqueBool: false,
+            modeleBool: false,
+            carbBool: false,
+            slideBool: false,
+            kmBool: false,
+            prixBool: false
+        };
         //strings
         this.marqueString = "Marque";
         this.modeleString = "Modèle";
@@ -41,15 +42,14 @@ var MenuComponent = /** @class */ (function () {
         this.slideNombre = "l'Annee";
         this.kilometrage = "kilometrage";
         this.prix = "prix";
+        //filter view
         this.searchObject = {
             marqueStringa: "",
             modeleString: "",
             carbString: "",
             slideNombre: this.slideNombre,
             kilometrage: this.kilometrage,
-            prix: this.prix,
-            search: function () {
-            }
+            prix: this.prix
         };
     }
     MenuComponent.prototype.ngOnInit = function () {
@@ -68,29 +68,35 @@ var MenuComponent = /** @class */ (function () {
         this.modele = tempArr3;
         if (this.marqueString == "Marque") {
             this.modeleString = "Modèle";
-            this.modeleBool = false;
+            this.boolTbl.modeleBool = false;
         }
         if (this.marqueString !== "Marque")
-            this.marqueBool = !this.marqueBool;
+            this.boolTbl.marqueBool = !this.boolTbl.marqueBool;
     };
     MenuComponent.prototype.changeStringMD = function (val) {
         this.modeleString = val;
         this.searchObject.modeleString = val;
-        this.modeleBool = !this.modeleBool;
+        this.boolTbl.modeleBool = !this.boolTbl.modeleBool;
     };
     MenuComponent.prototype.changeStringCarb = function (val) {
         this.carbString = val;
         this.searchObject.carbString = val;
-        this.carbBool = !this.carbBool;
+        this.boolTbl.carbBool = !this.boolTbl.carbBool;
     };
     MenuComponent.prototype.getPrice = function ($event) {
         console.log($event.target);
         this.searchObject.prix = $event.target.value;
     };
-    //reset menu values
+    //understand this
+    MenuComponent.prototype.closeOtherMenues = function (state) {
+        for (var a in this.boolTbl) {
+            if (a !== state) {
+                this.boolTbl[a] = false;
+            }
+        }
+        this.boolTbl[state] = !this.boolTbl[state];
+    };
     MenuComponent.prototype.myBigValider = function () {
-        //replace with  search and populate
-        console.log(this.searchObject);
         //the big reset
         this.marqueString = "Marque";
         this.modeleString = "Modèle";
@@ -98,6 +104,9 @@ var MenuComponent = /** @class */ (function () {
         this.slideNombre = "l'Annee";
         this.kilometrage = "kilometrage";
         this.prix = "prix";
+        for (var a in this.boolTbl) {
+            this.boolTbl[a] = false;
+        }
     };
     MenuComponent = __decorate([
         core_1.Component({
