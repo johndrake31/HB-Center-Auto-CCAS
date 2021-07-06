@@ -1,7 +1,8 @@
 <div class="menu-toggle">
   <button (click)="menuDisplayed = !menuDisplayed" >{{menuDisplayed? "✕": "MENU ❖ "}}</button>
 </div>
-<section id="menu" *ngIf="menuDisplayed">
+
+<section class="mb-5 search-menu" id="menu" *ngIf="menuDisplayed">
   <div class="flexrow" >
     <div class="myLi">
 
@@ -85,7 +86,7 @@
     </div>
   </div>
 
-</section>
+</section >
 
 <app-body-cars></app-body-cars>
 

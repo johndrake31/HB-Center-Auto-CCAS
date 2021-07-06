@@ -1,5 +1,5 @@
 <div class="outer">
-  <div class="main-container">
+  <div class="main-container p-3">
     <!-- image area -->
     <div class="my-image" (click)="moreClicked = !moreClicked">
       <img src="../../assets/images/cars/{{inputCars.url}}"
@@ -8,9 +8,9 @@
     </div>
 
     <div class="info" (click)="moreClicked = !moreClicked">
-      <h4>{{inputCars.marque}}: {{inputCars.model}}</h4>
+      <h4 class="mt-2">{{inputCars.marque}}: {{inputCars.model}}</h4>
       <p *ngIf="!moreClicked" >{{inputCars.discriptionSm}}</p>
-      <p *ngIf="moreClicked">{{inputCars.discriptionXl}}</p>
+      <p *ngIf="moreClicked" class="fade-in-image">{{inputCars.discriptionXl}}</p>
 
       <h3>{{inputCars.prix | currency: '€'}}</h3>
       <a *ngIf="!moreClicked" >plus d'informations</a>
@@ -18,7 +18,7 @@
 
     </div>
     <!-- hidden until needed for more info overflow or light box? -->
-    <div *ngIf="moreClicked" class="click-for-more" (click)="moreClicked = !moreClicked">
+    <div *ngIf="moreClicked" class="click-for-more fade-in-image" (click)="moreClicked = !moreClicked">
       <h4>l'Année: <em>{{inputCars.anneeDeMise}}</em></h4>
       <h4>Kilomètrage: <em>{{inputCars.kilometrage}}</em></h4>
       <h4>Carburant: <em>{{inputCars.fuelType}}</em></h4>

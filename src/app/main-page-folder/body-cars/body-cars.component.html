@@ -1,7 +1,7 @@
-<hr>
+<hr class="car-parent-top-of-page">
 <section>
   <h4>Véhicules les plus récents</h4>
-    <button class="btn btn-dark text-light mt-3 mr-3 "
+    <button class="btn btn-dark text-light my-3 mr-3 "
     *ngFor="let n of numSequence(tempCars.length/10);
       let i = index;" (click)="changeSlice(i)"
       >{{i+1}}</button>

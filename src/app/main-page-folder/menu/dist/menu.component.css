@@ -4,7 +4,6 @@ section:first-of-type {
   padding-left: 8.3%;
   padding-right: 8.3%;
   height: 50px;
-  position: relative;
 }
 
 .flexrow {
@@ -38,7 +37,6 @@ div > button {
   border-right: none;
   border-left: none;
   border-top: none;
-  position: relative;
 }
 div > button:hover {
   background-color: black;
@@ -56,7 +54,6 @@ div > button:hover:disabled {
 }
 
 ul {
-  position: relative;
   z-index: 1000;
   padding: 0;
 }
@@ -65,13 +62,12 @@ ul li:first-of-type {
 }
 
 li {
-  position: relative;
   border: 1px solid white;
   border-right: none;
   border-left: none;
   border-top: none;
   padding: 3px 5px;
-  background-color: rgba(0, 0, 0, 0.826);
+  background-color: rgba(48, 44, 44, 0.826);
   text-align: center;
   color: white;
   cursor: pointer;
@@ -125,13 +121,21 @@ li:hover {
 }
 
 @media only screen and (max-width: 800px) {
-  ul, li, .myBtn, div > button {
-    position: static;
+  section {
+    margin-bottom: 275px !important;
+  }
+
+  ul, .myBtn, div > button {
     background-color: #212020;
     color: white;
   }
-  ul:hover, li:hover, .myBtn:hover, div > button:hover {
+  ul:hover, .myBtn:hover, div > button:hover {
     background-color: white;
+    color: black;
+  }
+
+  li {
+    background-color: #e3d9d9;
     color: black;
   }
 
@@ -145,6 +149,12 @@ li:hover {
 
   div > button {
     width: 100%;
+    height: 26px;
+    margin: 5px 0;
+  }
+
+  .myLi > button {
+    height: 3rem;
   }
 
   .range {
