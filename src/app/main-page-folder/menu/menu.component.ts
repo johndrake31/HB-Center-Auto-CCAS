@@ -86,9 +86,9 @@ export class MenuComponent implements OnInit {
     this.marqueString = val;
     this.modeleString = "MODEL";
     // filter the objects and create array that has only the same brand name
-    const tempArr = this.carListingArr.filter((e: any) => e.brand.toLocaleLowerCase() == this.marqueString.toLocaleLowerCase());
+    const tempArr = this.carListingArr.filter((e: any) => e.brand.toLocaleUpperCase() == this.marqueString.toLocaleUpperCase());
     // returns an array of only the model names
-    const tempArr2 = tempArr.map((e: any) => e.model);
+    const tempArr2 = tempArr.map((e: any) => e.model.toupp);
     console.log(tempArr2);
 
     //erases duplicates
