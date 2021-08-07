@@ -60,7 +60,7 @@
       
       <!-- Price -->
         <li ngbDropdown class="nav-item active">
-        <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{prix}}</button>
+        <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{prix == "PRICE"? "PRICE" : prix +" €"}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <label for="customRange1" class="form-label text-center">{{"Select a max price"|uppercase}}</label>
           <input ngbDropdownToggle type="range" class="form-range" min="0" max="200000" [(ngModel)]="prix" id="customRange1">
