@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CarAdsService } from 'src/app/car-ads.service';
 
 import { Car } from '../../model/car.module';
-import { TempCarBddService } from '../../temp-car-bdd.service';
+// import { TempCarBddService } from '../../temp-car-bdd.service';
 
 @Component({
   selector: 'app-body-cars',
@@ -10,27 +12,27 @@ import { TempCarBddService } from '../../temp-car-bdd.service';
   styleUrls: ['./body-cars.component.scss']
 })
 export class BodyCarsComponent implements OnInit {
-  paginMin: number=0;
-  paginMax: number=10;
-  name: string= "9";
+  paginMin: number = 0;
+  paginMax: number = 10;
+
+
+  tempAdTable: any = [];
+  ads: Car[] = []
+
 
   constructor(
-    private carServe: TempCarBddService) { }
-
-
-  ngOnInit(): void {
-    this.tempCars = this.carServe.carList;
-
-    // this.route.snapshot.params.subscribe(v => console.log(v));
-  }
+    private http: HttpClient,
+    // private carServe: TempCarBddService,
+    private carAds: CarAdsService
+  ) { }
 
 
 
-  tempCars: Car[]=[]
-  changeSlice(n:number){
+
+  //methodes here
+  changeSlice(n: number) {
     this.paginMin = n * 10;
-    n == 0? this.paginMax = 10: this.paginMax = this.paginMin +10;
-
+    n == 0 ? this.paginMax = 10 : this.paginMax = this.paginMin + 10;
   }
 
   numSequence(n: number): Array<number> {
@@ -39,4 +41,13 @@ export class BodyCarsComponent implements OnInit {
   }
 
 
+  ngOnInit(): void {
+    // this.tempCars = this.carServe.carList;
+    //test zone
+    this.carAds.getAds().subscribe((data: any) => {
+      this.ads = data.ads;
+    })
+
+    // this.route.snapshot.params.subscribe(v => console.log(v));
+  }
 }

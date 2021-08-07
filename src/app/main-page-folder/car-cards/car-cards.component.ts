@@ -9,7 +9,7 @@ import { Car } from 'src/app/model/car.module';
 })
 export class CarCardsComponent implements OnInit {
   moreClicked = false;
-  @Input() inputCars = new Car("999999", "99929929292", "21212", "121221","32000", "Gris", "2019-06-13", "2021-07-24", "21300", "Diesel", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque, veniam necessitatibus fugit repudiandae ex ipsam nostrum nesciunt sequi tenetur, maxime autem, magni blanditiis voluptatem!", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, quas magni! Harum omnis consequuntur atque");
+  @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "www.google.com", null, 1234);
 
   constructor() { }
 

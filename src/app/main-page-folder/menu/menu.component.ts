@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CarAdsService } from 'src/app/car-ads.service';
 import { Car } from '../../model/car.module';
-import { TempCarBddService } from '../../temp-car-bdd.service';
+
 
 
 
@@ -10,48 +11,53 @@ import { TempCarBddService } from '../../temp-car-bdd.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
-  constructor( private carServe: TempCarBddService) { }
+  public isMenuCollapsed = true;
+  constructor(private carServe: CarAdsService) {
+  }
 
   ngOnInit(): void {
-    this.carServe.getMarque().subscribe( marques => this.marques = marques);
-    this.carListingTbl = this.carServe.carList;
+    this.carServe.getAds().subscribe((data: any) => {
+      this.getMarque(data);
+    }
+
+    );
+
   }
 
 
   ///The horror Starts Here
 
 
-  carListingTbl: Car[] = [];
+  carListingArr: any = [];
   currentYear = new Date().getFullYear();
 
-  //tbls
-  marques: string[]=[ "volkswagen" ];
-  modele =["Modèle"] ;
-  carb: string[]= ["Carburant", "Électrique", "Essence", "Diesel" ]
+  //tables or arrays
+  marquesArr: any = ["volkswagen"];
+  modeleArr: any = ["mustange", "peter"];
+  carb = ["Carburant", "Électrique", "Essence", "Diesel"]
 
 
   //bools
 
   menuDisplayed = false;
 
-  boolTbl: {[key: string]: boolean} = {
-    marqueBool : false,
-    modeleBool : false,
+  boolTbl: { [key: string]: boolean } = {
+    marqueBool: false,
+    modeleBool: false,
     carbBool: false,
-    slideBool : false,
-    kmBool : false,
-    prixBool : false,
+    slideBool: false,
+    kmBool: false,
+    prixBool: false,
   }
   //strings
-  marqueString = "Marque";
-  modeleString = "Modèle";
-  carbString = "Carburant";
-  slideNombre = "l'Annee";
-  kilometrage = "kilometrage";
-  prix = "prix";
+  marqueString = "BRAND";
+  modeleString = "MODEL";
+  carbString = "FUEL";
+  slideNombre = "YEAR";
+  kilometrage = "KILOMETERS";
+  prix = "PRICE";
 
-//filter view
+  //filter view
   searchObject = {
     marqueStringa: "",
     modeleString: "",
@@ -61,49 +67,68 @@ export class MenuComponent implements OnInit {
     prix: this.prix,
   }
 
+  //Working
+  getMarque(carObjsArr: {}) {
+    let carArr = Object.entries(carObjsArr);
+    let carObjArr: any = carArr[0][1];
 
-  changeStringMQ(val: string): void{
-    this.marqueString = val;
+    //populates carListing array with current carAd objects
+    this.carListingArr = carObjArr;
+    console.log(this.carListingArr);
 
-    this.searchObject.marqueStringa=val;
-    this.modeleString = "Modèle";
-    const tempArr = this.carListingTbl.filter( e => e.marque.toLocaleLowerCase() == this.marqueString.toLocaleLowerCase())
-    const tempArr2 = tempArr.map(e => e.model);
-    const tempArr3 = [...new Set(tempArr2)];
-    this.modele = tempArr3;
-    if(this.marqueString == "Marque"){
-      this.modeleString = "Modèle";
-      this.boolTbl.modeleBool = false ;
-    }
-    if(this.marqueString !== "Marque")
-    this.boolTbl.marqueBool = !this.boolTbl.marqueBool;
+    let brandArr = carObjArr.map((carAd: Car) => carAd.brand)
+    const noDuplicates = [...new Set(brandArr)];
+    return this.marquesArr = noDuplicates;
   }
 
-  changeStringMD(val: string): void{
+
+  changeStringMQ(val: string): void {
+    this.marqueString = val;
+    this.modeleString = "MODEL";
+    // filter the objects and create array that has only the same brand name
+    const tempArr = this.carListingArr.filter((e: any) => e.brand.toLocaleLowerCase() == this.marqueString.toLocaleLowerCase());
+    // returns an array of only the model names
+    const tempArr2 = tempArr.map((e: any) => e.model);
+    console.log(tempArr2);
+
+    //erases duplicates
+    const tempArr3 = [...new Set(tempArr2)];
+    console.log(tempArr3);
+
+    this.modeleArr = tempArr3;
+    if (this.marqueString == "BRAND") {
+      this.modeleString = "MODEL";
+      this.boolTbl.modeleBool = false;
+    }
+    if (this.marqueString !== "BRAND")
+      this.boolTbl.marqueBool = !this.boolTbl.marqueBool;
+  }
+
+  //working
+  changeStringMD(val: string): void {
     this.modeleString = val;
-    this.searchObject.modeleString = val;
     this.boolTbl.modeleBool = !this.boolTbl.modeleBool;
   }
-  changeStringCarb(val: string){
+  changeStringCarb(val: string) {
     this.carbString = val;
     this.searchObject.carbString = val;
     this.boolTbl.carbBool = !this.boolTbl.carbBool;
   }
-  getPrice($event: any): void{
+  getPrice($event: any): void {
     console.log($event.target);
 
-     this.searchObject.prix = $event.target.value;
+    this.searchObject.prix = $event.target.value;
   }
-//understand this
-  closeOtherMenues(state:string):void{
-    for (const a in this.boolTbl){
+  //understand this
+  closeOtherMenues(state: string): void {
+    for (const a in this.boolTbl) {
       if (a !== state) { this.boolTbl[a] = false; }
     }
     this.boolTbl[state] = !this.boolTbl[state];
   }
 
-  myBigValider():void{
-  //the big reset
+  myBigValider(): void {
+    //the big reset
     this.marqueString = "Marque";
     this.modeleString = "Modèle";
     this.carbString = "Carburant";
@@ -111,10 +136,10 @@ export class MenuComponent implements OnInit {
     this.kilometrage = "kilometrage";
     this.prix = "prix";
     for (const a in this.boolTbl) {
-        this.boolTbl[a] = false;
-      }
+      this.boolTbl[a] = false;
     }
   }
+}
 
 
 

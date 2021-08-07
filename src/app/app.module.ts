@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -30,6 +31,7 @@ import { GarageAnnounceBodyComponent } from './user-pro-folder/garage-announce-b
 import { GarageAnnounceDetialedComponent } from './user-pro-folder/garage-announce-detialed/garage-announce-detialed.component';
 import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form/garage-add-car-form.component';
 import { GarageComponent } from './user-pro-folder/garage/garage.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { GarageComponent } from './user-pro-folder/garage/garage.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

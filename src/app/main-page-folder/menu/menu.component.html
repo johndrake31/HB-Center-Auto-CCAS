@@ -1,4 +1,43 @@
-<div class="menu-toggle">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+  <a class="navbar-brand" [routerLink]="'.'">Responsive navbar</a>
+
+  <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+    &#9776;
+  </button>
+
+  <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+    <ul class="navbar-nav p-1">
+      <!-- WORKS -->
+      <li class="nav-item active">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-dark btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{marqueString}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let item of marquesArr" (click)="changeStringMQ(item)">{{item}}</button>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item active">
+        <div ngbDropdown class="d-inline-block">
+          <button [disabled]="marqueString =='BRAND'? true: false" class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{modeleString}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let item of modeleArr" (click)="changeStringMD(item)">{{item}}</button>
+          </div>
+        </div>
+      </li>
+
+      <!-- NEEDS WORK -->
+      <li class="nav-item">
+        <a class="nav-link text-white" [routerLink]="'.'" (click)="isMenuCollapsed = true">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<app-body-cars></app-body-cars>
+
+<!-- <div class="menu-toggle">
   <button (click)="menuDisplayed = !menuDisplayed" >{{menuDisplayed? "✕": "MENU ❖ "}}</button>
 </div>
 
@@ -9,7 +48,7 @@
       <button (click)="closeOtherMenues('marqueBool')">{{marqueString}}</button>
       <div class="menu-selector" >
         <ul *ngIf="boolTbl.marqueBool"  >
-          <li class="global-z" *ngFor="let item of marques" (click)="changeStringMQ(item)">
+          <li class="global-z" *ngFor="let item of marquesArr" (click)="changeStringMQ(item)">
           {{item}}
           </li>
         </ul>
@@ -86,9 +125,9 @@
     </div>
   </div>
 
-</section >
+</section > -->
 
-<app-body-cars></app-body-cars>
+
 
 
 
