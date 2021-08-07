@@ -9,33 +9,38 @@
   <!-- Step 2: Add the ngbCollapse directive to the element below. -->
   <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse bg-light " >
     <ul class="navbar-nav m-1 bg-light">
-      <!-- WORKS -->
+
+
+      <!-- CAR BRAND -->
       <li ngbDropdown class="nav-item active">
-          <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{marqueString|uppercase}}</a>
+          <button class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{marqueString|uppercase}}</button>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of marquesArr" (click)="changeStringMQ(item)">{{item|uppercase}}</a>
           </div>
       </li>
 
+
+      <!-- MODEL -->
       <li ngbDropdown class="nav-item active">
-          <a  class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{modeleString|uppercase}}</a>
-          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button [disabled]="marqueString =='Marque'? true: false"  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{modeleString|uppercase}}</button>
+          <div  ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of modeleArr" (click)="changeStringMD(item)">{{item|uppercase}}</a>
           </div>
       </li>
 
+      <!-- FUEL TYPE -->
       <li ngbDropdown class="nav-item active">
-        <a  class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{carbString|uppercase}}</a>
+        <button  class="my-drop-toggle nav-link myBtn" id="dropdownBasic1" ngbDropdownToggle>{{carbString|uppercase}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item|uppercase}}</a>
         </div>
       </li>
 
-      <!-- v NEEDS WORK v -->
+   
 
-      <!-- year -->
+      <!-- YEAR -->
       <li ngbDropdown class="nav-item active">
-        <a  class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{slideNombre}}</a>
+        <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{slideNombre}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <label for="customRange1" class="form-label text-center">{{"Select a start year"|uppercase}}</label>
           <input ngbDropdownToggle type="range" class="form-range" min="1920" [max]="currentYear" [(ngModel)]="slideNombre" id="customRange1">
@@ -43,25 +48,28 @@
         </div>
       </li>
 
+
       <!-- Kilometers -->
-      <li ngbDropdown class="nav-item active">
-        <a  class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{kilometrage|uppercase}}</a>
+        <li ngbDropdown class="nav-item active">
+        <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{kilometrage}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item|uppercase}}</a>
+          <label for="customRange1" class="form-label text-center">{{"Select max kilometer limit"|uppercase}}</label>
+          <input ngbDropdownToggle type="range" class="form-range" min="0" max="200000" [(ngModel)]="kilometrage" id="customRange1">
         </div>
       </li>
       
       <!-- Price -->
-      <li ngbDropdown class="nav-item active">
-        <a  class="nav-link" id="dropdownBasic1" ngbDropdownToggle>{{prix|uppercase}}</a>
+        <li ngbDropdown class="nav-item active">
+        <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{prix}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item|uppercase}}</a>
+          <label for="customRange1" class="form-label text-center">{{"Select a max price"|uppercase}}</label>
+          <input ngbDropdownToggle type="range" class="form-range" min="0" max="200000" [(ngModel)]="prix" id="customRange1">
         </div>
       </li>
 
-
-
-   <!--List Kilometers, Price -->
+      <li class="nav-item active"> 
+        <button class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Submit"|uppercase}}</button>
+      </li>
      
 
 

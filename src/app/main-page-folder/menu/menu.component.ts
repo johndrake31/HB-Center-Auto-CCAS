@@ -26,8 +26,6 @@ export class MenuComponent implements OnInit {
 
 
   ///The horror Starts Here
-
-
   carListingArr: any = [];
   currentYear = new Date().getFullYear();
 
@@ -88,7 +86,7 @@ export class MenuComponent implements OnInit {
     // filter the objects and create array that has only the same brand name
     const tempArr = this.carListingArr.filter((e: any) => e.brand.toLocaleUpperCase() == this.marqueString.toLocaleUpperCase());
     // returns an array of only the model names
-    const tempArr2 = tempArr.map((e: any) => e.model.toupp);
+    const tempArr2 = tempArr.map((e: any) => e.model);
     console.log(tempArr2);
 
     //erases duplicates

@@ -1,3 +1,17 @@
+.myBtn {
+  border: none;
+
+  margin-left: .8rem;
+  background-color: black;
+  border-radius: 5px;
+  color: white !important;
+}
+
+.my-drop-toggle::after {
+  content: none;
+}
+
+
 // section:first-of-type {
 //   margin-top: 25px;
 //   margin-bottom: 25px;
@@ -5,6 +19,7 @@
 //   padding-right: 8.3%;
 //   height: 50px;
 // }
+
 
 // .flexrow {
 //   display: flex;
