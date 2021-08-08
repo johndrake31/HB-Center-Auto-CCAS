@@ -22,7 +22,7 @@
 
       <!-- MODEL -->
       <li ngbDropdown class="nav-item active">
-          <button [disabled]="marqueString =='Marque'? true: false"  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{modeleString|uppercase}}</button>
+          <button [disabled]="marqueString =='BRAND'? true: false"  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{modeleString|uppercase}}</button>
           <div  ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <a class="nav-link text-center" ngbDropdownItem *ngFor="let item of modeleArr" (click)="changeStringMD(item)">{{item|uppercase}}</a>
           </div>
@@ -43,7 +43,7 @@
         <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{slideNombre}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <label for="customRange1" class="form-label text-center">{{"Select a start year"|uppercase}}</label>
-          <input ngbDropdownToggle type="range" class="form-range" min="1920" [max]="currentYear" [(ngModel)]="slideNombre" id="customRange1">
+          <input ngbDropdownToggle type="range" (mouseup)="getYear($event)" class="form-range" min="1920" [max]="currentYear" [(ngModel)]="slideNombre" id="customRange1">
           
         </div>
       </li>
@@ -54,7 +54,7 @@
         <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{kilometrage}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <label for="customRange1" class="form-label text-center">{{"Select max kilometer limit"|uppercase}}</label>
-          <input ngbDropdownToggle type="range" class="form-range" min="0" max="200000" [(ngModel)]="kilometrage" id="customRange1">
+          <input ngbDropdownToggle type="range" (mouseup)="getKilometers($event)" class="form-range" min="0" max="300000" [(ngModel)]="kilometrage" id="customRange1">
         </div>
       </li>
       
@@ -63,12 +63,12 @@
         <button  class="my-drop-toggle myBtn nav-link" id="dropdownBasic1" ngbDropdownToggle>{{prix == "PRICE"? "PRICE" : prix +" €"}}</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <label for="customRange1" class="form-label text-center">{{"Select a max price"|uppercase}}</label>
-          <input ngbDropdownToggle type="range" class="form-range" min="0" max="200000" [(ngModel)]="prix" id="customRange1">
+          <input ngbDropdownToggle type="range" (mouseup)="getPrice($event)" class="form-range" min="0" max="300000" [(ngModel)]="prix"  id="customRange1">
         </div>
       </li>
 
       <li class="nav-item active"> 
-        <button class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Submit"|uppercase}}</button>
+        <button (click)="myBigValider()" class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Submit"|uppercase}}</button>
       </li>
      
 
