@@ -155,8 +155,6 @@ export class MenuComponent implements OnInit {
     }
     // if price is set do the 5th filter
     if (this.searchObj.price) {
-      console.log(this.searchObj.price);
-
       filterTable = filterTable.filter((carAd: Car) =>
         carAd.price <= this.searchObj.price
       );
