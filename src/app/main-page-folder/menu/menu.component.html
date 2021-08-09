@@ -72,98 +72,12 @@
       </li>
 
       <li class="nav-item active"> 
-        <button (click)="myBigValider()" class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Reset"|uppercase}}</button>
+        <button (click)="resetCarAds()" class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Reset"|uppercase}}</button>
       </li>
      
-
 
     </ul>
   </div>
 </nav>
 <app-body-cars></app-body-cars>
-
-<!-- <div class="menu-toggle">
-  <button (click)="menuDisplayed = !menuDisplayed" >{{menuDisplayed? "✕": "MENU ❖ "}}</button>
-</div>
-
-<section class="mb-5 search-menu" id="menu" *ngIf="menuDisplayed">
-  <div class="flexrow" >
-    <div class="myLi">
-      <button (click)="closeOtherMenues('marqueBool')">{{marqueString}}</button>
-      <div class="menu-selector" >
-        <ul *ngIf="boolTbl.marqueBool"  >
-          <li class="global-z" *ngFor="let item of marquesArr" (click)="changeStringMQ(item)">
-          {{item}}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="myLi" >
-      <button [disabled]="marqueString =='Marque'? true: false"
-      (click)="closeOtherMenues('modeleBool')" >{{modeleString}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="boolTbl.modeleBool">
-          <li *ngFor="let item of modele" (click)="changeStringMD(item)">{{item}}</li>
-        </ul>
-      </div>
-    </div>
-    <div class="myLi">
-      <button (click)="closeOtherMenues('carbBool')">{{carbString}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="boolTbl.carbBool">
-          <li *ngFor="let item of carb" (click)="changeStringCarb(item)">{{item}}</li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="myLi  ">
-      <button (click)="closeOtherMenues('slideBool')">{{slideNombre}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="boolTbl.slideBool">
-          <li><input
-            *ngIf="boolTbl.slideBool"
-            (mouseup)="boolTbl.slideBool = !boolTbl.slideBool"
-            (mouseout)="boolTbl.slideBool = !boolTbl.slideBool"
-            type="range" min="1920" [max]="currentYear" value="50" name ="annee" class="range" [(ngModel)]="slideNombre"></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="myLi  ">
-      <button (click)="closeOtherMenues('kmBool')">{{kilometrage}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="boolTbl.kmBool">
-          <li><input
-            *ngIf="boolTbl.kmBool"
-            (mouseup)="boolTbl.kmBool = !boolTbl.kmBool"
-            (mouseout)="boolTbl.kmBool = !boolTbl.kmBool"
-            type="range" min="0" max="150000" value="4000" name ="kilometrage" class="range" [(ngModel)]="kilometrage"></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="myLi ">
-      <button (click)="closeOtherMenues('prixBool')">{{ prix == "prix"? "prix" : prix +"€"}}</button>
-      <div class="menu-selector">
-        <ul *ngIf="boolTbl.prixBool">
-          <li><input
-            *ngIf="boolTbl.prixBool"
-            (mouseup)="getPrice($event)"
-            (mouseout)="boolTbl.prixBool = !boolTbl.prixBool"
-            type="range" min="0" max="100000" value="4000" name ="prix" class="range" [(ngModel)]="prix"></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="myLi">
-      <button (click)="myBigValider()" id="valider">valider</button>
-    </div>
-  </div>
-
-</section > -->
-
-
-
-
 

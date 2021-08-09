@@ -56,6 +56,20 @@ export class MenuComponent implements OnInit {
   }
 
   // Methods
+  resetSearchObj() {
+    for (const key in this.searchObj) {
+      this.searchObj[key] = null;
+    }
+  }
+
+  resetCarAds() {
+    this.carServe.getAds().subscribe((data: any) => {
+      this.getMarque(data);
+      this.resetSearchObj();
+      this.resetStrings();
+    }
+    );
+  }
 
   getMarque(carObjsArr: {}) {
     // turn a json object into an array
@@ -163,22 +177,19 @@ export class MenuComponent implements OnInit {
 
     console.log(filterTable);
 
-
     //button reset and object reset
+    this.resetSearchObj();
+    this.resetStrings()
+  }
 
-    for (const key in this.searchObj) {
-      this.searchObj[key] = null;
-    }
+  resetStrings() {
     this.marqueString = "BRAND";
     this.modeleString = "MODEL";
-    this.carbString = "FUEL TYPE";
+    this.carbString = "FUEL";
     this.slideNombre = "YEAR";
     this.kilometrage = "KILOMETERS";
     this.prix = "PRICE";
   }
-
-
-
 
 
 }
