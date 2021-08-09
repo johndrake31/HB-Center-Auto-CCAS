@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
 
@@ -11,20 +11,26 @@ import { Car } from '../../model/car.module';
   templateUrl: './body-cars.component.html',
   styleUrls: ['./body-cars.component.scss']
 })
-export class BodyCarsComponent implements OnInit {
+export class BodyCarsComponent implements OnChanges {
+  constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.carAds = this.carTable
+    console.log(changes.props);
+  }
+
+  @Input() carTable: any = []
+
+  // pagination min/max
   paginMin: number = 0;
   paginMax: number = 10;
 
-
+  //Arrays
   tempAdTable: any = [];
-  ads: Car[] = []
+  carAds: Car[] = []
 
 
-  constructor(
-    private http: HttpClient,
-    // private carServe: TempCarBddService,
-    private carAds: CarAdsService
-  ) { }
+
 
 
 
@@ -41,13 +47,5 @@ export class BodyCarsComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-    // this.tempCars = this.carServe.carList;
-    //test zone
-    this.carAds.getAds().subscribe((data: any) => {
-      this.ads = data.ads;
-    })
 
-    // this.route.snapshot.params.subscribe(v => console.log(v));
-  }
 }

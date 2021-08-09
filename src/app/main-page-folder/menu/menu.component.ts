@@ -11,17 +11,16 @@ import { Car } from '../../model/car.module';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  //bootstrap boolean
   public isMenuCollapsed = true;
+
   constructor(private carServe: CarAdsService) {
   }
 
   ngOnInit(): void {
     this.carServe.getAds().subscribe((data: any) => {
       this.getMarque(data);
-    }
-
-    );
-
+    });
   }
 
 
@@ -29,7 +28,7 @@ export class MenuComponent implements OnInit {
   carListingArr: any = [];
   currentYear = new Date().getFullYear();
 
-  //tables or arrays
+  //Arrays
   marquesArr: any = ["BRAND"];
   modeleArr: any = ["MODEL"];
   carb = ["ELECTRIC", "GASOLINE", "DIESEL", "HYBRID"]
@@ -118,7 +117,6 @@ export class MenuComponent implements OnInit {
   changeStringCarb(val: string) {
     this.carbString = val;
     this.searchObj.fuelType = val;
-
   }
 
   getYear($event: any): void {
@@ -133,17 +131,16 @@ export class MenuComponent implements OnInit {
     this.searchObj.price = $event.target.value;
   }
 
-
   myBigValider(): void {
     let filterTable = this.carListingArr;
 
-    // if brand is set do the first filter/map
+    // if brand is set do the first filter
     if (this.searchObj.brand) {
       filterTable = filterTable.filter((carAd: Car) =>
         carAd.brand == this.searchObj.brand
       );
     }
-    // if model is set do the 2nd filter
+    // if model is set do the 2nd filter by model
     if (this.searchObj.model) {
       filterTable = filterTable.filter((carAd: Car) =>
         carAd.model == this.searchObj.model
@@ -175,7 +172,7 @@ export class MenuComponent implements OnInit {
     }
 
 
-    console.log(filterTable);
+    this.carListingArr = filterTable;
 
     //button reset and object reset
     this.resetSearchObj();
