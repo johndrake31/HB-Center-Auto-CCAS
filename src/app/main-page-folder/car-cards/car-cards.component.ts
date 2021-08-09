@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Car } from 'src/app/model/car.module';
 
 
@@ -7,13 +7,10 @@ import { Car } from 'src/app/model/car.module';
   templateUrl: './car-cards.component.html',
   styleUrls: ['./car-cards.component.scss']
 })
-export class CarCardsComponent implements OnInit {
+export class CarCardsComponent {
   moreClicked = false;
   @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "www.google.com", null, 1234);
-
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

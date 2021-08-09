@@ -1,3 +1,9 @@
+a,
+p,
+label {
+  font-size: 1.6rem;
+}
+
 .myBtn {
   border: none;
 
@@ -11,6 +17,44 @@
   content: none;
 }
 
+// Medium width
+@media only screen and (max-width: 991px) {
+  .myBtn {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: .5rem;
+
+    &:hover {
+      background-color: white;
+      color: black !important;
+    }
+  }
+
+  .myDropDownDiv {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+
+    a {
+      font-size: 1.6rem;
+    }
+  }
+
+  .dropDownSlider {
+    width: 100%;
+    height: 1.6rem;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .dropDownLabel {
+    font-size: 1.6rem;
+  }
+
+}
 
 // section:first-of-type {
 //   margin-top: 25px;

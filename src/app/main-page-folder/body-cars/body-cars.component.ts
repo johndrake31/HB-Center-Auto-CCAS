@@ -1,10 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CarAdsService } from 'src/app/car-ads.service';
-
 import { Car } from '../../model/car.module';
-// import { TempCarBddService } from '../../temp-car-bdd.service';
 
 @Component({
   selector: 'app-body-cars',
@@ -14,9 +9,8 @@ import { Car } from '../../model/car.module';
 export class BodyCarsComponent implements OnChanges {
   constructor() { }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.carAds = this.carTable
-    console.log(changes.props);
   }
 
   @Input() carTable: any = []
@@ -29,12 +23,6 @@ export class BodyCarsComponent implements OnChanges {
   tempAdTable: any = [];
   carAds: Car[] = []
 
-
-
-
-
-
-
   //methodes here
   changeSlice(n: number) {
     this.paginMin = n * 10;
@@ -45,7 +33,5 @@ export class BodyCarsComponent implements OnChanges {
     n = Math.ceil(n)
     return Array(n);
   }
-
-
 
 }
