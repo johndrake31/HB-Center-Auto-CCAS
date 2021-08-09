@@ -43,14 +43,31 @@ export class MenuComponent implements OnInit {
   kilometrage = "KILOMETERS";
   prix = "PRICE";
 
+  // Objects
+
+  searchObj = {
+    //filter ads
+    brand: null,
+    model: null,
+    fuelType: null,
+    year: null,
+    kilometers: null,
+    price: null,
+  }
+
+  // Methods
+
   getMarque(carObjsArr: {}) {
+    // turn a json object into an array
     let carArr = Object.entries(carObjsArr);
     let carObjArr: any = carArr[0][1];
 
-    //populates carListing array with current carAd objects
+    //populates carListing array and searchObject with current carAd;
     this.carListingArr = carObjArr;
 
+    // return a new array with just the brands
     let brandArr = carObjArr.map((carAd: Car) => carAd.brand)
+    // removes the duplicates
     const noDuplicates = [...new Set(brandArr)];
 
     // Brand/Marque Array is populated with results after duplicates are removed
@@ -60,7 +77,7 @@ export class MenuComponent implements OnInit {
 
   changeStringMQ(val: string): void {
     this.marqueString = val;
-    this.searchObj.marqueStringa = val;
+    this.searchObj.brand = val;
     this.modeleString = "MODEL";
     // filter the objects and create array that has only the same brand name
     const tempArr = this.carListingArr.filter((e: any) => e.brand.toLocaleUpperCase() == this.marqueString.toLocaleUpperCase());
@@ -73,61 +90,99 @@ export class MenuComponent implements OnInit {
     //Populates Car Model array with results based on brand selected.
     this.modeleArr = tempArr3;
 
-
     if (this.marqueString == "BRAND") {
       this.modeleString = "MODEL";
     }
-
   }
 
 
   changeStringMD(val: string): void {
     this.modeleString = val;
-    this.searchObj.modeleString = val;
+    this.searchObj.model = val;
   }
 
   changeStringCarb(val: string) {
     this.carbString = val;
-    this.searchObj.carbString = val;
-    this.searchObj.carbString = val;
+    this.searchObj.fuelType = val;
+
   }
 
   getYear($event: any): void {
-    this.searchObj.slideNombre = $event.target.value;
+    this.searchObj.year = $event.target.value;
   }
 
   getKilometers($event: any): void {
-    this.searchObj.kilometrage = $event.target.value;
+    this.searchObj.kilometers = $event.target.value;
   }
 
   getPrice($event: any): void {
-    this.searchObj.prix = $event.target.value;
+    this.searchObj.price = $event.target.value;
   }
 
 
-
   myBigValider(): void {
-    console.log(this.searchObj);
+    let filterTable = this.carListingArr;
 
-    //button reset
+    // if brand is set do the first filter/map
+    if (this.searchObj.brand) {
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.brand == this.searchObj.brand
+      );
+    }
+    // if model is set do the 2nd filter
+    if (this.searchObj.model) {
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.model == this.searchObj.model
+      );
+    }
+    // if fuelType is set do the 3rd filter
+    if (this.searchObj.fuelType) {
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.fuel == this.searchObj.fuelType
+      );
+    }
+    // if year is set do the 4th filter
+    if (this.searchObj.year) {
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.year >= this.searchObj.year
+      );
+    }
+    // if kilometers is set do the 5th filter
+    if (this.searchObj.kilometers) {
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.kilometers <= this.searchObj.kilometers
+      );
+    }
+    // if price is set do the 5th filter
+    if (this.searchObj.price) {
+      console.log(this.searchObj.price);
+
+      filterTable = filterTable.filter((carAd: Car) =>
+        carAd.price <= this.searchObj.price
+      );
+    }
+
+
+    console.log(filterTable);
+
+
+    //button reset and object reset
+
+    for (const key in this.searchObj) {
+      this.searchObj[key] = null;
+    }
     this.marqueString = "BRAND";
     this.modeleString = "MODEL";
     this.carbString = "FUEL TYPE";
     this.slideNombre = "YEAR";
     this.kilometrage = "KILOMETERS";
     this.prix = "PRICE";
-
   }
 
-  //filter view
-  searchObj = {
-    marqueStringa: null,
-    modeleString: null,
-    carbString: null,
-    slideNombre: "1920",
-    kilometrage: "300000",
-    prix: "300000"
-  }
+
+
+
+
 }
 
 
