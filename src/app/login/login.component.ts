@@ -32,13 +32,14 @@ export class LoginComponent implements OnInit {
 
       this.http.post("https://powerful-badlands-63524.herokuapp.com/api/login_check", this.form.value).subscribe(
         (data: any) => {
-          const token: any = jwt_decode(data.token)
-          console.log(token.roles);
-          console.log(token.exp);
+
+          const token: any = jwt_decode(data.token);
+          this.userServ.setRefreshToken(data.refresh_token);
+          this.userServ.setRoles(token.roles);
 
           this.form.reset();
           this.formSubmitted = false;
-          this.router.navigate(['/home']);
+          // this.router.navigate(['/home']);
         }
       );
     }
