@@ -13,7 +13,7 @@ export class CarAdsService {
   constructor(private http: HttpClient) { }
 
   getAds(): Observable<Car[]> {
-    return this.http.get<Car[]>("http://127.0.0.1:8000/api/classified");
+    return this.http.get<Car[]>("https://powerful-badlands-63524.herokuapp.com/api/classified");
   }
 
 

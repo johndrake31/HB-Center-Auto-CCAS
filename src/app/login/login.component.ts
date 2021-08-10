@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import jwt_decode from 'jwt-decode';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+    private http: HttpClient, private router: Router, private userServ: UserService) { }
+
+  form!: FormGroup;
+  formSubmitted = false;
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
+  loginUser() {
+    this.formSubmitted = true;
+    if (this.form.valid) {
+      // console.log(this.form.value);
+
+      this.http.post("https://powerful-badlands-63524.herokuapp.com/api/login_check", this.form.value).subscribe(
+        (data: any) => {
+          const token: any = jwt_decode(data.token)
+          console.log(token.roles);
+          console.log(token.exp);
+
+          this.form.reset();
+          this.formSubmitted = false;
+          this.router.navigate(['/home']);
+        }
+      );
+    }
+  }
 }
