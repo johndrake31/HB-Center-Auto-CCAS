@@ -18,17 +18,17 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   //mention Legal Routes
-  { path: 'mentionslegales',  component: MentionsLegalComponent },
-  { path: 'politique',  component: PolitiqueConfidentialiteComponent },
-  { path: 'conditions-utilisation',  component: ConditionsUtilisationComponent },
-  { path: 'conditions-generales',  component: ConditionsGeneralesComponent },
+  { path: 'mentionslegales', component: MentionsLegalComponent },
+  { path: 'politique', component: PolitiqueConfidentialiteComponent },
+  { path: 'conditions-utilisation', component: ConditionsUtilisationComponent },
+  { path: 'conditions-generales', component: ConditionsGeneralesComponent },
 
   //User Pro et Garage Routes
-  { path: 'login',  component: LoginComponent },
-  { path: 'userpro',  component: ProfileProComponent },
-  { path: 'mes-info',  component: ProfileProInfoFormComponent },
-  { path: 'mes-garages',  component: GarageListComponent },
-  { path: 'garage',  component: GarageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'userpro', component: ProfileProComponent },
+  { path: 'mes-info', component: ProfileProInfoFormComponent },
+  { path: 'mes-garages', component: GarageListComponent },
+  { path: 'garage', component: GarageComponent },
 
   //Nothing else below this line
   { path: '**', component: PageNotFoundComponent },

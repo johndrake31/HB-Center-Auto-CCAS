@@ -1,6 +1,21 @@
 <header class="flexable">
-  <a routerLink="/login">Login</a>
+<div class="d-flex">
+  <div class="mr-1">
+    <a *ngIf="!isLogged" routerLink="/login">Login</a>
+  </div>
+  <div class="mr-1">
+    <a *ngIf="isLogged" (click)="logout()" routerLink=".">Logout</a>
+  </div >
+  <div class="mr-1">
+    <a *ngIf="isLogged" routerLink="/userpro">User Menu</a>
+  </div>
+  <div class="mr-1">
+    <h3 *ngIf="isLogged">Welcome: {{username|titlecase}}</h3>
+  </div>
+</div>
+  
+
   <h1>Centre Auto'CCAS</h1>
-  <img class="logo" src="../../assets/public/CCAS LOGO (1).png" alt="">
+  <img class="logo" src="../../assets/public/CCAS LOGO (1).png" alt="logo">
 </header>
 

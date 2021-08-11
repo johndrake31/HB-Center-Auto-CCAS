@@ -34,12 +34,15 @@ export class LoginComponent implements OnInit {
         (data: any) => {
 
           const token: any = jwt_decode(data.token);
+          this.userServ.setExp(token.exp);
+          this.userServ.setUsername(token.username);
+          this.userServ.setToken(data.token);
           this.userServ.setRefreshToken(data.refresh_token);
           this.userServ.setRoles(token.roles);
-
+          this.userServ.setIsLogged();
           this.form.reset();
           this.formSubmitted = false;
-          // this.router.navigate(['/home']);
+          this.router.navigate(['/home']);
         }
       );
     }

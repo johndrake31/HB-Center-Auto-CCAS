@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-garage-list',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./garage-list.component.scss']
 })
 export class GarageListComponent implements OnInit {
-
-  constructor() { }
+  constructor(private http: HttpClient, private userServ: UserService) { }
 
   ngOnInit(): void {
+    const headers = { 'Authorization': "Bearer " + this.userServ.getToken() }
+    this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage", { headers }).subscribe((data: any) => {
+      console.log(data.garages);
+    })
   }
 
+  garageArr: any = [];
 }
