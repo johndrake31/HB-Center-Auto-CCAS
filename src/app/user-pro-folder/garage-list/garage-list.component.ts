@@ -13,7 +13,7 @@ export class GarageListComponent implements OnInit {
   ngOnInit(): void {
     const headers = { 'Authorization': "Bearer " + this.userServ.getToken() }
     this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage", { headers }).subscribe((data: any) => {
-      console.log(data.garages);
+      this.garageArr = data.garages;
     })
   }
 

@@ -2,6 +2,7 @@
 <button routerLink="/userpro" class="btn btn-light my-5">User Pro Home</button>
 <h1 class="text-light">Mes Garages</h1>
 
-<h4 class="text-light">ngFor let garage of GaragesTbl</h4>
-<button routerLink="/garage" class="btn btn-light my-5">garage.name</button>
+<div class="row" *ngFor="let garage of garageArr">
+    <button routerLink="." class="btn btn-light my-5">{{garage.name}}</button>
+</div>
 </div>
