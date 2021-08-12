@@ -1,34 +1,47 @@
 <div class="container customdivimg">
   <button routerLink="/userpro" class="btn btn-light my-5">User Pro Home</button>
-  <h1 class="text-light"> Mes Info Personal</h1>
+  <h2 class="text-light"> Mes Info Personal</h2>
+  <h3 class="text-light">Username: {{userData.username}}</h3>
   <br>
   <hr class="border-light">
 
-  <div class="row">
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Prenom" aria-label="prenom">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Nom" aria-label="Nom">
-    </div>
-  </div>
-  <!-- Contact Info -->
-  <br>
-  <div class="row">
-    <div class="col">
-      <input type="phone" class="form-control" placeholder="Téléphone" aria-label="Téléphone">
-    </div>
-    <div class="col">
-      <input type="text" class="form-control" placeholder="Adresse" aria-label="Adresse">
-    </div>
-  </div>
 
-  <br>
-  <div class="row">
-    <div class="col-6">
-      <input type="text" class="form-control" placeholder="SIRET" aria-label="SIRET">
+  <section class="p-5">
+    <div class="row">
+      <div class="d-flex">
+        <div class="m-2">
+          <label class="form-label text-white">First Name</label>
+          <input type="text" class="form-control" value="{{userData.firstname|uppercase}}" aria-label="prenom">
+        </div>
+        <div class="m-2">
+          <label class="form-label text-white">Last Name</label>
+          <input type="text" class="form-control" value="{{userData.lastname |uppercase}}" aria-label="Nom">
+        </div>
+      </div>
     </div>
-  </div>
+    <!-- Contact Info -->
+    <br>
+    
+    <div class="row">
+      <div class="d-flex flex-column">
+        <div class="m-2">
+          <label class="form-label text-white">Telephone</label>
+          <input type="text" class="form-control" value="{{userData.telephone}}" aria-label="Téléphone">
+        </div>
+        <div class="m-2">
+          <label class="form-label text-white">Email</label>
+          <input type="text" class="form-control" value="{{userData.email}}" aria-label="email">
+        </div>
+        <div class="m-2 disabled">
+          <label class="form-label text-white">SIRET</label>
+          <input type="text" class="form-control disabled" value="{{userData.siret}}" aria-label="siret">
+          <h6>{{userData.siret}}"</h6>
+        </div>
+      </div>
+    </div>
 
-  <button type="submit" class="btn btn-light my-5">Update My Info</button>
+  
+
+    <button type="submit" class="btn btn-lg btn-light my-5">Update My Info</button>
+  </section>
 </div>

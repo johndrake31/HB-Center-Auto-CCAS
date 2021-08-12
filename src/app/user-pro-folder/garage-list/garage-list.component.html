@@ -1,8 +1,25 @@
 <div class="container customdivimg">
 <button routerLink="/userpro" class="btn btn-light my-5">User Pro Home</button>
 <h1 class="text-light">Mes Garages</h1>
+<a routerLink="/add-garage" class="btn btn-lg btn-light myGarageDiv">Add Garage</a>
+<div class="row p-5" *ngFor="let garage of garageArr">
+ 
+    <div class="card mb-3 mr-4">
+        <div class="card-header">
+            {{garage.name|uppercase}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Address: {{garage.address|uppercase}}</h5>
+            <h5 class="card-title">Ville: {{garage.city|uppercase}}</h5>
+            <h5 class="card-title">Code: {{garage.postelcode}}</h5>
+            <p class="card-text">Tel: {{garage.telephone}}</p>
+            <!-- use a if and form -->
+            <div class="d-flex flex-column">
+                <label class="form-label mr-3">Admin for Car-Ads & Garages:</label>
+                <a routerLink="." class="btn btn-lg myGarageDiv">Admin</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
-<div class="row" *ngFor="let garage of garageArr">
-    <button routerLink="." class="btn btn-light my-5">{{garage.name}}</button>
-</div>
-</div>

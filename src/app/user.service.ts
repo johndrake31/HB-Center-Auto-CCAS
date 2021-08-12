@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -13,6 +14,14 @@ export class UserService {
   private _refreshToken: any = "";
   private _username: string = "";
   private _exp: string = "";
+
+
+
+  getUserInfos(): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
+  }
+
 
   loggedout() {
     this.setIsLogged();
