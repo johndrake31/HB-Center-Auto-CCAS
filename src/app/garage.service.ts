@@ -10,12 +10,19 @@ export class GarageService {
 
   constructor(private http: HttpClient, private userServ: UserService) { }
 
+  headers = { 'Authorization': "Bearer " + this.userServ.getToken() };
+
   getGarages(): Observable<any> {
-    const headers = { 'Authorization': "Bearer " + this.userServ.getToken() };
+    const headers = this.headers;
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage", { headers })
   }
+  getGarageById(id: any): Observable<any> {
+    const headers = this.headers;
+    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/show/" + id, { headers })
+  }
+
   createGarages(body: any): Observable<any> {
-    const headers = { 'Authorization': "Bearer " + this.userServ.getToken() };
+    const headers = this.headers;
     return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/add", body, { headers })
   }
 }

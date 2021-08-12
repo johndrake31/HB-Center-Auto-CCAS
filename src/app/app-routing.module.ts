@@ -29,7 +29,9 @@ const routes: Routes = [
   { path: 'userpro', component: ProfileProComponent },
   { path: 'mes-info', component: ProfileProInfoFormComponent },
   { path: 'mes-garages', component: GarageListComponent },
-  { path: 'garage', component: GarageComponent },
+
+  { path: 'garage/:id', component: GarageComponent },
+
   { path: 'add-garage', component: GarageAjouterComponent },
 
   //Nothing else below this line

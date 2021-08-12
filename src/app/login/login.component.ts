@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           const token: any = jwt_decode(data.token);
           this.userServ.setExp(token.exp);
 
-          console.log(token);
+          //console.log(token);
 
 
           this.userServ.setUsername(token.username);
