@@ -25,11 +25,12 @@ import { GarageAjouterComponent } from './user-pro-folder/garage-ajouter/garage-
 import { GarageUpdateFormComponent } from './user-pro-folder/garage-update-form/garage-update-form.component';
 import { ProfileProComponent } from './user-pro-folder/profile-pro/profile-pro.component';
 import { ProfileProInfoFormComponent } from './user-pro-folder/profile-pro-info-form/profile-pro-info-form.component';
-import { GarageAnnounceBodyComponent } from './user-pro-folder/garage-announce-body/garage-announce-body.component';
-import { GarageAnnounceDetialedComponent } from './user-pro-folder/garage-announce-detialed/garage-announce-detialed.component';
+
+
 import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form/garage-add-car-form.component';
 import { GarageComponent } from './user-pro-folder/garage/garage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GarageAdsComponent } from './user-pro-folder/garage-ads/garage-ads.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +54,8 @@ import { HttpClientModule } from '@angular/common/http';
     GarageUpdateFormComponent,
     ProfileProComponent,
     ProfileProInfoFormComponent,
-    GarageAnnounceBodyComponent,
-    GarageAnnounceDetialedComponent,
     GarageAddCarFormComponent,
+    GarageAdsComponent,
   ],
   imports: [
     BrowserModule,

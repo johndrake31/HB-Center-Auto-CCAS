@@ -1,1 +1,42 @@
-<p>garage works!</p>
+<div class="container">
+
+  
+    <div ><!--GARAGE INFO  -->
+            <div class="card mb-3 mr-4">
+                <div class="card-header">
+                    {{garage.name|uppercase}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Address: {{garage.address|uppercase}}</h5>
+                    <h5 class="card-title">Ville: {{garage.city|uppercase}}</h5>
+                    <h5 class="card-title">Code: {{garage.postelcode}}</h5>
+                    <p class="card-text">Tel: {{garage.telephone}}</p>
+                </div>
+            </div>
+    </div><!--END GARAGE INFO  -->
+
+    <hr>
+
+    
+    
+    <!--CAR ADS INFO  -->
+    <hr class="car-parent-top-of-page">
+<section>
+  <h4>Véhicules les plus récents</h4>
+    <button class="btn btn-dark text-light my-3 mr-3 "
+    *ngFor="let n of numSequence(carAds.length/10);
+      let i = index;" (click)="changeSlice(i)"
+      >{{i+1}}</button>
+
+
+  <div class="my-flex-row">
+    <app-garage-ads *ngFor="let ad of carAds | slice:paginMin:paginMax" [inputCars]="ad"></app-garage-ads>
+  </div>
+
+  <button class="btn btn-dark text-light mt-3 mr-3"
+    *ngFor="let n of numSequence(carAds.length/10);
+    let i = index;" (click)="changeSlice(i)"
+
+    >{{i+1}}</button>
+
+</section>

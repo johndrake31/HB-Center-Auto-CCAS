@@ -1,0 +1,36 @@
+<div class="outer">
+  <div class="main-container p-3">
+    <!-- image area -->
+    <div class="my-image" (click)="moreClicked = !moreClicked">
+      <h3>{{inputCars.title}}</h3>
+      <!-- <img src="../../assets/images/cars/{{inputCars.image}}"
+      alt="picture of {{inputCars.brand}} {{inputCars.model}}"> -->
+      <img src="https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Urus/4418/Lamborghini-Urus-V8/1621927166506/front-left-side-47.jpg?tr=w-456"
+      alt="picture of {{inputCars.brand}} {{inputCars.model}}">
+      <p class="text-hov">Cliquez pour plus d'informations</p>
+    </div>
+
+    <div class="info" (click)="moreClicked = !moreClicked">
+      <h4 class="mt-2">{{inputCars.brand}}: {{inputCars.model}}</h4>
+      <span *ngIf="!moreClicked" >{{inputCars.description| slice:0:120}}</span>
+      <p *ngIf="moreClicked" class="fade-in-image">{{inputCars.description}}</p>
+
+      <h3>{{inputCars.price | currency: '€'}}</h3>
+      <a *ngIf="!moreClicked" >plus d'informations</a>
+      <a *ngIf="moreClicked" >moins d'informations</a>
+
+    </div>
+    <!-- hidden until needed for more info overflow or light box? -->
+    <div *ngIf="moreClicked" class="click-for-more fade-in-image" (click)="moreClicked = !moreClicked">
+      <h4>l'Année: <em>{{inputCars.year}}</em></h4>
+      <h4>Kilomètrage: <em>{{inputCars.kilometers}}</em></h4>
+      <h4>Carburant: <em>{{inputCars.fuel}}</em></h4>
+      
+      <p> réf: #{{inputCars.id}}</p>
+    </div>
+
+    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.idVoiture}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
+  </div>
+</div>
+
+
