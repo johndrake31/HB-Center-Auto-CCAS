@@ -21,10 +21,26 @@ export class UserService {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
   }
+  updateUserInfos(id: number, userData: any): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/user/edit/" + id, userData, { headers })
+  }
 
+
+  getNewToken(): Observable<any> {
+    let myJsonRefresh = JSON.stringify(this.getRefreshToken())
+    console.log(myJsonRefresh);
+
+    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/token/refresh", myJsonRefresh)
+  }
+
+
+  setIsLogged() {
+    this._isLogged = !this._isLogged;
+
+  }
 
   loggedout() {
-    this.setIsLogged();
     this.setRoles([]);
     this.setToken("");
     this.setRefreshToken("");
@@ -42,10 +58,7 @@ export class UserService {
     this._username = value;
   }
 
-  setIsLogged() {
-    this._isLogged = !this._isLogged;
-    sessionStorage.setItem("isLogged", "true");
-  }
+
 
   getIsLogged() {
     if (sessionStorage.getItem("isLogged") === "true") {
@@ -54,11 +67,11 @@ export class UserService {
     return this._isLogged;
   }
 
-  setRefreshToken(data: any) {
-    this._refreshToken = data;
+  setRefreshToken(data: any): Observable<any> {
+    return this._refreshToken = data;
   }
   getRefreshToken() {
-    return this._refreshToken;
+    return { "refresh_token": this._refreshToken };
   }
 
   setToken(data: any) {

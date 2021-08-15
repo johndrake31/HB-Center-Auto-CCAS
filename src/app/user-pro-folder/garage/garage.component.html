@@ -1,9 +1,8 @@
-<div class="container">
-
+<div class="container mt-3">
   
     <div ><!--GARAGE INFO  -->
             <div class="card mb-3 mr-4">
-                <div class="card-header">
+                <div class="card-header bg-dark text-white">
                     {{garage.name|uppercase}}
                 </div>
                 <div class="card-body">
@@ -22,7 +21,7 @@
     <!--CAR ADS INFO  -->
     <hr class="car-parent-top-of-page">
 <section>
-  <h4>Véhicules les plus récents</h4>
+  <h2>Current Car Classifieds</h2>
     <button class="btn btn-dark text-light my-3 mr-3 "
     *ngFor="let n of numSequence(carAds.length/10);
       let i = index;" (click)="changeSlice(i)"
@@ -30,7 +29,11 @@
 
 
   <div class="my-flex-row">
-    <app-garage-ads *ngFor="let ad of carAds | slice:paginMin:paginMax" [inputCars]="ad"></app-garage-ads>
+    <app-garage-ads 
+    *ngFor="let ad of carAds | slice:paginMin:paginMax" 
+    [inputCars]="ad"
+    (removeAdbyId)="removeAd($event)"
+    ></app-garage-ads>
   </div>
 
   <button class="btn btn-dark text-light mt-3 mr-3"

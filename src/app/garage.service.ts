@@ -16,6 +16,7 @@ export class GarageService {
     const headers = this.headers;
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage", { headers })
   }
+
   getGarageById(id: any): Observable<any> {
     const headers = this.headers;
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/show/" + id, { headers })
@@ -24,5 +25,10 @@ export class GarageService {
   createGarages(body: any): Observable<any> {
     const headers = this.headers;
     return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/add", body, { headers })
+  }
+
+  deleteGarage(id: any): Observable<any> {
+    const headers = this.headers;
+    return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/remove/" + id, { headers })
   }
 }

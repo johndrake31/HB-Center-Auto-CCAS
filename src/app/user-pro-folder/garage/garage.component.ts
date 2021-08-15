@@ -1,12 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { GarageService } from 'src/app/garage.service';
 import { CarAdsService } from 'src/app/car-ads.service';
-import { Car } from 'src/app/model/car.module';
+
 
 @Component({
   selector: 'app-garage',
@@ -14,17 +12,18 @@ import { Car } from 'src/app/model/car.module';
   styleUrls: ['./garage.component.scss']
 })
 export class GarageComponent implements OnInit {
-
-  constructor(private carServe: CarAdsService, private garageServ: GarageService, private http: HttpClient, private userServ: UserService, private route: ActivatedRoute) { }
   moreClicked = false;
+  garageid: any
+  constructor(private carServe: CarAdsService, private garageServ: GarageService, private userServ: UserService, private route: ActivatedRoute) { }
+
   ngOnInit(): void {
-    let garageid = this.route.snapshot.paramMap.get('id')
+    this.garageid = this.route.snapshot.paramMap.get('id')
 
     // 
-    this.garageServ.getGarageById(garageid).subscribe((data: any) => {
+    this.garageServ.getGarageById(this.garageid).subscribe((data: any) => {
       this.garage = data.garage_index;
     })
-    this.carServe.getAdsByGarage(garageid).subscribe((data2: any) => {
+    this.carServe.getAdsByGarage(this.garageid).subscribe((data2: any) => {
       this.carAds = data2.ads
     })
 
@@ -65,5 +64,14 @@ export class GarageComponent implements OnInit {
   numSequence(n: number): Array<number> {
     n = Math.ceil(n)
     return Array(n);
+  }
+
+  removeAd($event: number) {
+    this.carServe.deleteAdById($event).subscribe((data: any) => {
+      this.carServe.getAdsByGarage(this.garageid).subscribe((data2: any) => {
+        this.carAds = data2.ads
+      })
+    })
+
   }
 }

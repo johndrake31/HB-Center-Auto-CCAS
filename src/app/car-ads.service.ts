@@ -21,10 +21,11 @@ export class CarAdsService {
   getAdsByGarage(id: any): Observable<any> {
     const headers = this.headers;
     let mydata = this.http.get<any>(`https://powerful-badlands-63524.herokuapp.com/api/ads/garage/${id}`, { headers });
-    console.log(id);
-
     return mydata;
   }
-
+  deleteAdById(id: any): Observable<any> {
+    const headers = this.headers;
+    return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/remove/" + id, { headers })
+  }
 
 }

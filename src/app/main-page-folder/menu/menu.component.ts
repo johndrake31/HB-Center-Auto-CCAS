@@ -19,8 +19,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.carServe.getAds().subscribe((data: any) => {
-      console.log(data);
-
+      // console.log(data);
       this.getMarque(data);
     });
   }

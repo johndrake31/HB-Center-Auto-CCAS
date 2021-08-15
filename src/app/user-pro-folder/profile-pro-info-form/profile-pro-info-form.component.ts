@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -7,15 +9,9 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./profile-pro-info-form.component.scss']
 })
 export class ProfileProInfoFormComponent implements OnInit {
-  constructor(private userServ: UserService) { }
-  ngOnInit(): void {
-    this.userServ.getUserInfos().subscribe((data: any) => {
-      this.userData = data.user_index;
-      console.log(this.userData);
-
-    })
-  }
-
+  /*************
+   * objects and props
+   **********/
   userData: any = {
     firstname: "firstname",
     lastname: "lastname",
@@ -23,7 +19,52 @@ export class ProfileProInfoFormComponent implements OnInit {
     email: "email",
     telephone: "tele",
     username: "username"
+  }
+  form!: FormGroup;
+  formSubmitted = false;
 
+  /*************
+   * Life cyc hooks
+   **********/
+  constructor(private userServ: UserService, private fb: FormBuilder,
+    private router: Router) { }
+
+  ngOnInit(): void {
+    this.userServ.getUserInfos().subscribe((data: any) => {
+      this.userData = data.user_index;
+      console.log(this.userData);
+
+      // update infos
+
+      this.form = this.fb.group({
+        firstname: [this.userData.firstname!, Validators.required],
+        lastname: [this.userData.lastname!, Validators.required],
+        email: [this.userData.email!, Validators.required],
+        telephone: [this.userData.telephone!, Validators.required],
+      });
+
+    })
+  }
+
+  /*************
+   * Methodes
+   **********/
+  updateProfile() {
+    this.formSubmitted = true;
+    // console.log(this.form.valid); //false
+
+    if (this.form.valid) {
+      console.log(this.form.value);
+
+      this.userServ.updateUserInfos(this.userData.id, this.form.value).subscribe(
+        data => {
+          console.log(data);
+          this.form.reset();
+          this.formSubmitted = false;
+          this.router.navigate(['/userpro']);
+        }
+      );
+    }
   }
 
 }

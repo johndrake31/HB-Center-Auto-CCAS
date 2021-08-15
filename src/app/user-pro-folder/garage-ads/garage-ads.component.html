@@ -18,6 +18,8 @@
       <h3>{{inputCars.price | currency: '€'}}</h3>
       <a *ngIf="!moreClicked" >plus d'informations</a>
       <a *ngIf="moreClicked" >moins d'informations</a>
+      <br>
+      
 
     </div>
     <!-- hidden until needed for more info overflow or light box? -->
@@ -30,6 +32,13 @@
     </div>
 
     <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.idVoiture}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
+  </div>
+  <div class="d-flex mt-3">
+    <button class="btn btn-lg btn-warning mr-2">Edit</button>
+    <button *ngIf="!sureDelete" (click)="sureDelete = !sureDelete" class="btn btn-lg btn-danger mr-2">Delete</button>
+    <div *ngIf="sureDelete">
+      <button (click)="deleteAd(inputCars.id)" class="btn btn-lg btn-danger mr-2">CONFIRM DELETE</button>
+    </div>
   </div>
 </div>
 

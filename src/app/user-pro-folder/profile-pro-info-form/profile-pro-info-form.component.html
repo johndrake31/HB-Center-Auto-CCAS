@@ -4,44 +4,38 @@
   <h3 class="text-light">Username: {{userData.username}}</h3>
   <br>
   <hr class="border-light">
-
-
-  <section class="p-5">
-    <div class="row">
-      <div class="d-flex">
-        <div class="m-2">
-          <label class="form-label text-white">First Name</label>
-          <input type="text" class="form-control" value="{{userData.firstname|uppercase}}" aria-label="prenom">
-        </div>
-        <div class="m-2">
-          <label class="form-label text-white">Last Name</label>
-          <input type="text" class="form-control" value="{{userData.lastname |uppercase}}" aria-label="Nom">
-        </div>
-      </div>
-    </div>
-    <!-- Contact Info -->
-    <br>
-    
-    <div class="row">
-      <div class="d-flex flex-column">
-        <div class="m-2">
-          <label class="form-label text-white">Telephone</label>
-          <input type="text" class="form-control" value="{{userData.telephone}}" aria-label="Téléphone">
-        </div>
-        <div class="m-2">
-          <label class="form-label text-white">Email</label>
-          <input type="text" class="form-control" value="{{userData.email}}" aria-label="email">
-        </div>
-        <div class="m-2 disabled">
-          <label class="form-label text-white">SIRET</label>
-          <input type="text" class="form-control disabled" value="{{userData.siret}}" aria-label="siret">
-          <h6>{{userData.siret}}"</h6>
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="updateProfile()">
+      <div class="row">
+        <div class="d-flex">
+          <div class="m-2">
+            <label class="form-label text-white">First Name</label>
+            <input type="text" class="form-control" value="{{userData.firstname|uppercase}}" formControlName="firstname" aria-label="prenom">
+          </div>
+          <div class="m-2">
+            <label class="form-label text-white">Last Name</label>
+            <input type="text" class="form-control" value="{{userData.lastname |uppercase}}" formControlName="lastname" aria-label="Nom">
+          </div>
         </div>
       </div>
-    </div>
+      <!-- Contact Info -->
+      <br>
+      
 
-  
-
-    <button type="submit" class="btn btn-lg btn-light my-5">Update My Info</button>
-  </section>
+      <div class="row">
+        <div class="d-flex flex-column">
+          <div class="m-2">
+            <label class="form-label text-white">Telephone</label>
+            <input type="text" class="form-control" value="{{userData.telephone}}" formControlName="telephone" aria-label="Téléphone">
+          </div>
+          <div class="m-2">
+            <label class="form-label text-white">Email</label>
+            <input type="text" class="form-control" value="{{userData.email}}" formControlName="email" aria-label="email">
+          </div>
+          <div class="m-2">
+            <label class="form-label text-white">SIRET: {{userData.siret}}</label>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-light my-5">Update My Info</button>
+  </form>
 </div>

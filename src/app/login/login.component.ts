@@ -35,10 +35,7 @@ export class LoginComponent implements OnInit {
 
           const token: any = jwt_decode(data.token);
           this.userServ.setExp(token.exp);
-
-          //console.log(token);
-
-
+          sessionStorage.setItem("isLogged", "true");
           this.userServ.setUsername(token.username);
           this.userServ.setToken(data.token);
           this.userServ.setRefreshToken(data.refresh_token);
@@ -46,7 +43,16 @@ export class LoginComponent implements OnInit {
           this.userServ.setIsLogged();
           this.form.reset();
           this.formSubmitted = false;
+
+          // setTimeout(() => {
+          //   this.userServ.getNewToken().subscribe((data: any) => {
+          //     console.log(data);
+
+          //   })
+          // }, 6200000); //1.5 hours
+
           this.router.navigate(['/home']);
+
         }
       );
     }
