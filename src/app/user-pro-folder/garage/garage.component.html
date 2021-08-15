@@ -1,6 +1,7 @@
-<div class="container mt-3">
+<div class="container customdivimg mt-3">
   
-    <div ><!--GARAGE INFO  -->
+  <button routerLink="/mes-garages" class="btn btn-light btn-lg">Garage List</button>
+    <div *ngIf="!modeEdit" ><!--GARAGE INFO  -->
             <div class="card mb-3 mr-4">
                 <div class="card-header bg-dark text-white">
                     {{garage.name|uppercase}}
@@ -10,10 +11,21 @@
                     <h5 class="card-title">Ville: {{garage.city|uppercase}}</h5>
                     <h5 class="card-title">Code: {{garage.postelcode}}</h5>
                     <p class="card-text">Tel: {{garage.telephone}}</p>
+                    <div class="d-flex mt-3">
+                      <button (click)="modeEdit = !modeEdit" class="btn btn-lg btn-warning mr-2">Edit</button>
+                      <button *ngIf="!sureDelete" (click)="sureDelete = !sureDelete" class="btn btn-lg btn-danger mr-2">Delete</button>
+                      <div *ngIf="sureDelete">
+                        <button (click)="deleteGarage(garage.id)" class="btn btn-lg btn-danger mr-2">CONFIRM DELETE</button>
+                      </div>
+                    </div>
                 </div>
             </div>
     </div><!--END GARAGE INFO  -->
-
+    <app-garage-update-form 
+    *ngIf="modeEdit" 
+    [garageInfo]="garage"
+    (editGarageMode)="updateThisGarage($event)"
+    ></app-garage-update-form>
     <hr>
 
     

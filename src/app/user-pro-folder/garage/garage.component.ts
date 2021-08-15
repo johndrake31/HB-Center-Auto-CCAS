@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
 import { CarAdsService } from 'src/app/car-ads.service';
 
@@ -13,8 +12,10 @@ import { CarAdsService } from 'src/app/car-ads.service';
 })
 export class GarageComponent implements OnInit {
   moreClicked = false;
+  modeEdit = false;
+  sureDelete = false;
   garageid: any
-  constructor(private carServe: CarAdsService, private garageServ: GarageService, private userServ: UserService, private route: ActivatedRoute) { }
+  constructor(private carServe: CarAdsService, private garageServ: GarageService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.garageid = this.route.snapshot.paramMap.get('id')
@@ -72,6 +73,20 @@ export class GarageComponent implements OnInit {
         this.carAds = data2.ads
       })
     })
+  }
 
+  updateThisGarage($event: number) {
+    console.log($event);
+
+    this.garageServ.getGarageById(this.garageid).subscribe((data: any) => {
+      this.garage = data.garage_index;
+      this.modeEdit = false;
+    })
+  }
+  deleteGarage(id: number) {
+    this.garageServ.deleteGarage(id).subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate(['/mes-garages']);
+    })
   }
 }
