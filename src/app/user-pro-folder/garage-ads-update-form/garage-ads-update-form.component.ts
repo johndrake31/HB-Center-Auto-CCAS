@@ -9,7 +9,7 @@ import { CarAdsService } from 'src/app/car-ads.service';
   styleUrls: ['./garage-ads-update-form.component.scss']
 })
 export class GarageAdsUpdateFormComponent implements OnInit {
-
+  fuel: any
   carAdId: any;
   garageid: any;
   form!: FormGroup;
@@ -21,10 +21,12 @@ export class GarageAdsUpdateFormComponent implements OnInit {
     this.garageid = query[1];
     this.carAdId = query[0];
 
+
     this.carServe.getAdById(this.carAdId).subscribe((data: any) => {
       console.log(data.car_ad_index);
-      let carAd = data.car_ad_index
-      let year = carAd.year.slice(0, 10)
+      let carAd = data.car_ad_index;
+      let year = carAd.year.slice(0, 10);
+      this.fuel = carAd.fuel;
       console.log(year);
 
       this.form = this.fb.group({
