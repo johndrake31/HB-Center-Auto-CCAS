@@ -32,5 +32,9 @@ export class CarAdsService {
     const headers = this.headers;
     return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/new/" + id, body, { headers })
   }
+  updateAdById(id, body: any): Observable<any> {
+    const headers = this.headers;
+    return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/edit/" + id, body, { headers })
+  }
 
 }

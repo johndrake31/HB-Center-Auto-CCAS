@@ -13,6 +13,7 @@ import { GarageListComponent } from './user-pro-folder/garage-list/garage-list.c
 import { GarageComponent } from './user-pro-folder/garage/garage.component';
 import { GarageAjouterComponent } from './user-pro-folder/garage-ajouter/garage-ajouter.component';
 import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form/garage-add-car-form.component';
+import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-update-form/garage-ads-update-form.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'mes-info', component: ProfileProInfoFormComponent },
   { path: 'mes-garages', component: GarageListComponent },
   { path: 'create-car-ad/:id', component: GarageAddCarFormComponent },
+  { path: 'update-ad-info/:id', component: GarageAdsUpdateFormComponent },
 
   { path: 'garage/:id', component: GarageComponent },
 
