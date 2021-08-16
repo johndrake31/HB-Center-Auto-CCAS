@@ -32,7 +32,7 @@ export class ProfileProInfoFormComponent implements OnInit {
   ngOnInit(): void {
     this.userServ.getUserInfos().subscribe((data: any) => {
       this.userData = data.user_index;
-      console.log(this.userData);
+      // console.log(this.userData);
 
       // update infos
 
@@ -54,11 +54,11 @@ export class ProfileProInfoFormComponent implements OnInit {
     // console.log(this.form.valid); //false
 
     if (this.form.valid) {
-      console.log(this.form.value);
+      // console.log(this.form.value);
 
       this.userServ.updateUserInfos(this.userData.id, this.form.value).subscribe(
         data => {
-          console.log(data);
+          // console.log(data);
           this.form.reset();
           this.formSubmitted = false;
           this.router.navigate(['/userpro']);

@@ -28,4 +28,9 @@ export class CarAdsService {
     return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/remove/" + id, { headers })
   }
 
+  createAdByGarageId(id: any, body): Observable<any> {
+    const headers = this.headers;
+    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/new/" + id, body, { headers })
+  }
+
 }
