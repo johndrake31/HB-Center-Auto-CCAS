@@ -21,21 +21,28 @@ export class GarageAdsUpdateFormComponent implements OnInit {
     this.garageid = query[1];
     this.carAdId = query[0];
 
-    console.log(query);
+    this.carServe.getAdById(this.carAdId).subscribe((data: any) => {
+      console.log(data.car_ad_index);
+      let carAd = data.car_ad_index
+      let year = carAd.year.slice(0, 10)
+      console.log(year);
 
-    // this.garageid = this.route.snapshot.paramMap.get('id');
+      this.form = this.fb.group({
+        title: [carAd.title, Validators.required],
+        description: [carAd.description, Validators.required],
+        year: [year, Validators.required],
+        kilometers: [carAd.kilometers, Validators.required],
+        brand: [carAd.brand, Validators.required],
+        model: [carAd.model, Validators.required],
+        fuel: [carAd.fuel, Validators.required],
+        price: [carAd.price, Validators.required],
+        image: [carAd.image, Validators.required],
+      });
 
-    this.form = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      year: ['', Validators.required],
-      kilometers: ['', Validators.required],
-      brand: ['', Validators.required],
-      model: ['', Validators.required],
-      fuel: ['', Validators.required],
-      price: ['', Validators.required],
-      image: ['', Validators.required],
-    });
+
+    })
+
+
   }
 
   /*************

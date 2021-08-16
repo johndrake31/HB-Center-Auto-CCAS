@@ -23,6 +23,12 @@ export class CarAdsService {
     let mydata = this.http.get<any>(`https://powerful-badlands-63524.herokuapp.com/api/ads/garage/${id}`, { headers });
     return mydata;
   }
+  getAdById(id: any): Observable<any> {
+    const headers = this.headers;
+    let mydata = this.http.get<any>(`https://powerful-badlands-63524.herokuapp.com/api/ads/show/${id}`, { headers });
+    return mydata;
+  }
+
   deleteAdById(id: any): Observable<any> {
     const headers = this.headers;
     return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/remove/" + id, { headers })
@@ -32,6 +38,7 @@ export class CarAdsService {
     const headers = this.headers;
     return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/new/" + id, body, { headers })
   }
+
   updateAdById(id, body: any): Observable<any> {
     const headers = this.headers;
     return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/ads/edit/" + id, body, { headers })
