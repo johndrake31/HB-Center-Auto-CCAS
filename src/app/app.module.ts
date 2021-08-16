@@ -31,6 +31,7 @@ import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form
 import { GarageComponent } from './user-pro-folder/garage/garage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GarageAdsComponent } from './user-pro-folder/garage-ads/garage-ads.component';
+import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-update-form/garage-ads-update-form.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { GarageAdsComponent } from './user-pro-folder/garage-ads/garage-ads.comp
     ProfileProInfoFormComponent,
     GarageAddCarFormComponent,
     GarageAdsComponent,
+    GarageAdsUpdateFormComponent,
   ],
   imports: [
     BrowserModule,
