@@ -13,6 +13,7 @@ export class GarageAddCarFormComponent implements OnInit {
   garageid: any
   form!: FormGroup;
   formSubmitted = false;
+  selectedFile: File = null;
   constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -27,20 +28,31 @@ export class GarageAddCarFormComponent implements OnInit {
       model: ['', Validators.required],
       fuel: ['', Validators.required],
       price: ['', Validators.required],
-      image: ['', Validators.required],
+      file: ['', Validators.required,],
     });
   }
 
   /*************
   * Methodes
   **********/
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    // console.log(this.selectedFile);
+
+  }
+
+
+
   createCarAd() {
     this.formSubmitted = true;
-    // console.log(this.form.valid); //false
+    const fd = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
 
+    // console.log(this.form.value);
+
+    // console.log(this.form.valid);
     if (this.form.valid) {
       console.log(this.form.value);
-
       this.carServe.createAdByGarageId(this.garageid, this.form.value).subscribe(
         data => {
           console.log(data);
