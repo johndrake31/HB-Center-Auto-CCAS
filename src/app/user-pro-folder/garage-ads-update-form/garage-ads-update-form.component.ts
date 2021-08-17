@@ -57,7 +57,7 @@ export class GarageAdsUpdateFormComponent implements OnInit {
     if (this.form.valid) {
       console.log(this.form.value);
 
-      this.carServe.updateAdById(this.garageid, this.form.value).subscribe(
+      this.carServe.updateAdById(this.carAdId, this.form.value).subscribe(
         data => {
           console.log(data);
           this.form.reset();
