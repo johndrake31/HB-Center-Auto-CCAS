@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,7 +15,7 @@ export class GarageAddCarFormComponent implements OnInit {
   form!: FormGroup;
   formSubmitted = false;
   selectedFile: File = null;
-  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
+  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.garageid = this.route.snapshot.paramMap.get('id');
@@ -28,17 +29,16 @@ export class GarageAddCarFormComponent implements OnInit {
       model: ['', Validators.required],
       fuel: ['', Validators.required],
       price: ['', Validators.required],
-      file: ['', Validators.required,],
+      image: ['', Validators.required,],
     });
   }
 
   /*************
   * Methodes
   **********/
+
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
-    // console.log(this.selectedFile);
-
   }
 
 
@@ -46,16 +46,21 @@ export class GarageAddCarFormComponent implements OnInit {
   createCarAd() {
     this.formSubmitted = true;
     const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
+    fd.append('image', this.selectedFile, this.selectedFile.name);
 
-    // console.log(this.form.value);
-
-    // console.log(this.form.valid);
     if (this.form.valid) {
-      console.log(this.form.value);
+
       this.carServe.createAdByGarageId(this.garageid, this.form.value).subscribe(
-        data => {
-          console.log(data);
+        data2 => {
+          console.log(data2);
+
+          // // TEST AREA
+          this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data2.Car_Ad_New.id, fd).subscribe((data) => {
+            console.log(data);
+
+          });
+          // // END TEST AREA
+
           this.form.reset();
           this.formSubmitted = false;
           this.router.navigate(['/garage/' + this.garageid]);
