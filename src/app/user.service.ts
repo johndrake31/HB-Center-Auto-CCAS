@@ -32,6 +32,11 @@ export class UserService {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/user/edit/" + id, userData, { headers })
   }
+  // ADMIN
+  addUserPro(userData: any): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/register", userData, { headers })
+  }
 
 
   getNewToken(): Observable<any> {
