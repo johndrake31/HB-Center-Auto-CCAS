@@ -10,11 +10,18 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   private _isLogged: boolean = false;
+  private _isAdmin: boolean = false;
   private _userInfo: any = [];
   private _refreshToken: any = "";
   private _username: string = "";
   private _exp: string = "";
 
+  setIsAdmin() {
+    this._isAdmin = !this._isAdmin;
+  }
+  getIsAdmin() {
+    return this._isAdmin;
+  }
 
 
   getUserInfos(): Observable<any> {
