@@ -32,6 +32,8 @@ import { GarageComponent } from './user-pro-folder/garage/garage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GarageAdsComponent } from './user-pro-folder/garage-ads/garage-ads.component';
 import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-update-form/garage-ads-update-form.component';
+import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component';
+import { RegesterUserComponent } from './adminArea/regester-user/regester-user.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-updat
     GarageAddCarFormComponent,
     GarageAdsComponent,
     GarageAdsUpdateFormComponent,
+    AdminHomeComponent,
+    RegesterUserComponent,
   ],
   imports: [
     BrowserModule,

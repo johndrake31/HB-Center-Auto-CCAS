@@ -59,7 +59,8 @@ export class LoginComponent implements OnInit {
           if (token.roles.indexOf('ROLE_ADMIN') >= 0) {
 
             this.userServ.setIsAdmin();
-            console.log(this.userServ.getIsAdmin());
+            // console.log(this.userServ.getIsAdmin());
+            this.router.navigate(['/admin-menu']);
 
           } else if (token.roles.indexOf('ROLE_OWNER') >= 0) {
 

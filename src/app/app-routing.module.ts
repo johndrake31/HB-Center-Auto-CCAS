@@ -14,6 +14,8 @@ import { GarageComponent } from './user-pro-folder/garage/garage.component';
 import { GarageAjouterComponent } from './user-pro-folder/garage-ajouter/garage-ajouter.component';
 import { GarageAddCarFormComponent } from './user-pro-folder/garage-add-car-form/garage-add-car-form.component';
 import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-update-form/garage-ads-update-form.component';
+import { RegesterUserComponent } from './adminArea/regester-user/regester-user.component';
+import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,8 +37,12 @@ const routes: Routes = [
   { path: 'update-ad-info/:id', component: GarageAdsUpdateFormComponent },
 
   { path: 'garage/:id', component: GarageComponent },
-
   { path: 'add-garage', component: GarageAjouterComponent },
+
+  // ADMIN ROUTES
+  { path: 'admin-menu', component: AdminHomeComponent },
+  { path: 'add-user', component: RegesterUserComponent },
+
 
   //Nothing else below this line
   { path: '**', component: PageNotFoundComponent },
