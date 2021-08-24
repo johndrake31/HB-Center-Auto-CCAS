@@ -40,14 +40,9 @@ export class LoginComponent implements OnInit {
           this.userServ.setToken(data.token);
           this.userServ.setRefreshToken(data.refresh_token);
 
-          console.log(token.roles);
+          // console.log(token.roles);
 
-          if (token.roles.indexOf('ROLE_ADMIN') >= 0) {
-            this.userServ.setIsAdmin();
-            console.log(this.userServ.getIsAdmin());
-          } else {
-            console.log(this.userServ.getIsAdmin())
-          }
+
 
           this.userServ.setRoles(token.roles);
           this.userServ.setIsLogged();
@@ -61,7 +56,16 @@ export class LoginComponent implements OnInit {
           //   })
           // }, 6200000); //1.5 hours
 
-          // this.router.navigate(['/home']);
+          if (token.roles.indexOf('ROLE_ADMIN') >= 0) {
+
+            this.userServ.setIsAdmin();
+            console.log(this.userServ.getIsAdmin());
+
+          } else if (token.roles.indexOf('ROLE_OWNER') >= 0) {
+
+            this.router.navigate(['/home']);
+
+          }
 
         }
       );
