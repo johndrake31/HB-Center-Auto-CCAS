@@ -17,6 +17,7 @@ import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-updat
 import { RegesterUserComponent } from './adminArea/regester-user/regester-user.component';
 import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component';
 import { UserListComponent } from './adminArea/user-list/user-list.component';
+import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -44,6 +45,7 @@ const routes: Routes = [
   { path: 'admin-menu', component: AdminHomeComponent },
   { path: 'add-user', component: RegesterUserComponent },
   { path: 'user-list', component: UserListComponent },
+  { path: 'garage-list', component: GarageListAdminComponent },
 
 
   //Nothing else below this line

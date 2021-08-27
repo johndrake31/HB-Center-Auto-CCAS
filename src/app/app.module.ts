@@ -36,6 +36,7 @@ import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component'
 import { RegesterUserComponent } from './adminArea/regester-user/regester-user.component';
 import { UserListComponent } from './adminArea/user-list/user-list.component';
 import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
+import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.compo
     RegesterUserComponent,
     UserListComponent,
     CarAdsListComponent,
+    GarageListAdminComponent,
   ],
   imports: [
     BrowserModule,
