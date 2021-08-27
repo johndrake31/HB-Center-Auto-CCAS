@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -10,13 +11,17 @@ export class UserListComponent implements OnInit {
   clickDelete = false;
   userTbl: any;
 
-  constructor(private userServe: UserService) { }
+  constructor(private userServe: UserService, private router: Router) { }
 
   ngOnInit(): void {
     if (this.userServe.getIsAdmin) {
       this.getUserList();
 
     }
+  }
+
+  reroute(id: number) {
+    this.router.navigate(['/update-user-pro/' + id]);
   }
 
   getUserList() {

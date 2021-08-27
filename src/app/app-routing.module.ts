@@ -18,6 +18,7 @@ import { RegesterUserComponent } from './adminArea/regester-user/regester-user.c
 import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component';
 import { UserListComponent } from './adminArea/user-list/user-list.component';
 import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
+import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'add-user', component: RegesterUserComponent },
   { path: 'user-list', component: UserListComponent },
   { path: 'garage-list', component: GarageListAdminComponent },
+  { path: 'update-user-pro/:id', component: UpdateUserProComponent },
 
 
   //Nothing else below this line

@@ -13,7 +13,8 @@
                     <p class="card-text">Telephone: {{user.telephone}} </p>
 
                     
-                    <a (click)="deleteUser(user.id)" class="btn btn-danger btn-sm text-white mr-1">Remove</a>
+                    <a (click)="deleteUser(user.id)" class="btn btn-danger btn-lg text-white mr-1">{{"remove"|titlecase}}</a>
+                    <a (click)="reroute(user.id)" class="btn btn-warning btn-lg text-white mr-1">{{"edit"|titlecase}}</a>
                 </div>
             </div>
         </div>    

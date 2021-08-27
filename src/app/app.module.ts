@@ -37,6 +37,7 @@ import { RegesterUserComponent } from './adminArea/regester-user/regester-user.c
 import { UserListComponent } from './adminArea/user-list/user-list.component';
 import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
 import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
+import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-l
     UserListComponent,
     CarAdsListComponent,
     GarageListAdminComponent,
+    UpdateUserProComponent,
   ],
   imports: [
     BrowserModule,

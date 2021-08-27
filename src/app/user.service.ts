@@ -28,6 +28,10 @@ export class UserService {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
   }
+  getUserInfosAdmin(id: number): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index/" + id, { headers })
+  }
 
 
 
