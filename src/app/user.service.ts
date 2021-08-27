@@ -28,6 +28,9 @@ export class UserService {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
   }
+
+
+
   updateUserInfos(id: number, userData: any): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/user/edit/" + id, userData, { headers })
@@ -37,6 +40,16 @@ export class UserService {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/register", userData, { headers })
   }
+
+  getUsersForAdmin(): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index", { headers })
+  }
+  deleteUserForAdmin(id: number): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/user/delete/" + id, { headers })
+  }
+
 
 
   getNewToken(): Observable<any> {

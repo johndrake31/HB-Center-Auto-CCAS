@@ -18,17 +18,20 @@ export class RegesterUserComponent implements OnInit {
   constructor(private userServe: UserService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      siret: ['', Validators.required],
-      firstname: ['', Validators.required],
-      lastname: ['', Validators.required],
-      email: ['', Validators.required],
-      telephone: ['', Validators.required],
-      password: ['', Validators.required],
-      roles: [["USER_OWNER"]],
-    });
+    if (this.userServe.getIsAdmin) {
+      this.form = this.fb.group({
+        username: ['', Validators.required],
+        siret: ['', Validators.required],
+        firstname: ['', Validators.required],
+        lastname: ['', Validators.required],
+        email: ['', Validators.required],
+        telephone: ['', Validators.required],
+        password: ['', Validators.required],
+        roles: [["USER_OWNER"]],
+      });
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 
   /*************

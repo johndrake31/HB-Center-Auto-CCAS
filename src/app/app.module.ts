@@ -35,6 +35,7 @@ import { GarageAdsUpdateFormComponent } from './user-pro-folder/garage-ads-updat
 import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component';
 import { RegesterUserComponent } from './adminArea/regester-user/regester-user.component';
 import { UserListComponent } from './adminArea/user-list/user-list.component';
+import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { UserListComponent } from './adminArea/user-list/user-list.component';
     AdminHomeComponent,
     RegesterUserComponent,
     UserListComponent,
+    CarAdsListComponent,
   ],
   imports: [
     BrowserModule,

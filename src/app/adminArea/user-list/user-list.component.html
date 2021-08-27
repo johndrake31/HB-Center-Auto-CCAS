@@ -1,46 +1,23 @@
 <div class="container customdivimg mt-3">
     <button class="btn btn-light btn-lg mb-4" routerLink="/admin-menu">Admin Menu</button>
+    <h1 class="text-center text-white">Pro-User List</h1>
     <div class="d-flex flex-wrap">
+        <div *ngFor="let user of userTbl">
+            <div class="card mr-2 mb-2" style="width: 30rem;">
+                <div class="card-body">
+                    <h2 class="card-title">Username: {{user.username|uppercase}}</h2>
+                    <h4 class="card-subtitle mb-2">First Name: {{user.firstname|titlecase}}</h4>
+                    <h4 class="card-subtitle mb-2">Last Name: {{user.lastname|titlecase}}</h4>
+                    <p class="card-text">SIRET: {{user.siret}} </p>
+                    <p class="card-text">E-mail: {{user.email}} </p>
+                    <p class="card-text">Telephone: {{user.telephone}} </p>
 
-        
-        <div class="card mr-2 mb-2" style="width: 20rem;">
-            <div class="card-body">
-                <h2 class="card-title">Username</h2>
-                <h3 class="card-subtitle mb-2 text-muted">First Name:</h3>
-                <h3 class="card-subtitle mb-2 text-muted">Last Name:</h3>
-                <p class="card-text">SIRET#: </p>
-                <p class="card-text">E-mail: </p>
-                <p class="card-text">Telephone: </p>
-                <a href="#" class="btn btn-danger btn-sm text-white">Remove</a>
+                    
+                    <a (click)="deleteUser(user.id)" class="btn btn-danger btn-sm text-white mr-1">Remove</a>
+                   
+                    <a href="#" class="btn btn-info btn-sm text-white">Garage List</a>
+                </div>
             </div>
-        </div>
-
-        <div class="card mr-2 mb-2" style="width: 20rem;">
-            <div class="card-body">
-                <h2 class="card-title">Username</h2>
-                <h3 class="card-subtitle mb-2 text-muted">First Name:</h3>
-                <h3 class="card-subtitle mb-2 text-muted">Last Name:</h3>
-                <p class="card-text">SIRET#: </p>
-                <p class="card-text">E-mail: </p>
-                <p class="card-text">Telephone: </p>
-                <a href="#" class="btn btn-danger btn-sm text-white">Remove</a>
-            </div>
-        </div>
-
-        <div class="card mr-2 mb-2" style="width: 20rem;">
-            <div class="card-body">
-                <h2 class="card-title">Username</h2>
-                <h3 class="card-subtitle mb-2 text-muted">First Name:</h3>
-                <h3 class="card-subtitle mb-2 text-muted">Last Name:</h3>
-                <p class="card-text">SIRET#: </p>
-                <p class="card-text">E-mail: </p>
-                <p class="card-text">Telephone: </p>
-                <a href="#" class="btn btn-danger btn-sm text-white">Remove</a>
-            </div>
-        </div>
-        
-        
-        
+        </div>    
     </div>
-    
 </div>
