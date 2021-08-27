@@ -1,1 +1,29 @@
-<p>garage-list works!</p>
+<div class="container customdivimg">
+<button routerLink="/admin-menu" class="btn btn-light my-5">Admin Area</button>
+<h1 class="text-light">Garages List</h1>
+<a routerLink="/add-garage" class="btn btn-lg btn-light myGarageDiv">Add Garage</a>
+
+<div class="p-5" *ngFor="let garage of garageArr">
+    
+    <div ><!-- d-flex -->
+        
+            <div class="card mb-3 mr-4">
+                <div class="card-header">
+                    {{garage.name}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Address: {{garage.address}}</h5>
+                    <h5 class="card-title">Ville: {{garage.city}}</h5>
+                    <h5 class="card-title">Code: {{garage.postelcode}}</h5>
+                    <p class="card-text">Tel: {{garage.telephone}}</p>
+                    <!-- use a if and form -->
+                    <!-- <div class="d-flex flex-column">
+                        <label class="form-label mr-3">Admin for Car-Ads & Garages:</label>
+                        <a (click)="reroute(garage.id)" class="btn btn-lg myGarageDiv">Admin</a>
+                    </div> -->
+                </div>
+                </div>
+            </div>
+        
+    </div><!--d-flex  -->
+</div>
