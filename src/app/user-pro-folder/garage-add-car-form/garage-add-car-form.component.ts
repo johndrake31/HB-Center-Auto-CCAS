@@ -3,8 +3,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
-import { s3 } from 'fine-uploader/lib/core/s3';
-
 
 
 @Component({
@@ -46,6 +44,10 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
   /*************
   * Methodes
   **********/
+
+
+
+
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
