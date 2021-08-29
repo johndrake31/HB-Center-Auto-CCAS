@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
+import { s3 } from 'fine-uploader/lib/core/s3';
+
 
 
 @Component({
@@ -10,12 +12,20 @@ import { CarAdsService } from 'src/app/car-ads.service';
   templateUrl: './garage-add-car-form.component.html',
   styleUrls: ['./garage-add-car-form.component.scss']
 })
-export class GarageAddCarFormComponent implements OnInit {
+export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
   garageid: any
   form!: FormGroup;
   formSubmitted = false;
   selectedFile: File = null;
   constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
+
+  // Image S3 Bucket Vars 
+
+
+  ngAfterViewInit(): void {
+
+
+  }
 
   ngOnInit(): void {
     this.garageid = this.route.snapshot.paramMap.get('id');
@@ -54,7 +64,7 @@ export class GarageAddCarFormComponent implements OnInit {
         data2 => {
           console.log(data2);
 
-          // // TEST AREA
+          // // TEST ADD IMAGE AREA
           this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data2.Car_Ad_New.id, fd).subscribe((data) => {
             console.log(data);
 
