@@ -19,6 +19,7 @@ import { AdminHomeComponent } from './adminArea/admin-home/admin-home.component'
 import { UserListComponent } from './adminArea/user-list/user-list.component';
 import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
 import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
+import { UpdateProGarageComponent } from './adminArea/update-pro-garage/update-pro-garage.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'user-list', component: UserListComponent },
   { path: 'garage-list', component: GarageListAdminComponent },
   { path: 'update-user-pro/:id', component: UpdateUserProComponent },
+  { path: 'update-pro-garage/:id', component: UpdateProGarageComponent },
 
 
   //Nothing else below this line

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { GarageService } from 'src/app/garage.service';
 })
 export class GarageListAdminComponent implements OnInit {
   garageArr: any;
+  deleteClicked = false;
 
-  constructor(private garageServ: GarageService) { }
+  constructor(private garageServ: GarageService, private router: Router) { }
 
   ngOnInit(): void {
     this.getGarages();
@@ -24,10 +26,12 @@ export class GarageListAdminComponent implements OnInit {
   removeGarage(garage: any) {
     this.garageServ.deleteGarage(garage.id).subscribe(data => {
       console.log(data);
+      this.deleteClicked = !this.deleteClicked;
       this.getGarages();
     })
-
-
   }
 
+  editGarage(garage: any) {
+    this.router.navigate(['/update-pro-garage/' + garage.id]);
+  }
 }

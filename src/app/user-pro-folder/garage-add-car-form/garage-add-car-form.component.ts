@@ -15,9 +15,8 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
   form!: FormGroup;
   formSubmitted = false;
   selectedFile: File = null;
+
   constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
-
-
 
   ngAfterViewInit(): void {
   }

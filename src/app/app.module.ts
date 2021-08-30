@@ -38,6 +38,7 @@ import { UserListComponent } from './adminArea/user-list/user-list.component';
 import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
 import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-list-admin.component';
 import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
+import { UpdateProGarageComponent } from './adminArea/update-pro-garage/update-pro-garage.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-
     CarAdsListComponent,
     GarageListAdminComponent,
     UpdateUserProComponent,
+    UpdateProGarageComponent,
   ],
   imports: [
     BrowserModule,

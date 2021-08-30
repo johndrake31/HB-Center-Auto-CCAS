@@ -22,8 +22,12 @@
                             </div> -->
                     </div>
                 <div class="card-footer">
-                    <a (click)="removeGarage(garage)" class="btn btn-danger btn-sm text-white mr-1">{{"Remove"|titlecase}}</a>
-                    <a class="btn btn-warning btn-sm text-white mr-1">{{"edit"|titlecase}}</a>
+                    
+                    <a *ngIf="!deleteClicked" (click)="deleteClicked = !deleteClicked" class="btn btn-danger btn-lg text-white mr-1">{{"Remove"|titlecase}}</a>
+
+                    <a *ngIf="deleteClicked" (click)="removeGarage(garage)" class="btn btn-danger btn-lg text-white mr-1">{{"REMOVE GARAGE"|titlecase}}</a>
+
+                    <a (click)="editGarage(garage)" class="btn btn-warning btn-lg text-white mr-1">{{"edit"|titlecase}}</a>
                 </div>
             </div>
         </div>

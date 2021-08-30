@@ -1,0 +1,41 @@
+<div class="container customdivimg">
+  <button routerLink="/garage-list" class="btn btn-light my-5">Garage List</button>
+  <h2 class="text-light">Garage Information</h2>
+  <br>
+  <hr class="border-light">
+
+
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="editGarage()">
+      <div class="container m-5">
+                <div class="col-md-8">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex flex-column">
+                            <label class="text-white" for="name">Garage Name</label>
+                            <input class="inputs-width" type="text" formControlName="name">
+                        </div>
+                        <div class="d-flex flex-column">
+
+                            <label class="text-white" for="address">Address</label>
+                            <input  type="text" formControlName="address">
+                        </div>
+                        <div class="d-flex flex-column">
+
+                            <label class="text-white" for="city">City</label>
+                            <input type="text" formControlName="city">
+                        </div>
+                        <div class="d-flex flex-column">
+
+                            <label class="text-white" for="postelcode">Postelcode</label>
+                            <input type="number" formControlName="postelcode">
+                        </div>
+                        <div class="d-flex flex-column">
+
+                            <label class="text-white" for="telephone">Telephone</label>
+                            <input type="text" formControlName="telephone">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-lg btn-light">Edit Garage</button>
+  </form>
+</div>
