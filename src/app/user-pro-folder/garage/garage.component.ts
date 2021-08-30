@@ -50,7 +50,7 @@ export class GarageComponent implements OnInit {
     brand: "EXAMPLE",
     model: "Ranger",
     fuel: "ELECTRIC",
-    image: ".jpg",
+    image: "https://www.stevensegallery.com/640/360",
     price: 23000
   }]
 

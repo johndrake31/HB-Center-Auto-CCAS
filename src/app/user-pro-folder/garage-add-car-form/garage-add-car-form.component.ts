@@ -19,10 +19,7 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
 
   // Image S3 Bucket Vars 
 
-
   ngAfterViewInit(): void {
-
-
   }
 
   ngOnInit(): void {
