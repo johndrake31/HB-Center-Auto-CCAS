@@ -47,7 +47,16 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
+  //reset after service completes
+  formReset() {
+    this.form.reset();
+    this.formSubmitted = false;
+  }
 
+  //reroute after service completes
+  routerGarageNav() {
+    this.router.navigate(['/garage/' + this.garageid]);
+  }
 
   createCarAd() {
     this.formSubmitted = true;
@@ -63,10 +72,8 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
           // // TEST ADD IMAGE AREA
           this.carServe.addImage(data2.Car_Ad_New.id, fd).subscribe((data) => {
             console.log(data);
-
-            this.form.reset();
-            this.formSubmitted = false;
-            this.router.navigate(['/garage/' + this.garageid]);
+            this.formReset()
+            this.routerGarageNav();
           });
 
           // // END TEST AREA

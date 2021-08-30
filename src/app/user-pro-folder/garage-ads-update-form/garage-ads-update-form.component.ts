@@ -56,10 +56,13 @@ export class GarageAdsUpdateFormComponent implements OnInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
+  //reset after service completes
   formReset() {
     this.form.reset();
     this.formSubmitted = false;
   }
+
+  //reroute after service completes
   routerGarageNav() {
     this.router.navigate(['/garage/' + this.garageid]);
   }
