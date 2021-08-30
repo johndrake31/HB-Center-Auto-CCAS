@@ -1,48 +1,17 @@
 <section class="container customdivimg">
-  <h1 class="text-center text-white">Véhicules les plus récents</h1>
+    <button routerLink="/admin-menu" class="btn btn-lg btn-light my-5">Admin Area</button>
+    <h1 class="text-center text-white">Véhicules les plus récents</h1>
     <button class="btn btn-dark text-light my-3 mr-3 "
     *ngFor="let n of numSequence(carAds.length/10);
       let i = index;" (click)="changeSlice(i)"
       >{{i+1}}</button>
 
 
-    <div class="d-flex">
-        <div *ngFor="let inputCars of carAds | slice:paginMin:paginMax">
-            <div class="outer">
-                <div class="main-container p-3">
-                    <!-- image area -->
-                    <div class="my-image" (click)="moreClicked = !moreClicked">
-                        <h3>{{inputCars.title}}</h3>
-                        <!-- <img src="../../assets/images/cars/{{inputCars.image}}"
-                        alt="picture of {{inputCars.brand}} {{inputCars.model}}"> -->
-                        <img src="{{inputCars.image}}"
-                        alt="picture of {{inputCars.brand}} {{inputCars.model}}">
-                        <p class="text-hov">Cliquez pour plus d'informations</p>
-                    </div>
-
-                    <div class="info" (click)="moreClicked = !moreClicked">
-                        <h4 class="mt-2">{{inputCars.brand}}: {{inputCars.model}}</h4>
-                        <span *ngIf="!moreClicked" >{{inputCars.description| slice:0:120}}</span>
-                        <p *ngIf="moreClicked" class="fade-in-image">{{inputCars.description}}</p>
-
-                        <h3>{{inputCars.price | currency: '€'}}</h3>
-                        <a *ngIf="!moreClicked" >plus d'informations</a>
-                        <a *ngIf="moreClicked" >moins d'informations</a>
-
-                    </div>
-                    <!-- hidden until needed for more info overflow or light box? -->
-                    <div *ngIf="moreClicked" class="click-for-more fade-in-image" (click)="moreClicked = !moreClicked">
-                        <h4>l'Année: <em>{{inputCars.year}}</em></h4>
-                        <h4>Kilomètrage: <em>{{inputCars.kilometers}}</em></h4>
-                        <h4>Carburant: <em>{{inputCars.fuel}}</em></h4>
-                        
-                        <p> réf: #{{inputCars.id}}</p>
-                    </div>
-
-                    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.id}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.id}}">Contact pour plus d'informations</a>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex flex-wrap">
+        <app-admin-car-card 
+        *ngFor="let ad of carAds | slice:paginMin:paginMax" 
+        [inputCars]="ad">
+        </app-admin-car-card>
     </div>
 
     <button class="btn btn-dark text-light mt-3 mr-3"
@@ -52,3 +21,5 @@
     >{{i+1}}</button>
 
 </section>
+
+

@@ -9,7 +9,7 @@ import { Car } from 'src/app/model/car.module';
 })
 export class CarAdsListComponent implements OnInit {
 
-  moreClicked = false;
+
   carAds: Car[] = [];
 
   constructor(private carServe: CarAdsService) { }

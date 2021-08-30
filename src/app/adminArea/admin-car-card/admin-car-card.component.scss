@@ -1,0 +1,116 @@
+.outer {
+  padding: 5px;
+}
+
+.main-container {
+  padding: 20px 0px;
+  width: 300px;
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.my-image {
+  position: relative;
+  cursor: pointer;
+
+  p {
+    color: white;
+    font-weight: 900;
+    position: absolute;
+    top: 27px;
+    left: 25%;
+    opacity: 0;
+    transition: .5s;
+  }
+
+  &:hover {
+
+    p {
+      opacity: 1;
+      z-index: 20;
+    }
+  }
+}
+
+.info {
+  a {
+    font-style: italic;
+    cursor: pointer;
+  }
+}
+
+img {
+  width: 80%
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+.fade-in-image {
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s;
+  -o-animation: fadeIn 3s;
+  -ms-animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
