@@ -67,12 +67,12 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
           this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data2.Car_Ad_New.id, fd).subscribe((data) => {
             console.log(data);
 
+            this.form.reset();
+            this.formSubmitted = false;
+            this.router.navigate(['/garage/' + this.garageid]);
           });
           // // END TEST AREA
 
-          this.form.reset();
-          this.formSubmitted = false;
-          this.router.navigate(['/garage/' + this.garageid]);
         }
       );
     }
