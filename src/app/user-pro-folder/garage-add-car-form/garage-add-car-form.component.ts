@@ -17,7 +17,7 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
   selectedFile: File = null;
   constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
 
-  // Image S3 Bucket Vars 
+
 
   ngAfterViewInit(): void {
   }
@@ -43,9 +43,6 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
   **********/
 
 
-
-
-
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
   }
@@ -65,7 +62,7 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
 
           // // TEST ADD IMAGE AREA
           this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data2.Car_Ad_New.id, fd).subscribe((data) => {
-            console.log(data);
+            // console.log(data);
 
             this.form.reset();
             this.formSubmitted = false;

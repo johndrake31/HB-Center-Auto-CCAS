@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,7 +15,8 @@ export class GarageAdsUpdateFormComponent implements OnInit {
   garageid: any;
   form!: FormGroup;
   formSubmitted = false;
-  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
+  selectedFile: File = null;
+  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     let query = this.route.snapshot.paramMap.get('id').split('&');
@@ -23,11 +25,10 @@ export class GarageAdsUpdateFormComponent implements OnInit {
 
 
     this.carServe.getAdById(this.carAdId).subscribe((data: any) => {
-      console.log(data.car_ad_index);
+      // console.log(data.car_ad_index);
       let carAd = data.car_ad_index;
       let year = carAd.year.slice(0, 10);
       this.fuel = carAd.fuel;
-      console.log(year);
 
       this.form = this.fb.group({
         title: [carAd.title, Validators.required],
@@ -50,19 +51,41 @@ export class GarageAdsUpdateFormComponent implements OnInit {
   /*************
   * Methodes
   **********/
+
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
   editCarAd() {
     this.formSubmitted = true;
-    // console.log(this.form.valid); //false
+    const fd = new FormData();
+
+    if (this.selectedFile) {
+      fd.append('image', this.selectedFile, this.selectedFile.name);
+      // console.log(this.form.valid); //false
+    }
 
     if (this.form.valid) {
-      console.log(this.form.value);
+      // console.log(this.form.value);
 
       this.carServe.updateAdById(this.carAdId, this.form.value).subscribe(
         data => {
           console.log(data);
-          this.form.reset();
-          this.formSubmitted = false;
-          this.router.navigate(['/garage/' + this.garageid]);
+
+          if (this.selectedFile) {
+            this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data.Car_Ad_Edit.id, fd).subscribe((data2) => {
+              console.log(data2);
+
+              this.form.reset();
+              this.formSubmitted = false;
+              this.router.navigate(['/garage/' + this.garageid]);
+            });
+          } else {
+            this.form.reset();
+            this.formSubmitted = false;
+            this.router.navigate(['/garage/' + this.garageid]);
+          }
+
         }
       );
     }

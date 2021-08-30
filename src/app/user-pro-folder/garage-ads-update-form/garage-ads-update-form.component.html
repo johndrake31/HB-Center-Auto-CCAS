@@ -47,7 +47,7 @@
 
                         <div class="d-flex flex-column">
                             <label class="text-white" for="image">Image</label>
-                            <input type="text" formControlName="image">
+                            <input type="file" (change)="onFileSelected($event)">
                         </div>
                     </div>
                 </div>
