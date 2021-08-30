@@ -73,9 +73,8 @@ export class GarageAdsUpdateFormComponent implements OnInit {
           console.log(data);
 
           if (this.selectedFile) {
-            this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/image/" + data.Car_Ad_Edit.id, fd).subscribe((data2) => {
+            this.carServe.addImage(data.Car_Ad_Edit.id, fd).subscribe((data2) => {
               console.log(data2);
-
               this.form.reset();
               this.formSubmitted = false;
               this.router.navigate(['/garage/' + this.garageid]);
