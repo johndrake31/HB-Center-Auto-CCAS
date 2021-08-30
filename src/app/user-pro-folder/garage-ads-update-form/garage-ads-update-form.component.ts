@@ -56,6 +56,14 @@ export class GarageAdsUpdateFormComponent implements OnInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
+  formReset() {
+    this.form.reset();
+    this.formSubmitted = false;
+  }
+  routerGarageNav() {
+    this.router.navigate(['/garage/' + this.garageid]);
+  }
+
   editCarAd() {
     this.formSubmitted = true;
     const fd = new FormData();
@@ -70,25 +78,20 @@ export class GarageAdsUpdateFormComponent implements OnInit {
 
       this.carServe.updateAdById(this.carAdId, this.form.value).subscribe(
         data => {
-          console.log(data);
+          //console.log(data);
 
           if (this.selectedFile) {
             this.carServe.addImage(data.Car_Ad_Edit.id, fd).subscribe((data2) => {
               console.log(data2);
-              this.form.reset();
-              this.formSubmitted = false;
-              this.router.navigate(['/garage/' + this.garageid]);
+              this.formReset();
+              this.routerGarageNav();
             });
           } else {
-            this.form.reset();
-            this.formSubmitted = false;
-            this.router.navigate(['/garage/' + this.garageid]);
+            this.formReset();
+            this.routerGarageNav();
           }
-
         }
       );
     }
   }
-
-
 }
