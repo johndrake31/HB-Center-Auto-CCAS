@@ -67,7 +67,7 @@ export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
 
       this.carServe.createAdByGarageId(this.garageid, this.form.value).subscribe(
         data2 => {
-          console.log(data2);
+          //console.log(data2);
 
           // // TEST ADD IMAGE AREA
           this.carServe.addImage(data2.Car_Ad_New.id, fd).subscribe((data) => {
