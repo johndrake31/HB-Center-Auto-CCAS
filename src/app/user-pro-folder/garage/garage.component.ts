@@ -43,7 +43,7 @@ export class GarageComponent implements OnInit {
 
   carAds: any = [{
     id: 99999999,
-    title: "EXAMPLE TITLE DATA ",
+    title: "PLEASE TURN OFF YOUR ADD BLOCKER",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eaque animi tenetur. Tempora, saepe? Optio et fuga ut eaque aperiam nihil ea doloribus? Eum, nemo est? Dolore ducimus perspiciatis tempore.",
     year: "2021-08-04T00:00:00+00:00",
     kilometers: 2000,

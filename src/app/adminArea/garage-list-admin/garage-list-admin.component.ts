@@ -21,4 +21,13 @@ export class GarageListAdminComponent implements OnInit {
     })
   }
 
+  removeGarage(garage: any) {
+    this.garageServ.deleteGarage(garage.id).subscribe(data => {
+      console.log(data);
+      this.getGarages();
+    })
+
+
+  }
+
 }
