@@ -26,8 +26,10 @@ export class CarAdsListComponent implements OnInit {
     })
   }
 
-  removeAd(event: number) {
-    this.carServe.deleteAdById(event).subscribe((data: any) => {
+  removeAd($event: number) {
+    console.log($event);
+
+    this.carServe.deleteAdById($event).subscribe((data: any) => {
       this.refreshCarListings();
     })
   }

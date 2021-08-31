@@ -12,7 +12,7 @@ export class AdminCarCardComponent {
   @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "www.google.com", null, 1234);
   @Output() removeAdbyId = new EventEmitter<any>();
 
-  removeListing(id: number) {
+  removeListing(id: any) {
     this.removeAdbyId.emit(id);
   }
 
