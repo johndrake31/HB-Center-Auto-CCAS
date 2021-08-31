@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Car } from 'src/app/model/car.module';
 
 @Component({
@@ -10,6 +10,10 @@ export class AdminCarCardComponent {
   moreClicked = false;
   constructor() { }
   @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "www.google.com", null, 1234);
+  @Output() removeAdbyId = new EventEmitter<any>();
 
+  removeListing(id: number) {
+    this.removeAdbyId.emit(id);
+  }
 
 }

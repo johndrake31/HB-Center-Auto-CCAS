@@ -31,7 +31,7 @@
 
         <a *ngIf="moreClicked" class="btn btn-dark text-light my-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.id}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.id}}">Contact pour plus d'informations</a>
         <div>
-            <button class="btn btn-danger btn-lg mr-2">{{"Remove"|titlecase}}</button>
+            <button (click)="removeListing(inputCars.id)" class="btn btn-danger btn-lg mr-2">{{"Remove"|titlecase}}</button>
             <button class="btn btn-warning btn-lg mr-2">{{"edit"|titlecase}}</button>
         </div>
     </div>

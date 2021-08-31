@@ -67,8 +67,8 @@ export class GarageComponent implements OnInit {
     return Array(n);
   }
 
-  removeAd($event: number) {
-    this.carServe.deleteAdById($event).subscribe((data: any) => {
+  removeAd(event: number) {
+    this.carServe.deleteAdById(event).subscribe((data: any) => {
       this.carServe.getAdsByGarage(this.garageid).subscribe((data2: any) => {
         this.carAds = data2.ads
       })

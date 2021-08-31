@@ -11,6 +11,7 @@
         <app-admin-car-card 
         *ngFor="let ad of carAds | slice:paginMin:paginMax" 
         [inputCars]="ad">
+        (removeAdbyId)="removeAd($event)"
         </app-admin-car-card>
     </div>
 

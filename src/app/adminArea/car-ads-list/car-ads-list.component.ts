@@ -12,11 +12,23 @@ export class CarAdsListComponent implements OnInit {
 
   carAds: Car[] = [];
 
+
+
   constructor(private carServe: CarAdsService) { }
 
   ngOnInit(): void {
+    this.refreshCarListings();
+  }
+
+  refreshCarListings() {
     this.carServe.getAds().subscribe((data: any) => {
       this.carAds = data.ads;
+    })
+  }
+
+  removeAd(event: number) {
+    this.carServe.deleteAdById(event).subscribe((data: any) => {
+      this.refreshCarListings();
     })
   }
 
