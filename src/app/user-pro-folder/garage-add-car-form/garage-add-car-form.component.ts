@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
@@ -10,16 +10,15 @@ import { CarAdsService } from 'src/app/car-ads.service';
   templateUrl: './garage-add-car-form.component.html',
   styleUrls: ['./garage-add-car-form.component.scss']
 })
-export class GarageAddCarFormComponent implements OnInit, AfterViewInit {
+export class GarageAddCarFormComponent implements OnInit {
   garageid: any
   form!: FormGroup;
   formSubmitted = false;
   selectedFile: File = null;
 
-  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
 
-  ngAfterViewInit(): void {
-  }
+
 
   ngOnInit(): void {
     this.garageid = this.route.snapshot.paramMap.get('id');
