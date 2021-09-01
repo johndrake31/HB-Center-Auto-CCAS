@@ -21,6 +21,7 @@ import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-l
 import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
 import { UpdateProGarageComponent } from './adminArea/update-pro-garage/update-pro-garage.component';
 import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
+import { AdminCarAdUpdateComponent } from './adminArea/admin-car-ad-update/admin-car-ad-update.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'car-list', component: CarAdsListComponent },
   { path: 'update-user-pro/:id', component: UpdateUserProComponent },
   { path: 'update-pro-garage/:id', component: UpdateProGarageComponent },
+  { path: 'admin-car-ad-update/:id', component: AdminCarAdUpdateComponent },
 
 
   //Nothing else below this line

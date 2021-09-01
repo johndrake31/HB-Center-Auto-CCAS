@@ -40,6 +40,7 @@ import { GarageListAdminComponent } from './adminArea/garage-list-admin/garage-l
 import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-pro.component';
 import { UpdateProGarageComponent } from './adminArea/update-pro-garage/update-pro-garage.component';
 import { AdminCarCardComponent } from './adminArea/admin-car-card/admin-car-card.component';
+import { AdminCarAdUpdateComponent } from './adminArea/admin-car-ad-update/admin-car-ad-update.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { AdminCarCardComponent } from './adminArea/admin-car-card/admin-car-card
     UpdateUserProComponent,
     UpdateProGarageComponent,
     AdminCarCardComponent,
+    AdminCarAdUpdateComponent,
   ],
   imports: [
     BrowserModule,
