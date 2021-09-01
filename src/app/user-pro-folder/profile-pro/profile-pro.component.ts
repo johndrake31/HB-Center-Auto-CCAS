@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-profile-pro',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileProComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userServ: UserService) { }
 
   ngOnInit(): void {
+  }
+  logout() {
+    this.userServ.loggedout();
   }
 
 }

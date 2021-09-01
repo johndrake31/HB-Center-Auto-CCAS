@@ -17,4 +17,8 @@ export class AdminHomeComponent implements OnInit {
     }
   }
 
+  logout() {
+    this.userServe.loggedout();
+  }
+
 }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private _isLogged: boolean = false;
   private _isAdmin: boolean = false;
@@ -18,8 +19,12 @@ export class UserService {
 
   setIsAdmin() {
     this._isAdmin = !this._isAdmin;
+    sessionStorage.setItem("isAdmin", "true");
   }
   getIsAdmin() {
+    if (sessionStorage.getItem("isAdmin") === "true") {
+      this._isAdmin = true;
+    } else { this._isAdmin = false; }
     return this._isAdmin;
   }
 
@@ -66,7 +71,6 @@ export class UserService {
 
   setIsLogged() {
     this._isLogged = !this._isLogged;
-
   }
 
   loggedout() {
@@ -76,6 +80,8 @@ export class UserService {
     this.setUsername("");
     this.setExp("");
     sessionStorage.setItem("isLogged", "false");
+    sessionStorage.setItem("isAdmin", "false");
+    this.router.navigate(['/home']);
   }
 
 

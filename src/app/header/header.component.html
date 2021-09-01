@@ -7,7 +7,7 @@
     <a *ngIf="isLogged" (click)="logout()" routerLink=".">Logout</a>
   </div >
   <div class="mr-1">
-    <a *ngIf="isLogged" routerLink="/userpro">User Menu</a>
+    <a *ngIf="isLogged" (click)="goToMenu()">{{menu}}</a>
   </div>
   <div class="mr-1">
     <h3 *ngIf="isLogged">Welcome: {{username|titlecase}}</h3>
