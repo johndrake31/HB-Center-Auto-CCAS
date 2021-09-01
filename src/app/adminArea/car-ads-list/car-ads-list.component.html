@@ -1,12 +1,15 @@
 <section class="container customdivimg">
+
+
     <button routerLink="/admin-menu" class="btn btn-lg btn-light my-5">Admin Area</button>
+    
     <h1 class="text-center text-white">Véhicules les plus récents</h1>
     <button class="btn btn-dark text-light my-3 mr-3 "
     *ngFor="let n of numSequence(carAds.length/10);
       let i = index;" (click)="changeSlice(i)"
       >{{i+1}}</button>
-
-
+    <label for="searchcar">Find Car by Ref#</label>
+    <input name=searchcar type="text">
     <div class="d-flex flex-wrap">
         <app-admin-car-card 
         *ngFor="let ad of carAds | slice:paginMin:paginMax" 

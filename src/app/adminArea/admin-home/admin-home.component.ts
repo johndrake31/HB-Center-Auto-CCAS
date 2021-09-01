@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userServe: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userServe.getIsAdmin()) {
+      this.router.navigate(['/home']);
+    }
   }
 
 }

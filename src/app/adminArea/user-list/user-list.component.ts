@@ -16,7 +16,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     if (this.userServe.getIsAdmin) {
       this.getUserList();
-
+    } else {
+      this.router.navigate(['/home']);
     }
   }
 
@@ -26,8 +27,6 @@ export class UserListComponent implements OnInit {
 
   getUserList() {
     this.userServe.getUsersForAdmin().subscribe((data: any) => {
-      console.log(data);
-
       //populate list and remove the admin from the list
       this.userTbl = data.users.filter((user: any) => user.roles.indexOf("ROLE_ADMIN") == -1);
     })

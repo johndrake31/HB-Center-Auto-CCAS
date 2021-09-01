@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-update-pro-garage',
@@ -12,7 +13,7 @@ import { GarageService } from 'src/app/garage.service';
 
 export class UpdateProGarageComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private garageServ: GarageService) { }
+  constructor(private userServe: UserService, private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private garageServ: GarageService) { }
 
   form!: FormGroup;
   formSubmitted = false;
@@ -20,6 +21,11 @@ export class UpdateProGarageComponent implements OnInit {
   garageId: string;
 
   ngOnInit(): void {
+
+    if (!this.userServe.getIsAdmin()) {
+      this.router.navigate(['/home']);
+    }
+
     this.garageId = this.route.snapshot.paramMap.get('id');
 
     this.garageServ.getGarageById(this.garageId).subscribe((data: any) => {

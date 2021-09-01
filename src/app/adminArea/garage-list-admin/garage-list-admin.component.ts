@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-garage-list-admin',
@@ -11,9 +12,12 @@ export class GarageListAdminComponent implements OnInit {
   garageArr: any;
   deleteClicked = false;
 
-  constructor(private garageServ: GarageService, private router: Router) { }
+  constructor(private garageServ: GarageService, private userServe: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userServe.getIsAdmin()) {
+      this.router.navigate(['/home']);
+    }
     this.getGarages();
   }
 

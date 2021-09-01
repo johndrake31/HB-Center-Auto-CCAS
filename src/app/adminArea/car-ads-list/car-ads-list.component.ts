@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
 import { Car } from 'src/app/model/car.module';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-car-ads-list',
@@ -14,9 +16,12 @@ export class CarAdsListComponent implements OnInit {
 
 
 
-  constructor(private carServe: CarAdsService) { }
+  constructor(private carServe: CarAdsService, private userServe: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userServe.getIsAdmin()) {
+      this.router.navigate(['/home']);
+    }
     this.refreshCarListings();
   }
 

@@ -18,7 +18,7 @@ export class RegesterUserComponent implements OnInit {
   constructor(private userServe: UserService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.userServe.getIsAdmin) {
+    if (this.userServe.getIsAdmin()) {
       this.form = this.fb.group({
         username: ['', Validators.required],
         siret: ['', Validators.required],

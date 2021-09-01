@@ -33,6 +33,10 @@ export class UpdateUserProComponent implements OnInit {
     private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    if (!this.userServ.getIsAdmin()) {
+      this.router.navigate(['/home']);
+    }
     this.userId = this.route.snapshot.paramMap.get('id');
 
 
