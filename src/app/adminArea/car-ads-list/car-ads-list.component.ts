@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
 import { Car } from 'src/app/model/car.module';
@@ -10,22 +11,54 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./car-ads-list.component.scss']
 })
 export class CarAdsListComponent implements OnInit {
-
+  carRef: string = "";
 
   carAds: Car[] = [];
+  form!: FormGroup;
+  formSubmitted = false;
+  isClicked = false;
 
 
-
-  constructor(private carServe: CarAdsService, private userServe: UserService, private router: Router) { }
+  constructor(private carServe: CarAdsService, private userServe: UserService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     if (!this.userServe.getIsAdmin()) {
       this.router.navigate(['/home']);
     }
     this.refreshCarListings();
+
+    this.form = this.fb.group({
+      adref: ['', Validators.required],
+    });
+
+  }
+
+  findCarAd() {
+    this.formSubmitted = true;
+    this.isClicked = true;
+    if (this.form.valid) {
+      //console.log(this.form.value.adref);
+
+      this.carServe.getAdById(this.form.value.adref).subscribe(
+        err => console.log('HTTP Error', err),
+        (data: any) => {
+          if (data.car_ad_index) {
+            console.log(data.car_ad_index);
+            this.carAds = Array(data.car_ad_index);
+
+          }
+        })
+      this.formReset();
+    }
+
+  }
+  formReset() {
+    this.form.reset();
+    this.formSubmitted = false;
   }
 
   refreshCarListings() {
+    this.isClicked = false;
     this.carServe.getAds().subscribe((data: any) => {
       this.carAds = data.ads;
     })

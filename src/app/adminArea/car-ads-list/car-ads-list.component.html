@@ -8,8 +8,24 @@
     *ngFor="let n of numSequence(carAds.length/10);
       let i = index;" (click)="changeSlice(i)"
       >{{i+1}}</button>
-    <label class="" for="searchcar">Find Car by Ref#</label>
-    <input name=searchcar type="text">
+    
+      <br>
+
+   <form *ngIf="form" [formGroup]="form" class="big-box" (ngSubmit)="findCarAd()">
+  <div class="container m-5">
+      <div class="col-8">
+        <label class="text-white mb-2" for="title">{{"Enter Car Ad ref number"|titlecase}}</label>
+        <br>
+        <input class="inputs-width mb-2" type="text" formControlName="adref">
+        <br>
+        <button type="submit" class="btn btn-lg btn-light mb-2">Find Car Ad</button>
+        <br>
+        <button *ngIf="isClicked" (click)="refreshCarListings()" type="submit" class="btn btn-lg btn-light">Reset Car Listings</button>
+      </div>
+  </div>
+</form>
+    
+    <br>
     <div class="d-flex flex-wrap">
         <app-admin-car-card 
         *ngFor="let ad of carAds | slice:paginMin:paginMax" 
@@ -26,5 +42,6 @@
     >{{i+1}}</button>
 
 </section>
+
 
 
