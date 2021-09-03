@@ -36,9 +36,7 @@ export class ProfileProInfoFormComponent implements OnInit {
 
       this.userServ.getUserInfos().subscribe((data: any) => {
         this.userData = data.user_index;
-
         // console.log(this.userData);
-
         // update infos
 
         this.form = this.fb.group({
