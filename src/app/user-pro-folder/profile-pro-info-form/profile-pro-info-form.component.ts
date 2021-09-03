@@ -30,20 +30,26 @@ export class ProfileProInfoFormComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.userServ.getUserInfos().subscribe((data: any) => {
-      this.userData = data.user_index;
-      // console.log(this.userData);
+    if (!this.userServ.getIsOwner()) {
+      this.router.navigate(['/home']);
+    } else {
 
-      // update infos
+      this.userServ.getUserInfos().subscribe((data: any) => {
+        this.userData = data.user_index;
 
-      this.form = this.fb.group({
-        firstname: [this.userData.firstname!, Validators.required],
-        lastname: [this.userData.lastname!, Validators.required],
-        email: [this.userData.email!, Validators.required],
-        telephone: [this.userData.telephone!, Validators.required],
-      });
+        // console.log(this.userData);
 
-    })
+        // update infos
+
+        this.form = this.fb.group({
+          firstname: [this.userData.firstname!, Validators.required],
+          lastname: [this.userData.lastname!, Validators.required],
+          email: [this.userData.email!, Validators.required],
+          telephone: [this.userData.telephone!, Validators.required],
+        });
+
+      })
+    }
   }
 
   /*************

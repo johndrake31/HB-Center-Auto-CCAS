@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
 import { GarageService } from 'src/app/garage.service';
 import { Car } from 'src/app/model/car.module';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-garage-ads',
@@ -20,8 +21,13 @@ export class GarageAdsComponent implements OnInit {
   @Output() removeAdbyId = new EventEmitter<any>();
 
   // life cyc hooks
-  constructor(private carServe: CarAdsService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userServe: UserService, private carServe: CarAdsService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
+
+    if (!this.userServe.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
+
     this.garageid = this.route.snapshot.paramMap.get('id')
 
   }

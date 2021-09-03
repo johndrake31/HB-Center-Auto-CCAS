@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -8,10 +9,14 @@ import { UserService } from 'src/app/user.service';
 })
 export class ProfileProComponent implements OnInit {
 
-  constructor(private userServ: UserService) { }
+  constructor(private userServ: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userServ.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
   }
+
   logout() {
     this.userServ.loggedout();
   }

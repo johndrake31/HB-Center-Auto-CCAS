@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-garage-update-form',
@@ -11,7 +12,7 @@ import { GarageService } from 'src/app/garage.service';
 })
 export class GarageUpdateFormComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,
+  constructor(private userServe: UserService, private fb: FormBuilder,
     private http: HttpClient, private router: Router, private garageServ: GarageService) { }
 
   form!: FormGroup;
@@ -20,6 +21,10 @@ export class GarageUpdateFormComponent implements OnInit {
   @Output() editGarageMode = new EventEmitter<any>();
 
   ngOnInit(): void {
+    if (!this.userServe.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
+
     console.log(this.garageInfo);
 
     this.form = this.fb.group({

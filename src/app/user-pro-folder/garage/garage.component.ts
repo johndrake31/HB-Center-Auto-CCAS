@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GarageService } from 'src/app/garage.service';
 import { CarAdsService } from 'src/app/car-ads.service';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -15,9 +16,13 @@ export class GarageComponent implements OnInit {
   modeEdit = false;
   sureDelete = false;
   garageid: any
-  constructor(private carServe: CarAdsService, private garageServ: GarageService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private userServe: UserService, private carServe: CarAdsService, private garageServ: GarageService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    if (!this.userServe.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
+
     this.garageid = this.route.snapshot.paramMap.get('id')
 
     // 

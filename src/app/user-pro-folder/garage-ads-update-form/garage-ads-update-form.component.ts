@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-garage-ads-update-form',
@@ -16,16 +17,20 @@ export class GarageAdsUpdateFormComponent implements OnInit {
   form!: FormGroup;
   formSubmitted = false;
   selectedFile: File = null;
-  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private userServe: UserService, private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
+    if (!this.userServe.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
+
     let query = this.route.snapshot.paramMap.get('id').split('&');
     this.garageid = query[1];
     this.carAdId = query[0];
 
-
     this.carServe.getAdById(this.carAdId).subscribe((data: any) => {
-      // console.log(data.car_ad_index);
+
       let carAd = data.car_ad_index;
       let year = carAd.year.slice(0, 10);
       this.fuel = carAd.fuel;

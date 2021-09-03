@@ -49,25 +49,16 @@ export class LoginComponent implements OnInit {
           this.form.reset();
           this.formSubmitted = false;
 
-          // setTimeout(() => {
-          //   this.userServ.getNewToken().subscribe((data: any) => {
-          //     console.log(data);
-
-          //   })
-          // }, 6200000); //1.5 hours
 
           if (token.roles.indexOf('ROLE_ADMIN') >= 0) {
-
             this.userServ.setIsAdmin();
             // console.log(this.userServ.getIsAdmin());
             this.router.navigate(['/admin-menu']);
 
           } else if (token.roles.indexOf('ROLE_OWNER') >= 0) {
-
+            this.userServ.setIsOwner();
             this.router.navigate(['/home']);
-
           }
-
         }
       );
     }

@@ -12,6 +12,7 @@ export class UserService {
 
   private _isLogged: boolean = false;
   private _isAdmin: boolean = false;
+  private _isOwner: boolean = false;
   private _userInfo: any = [];
   private _refreshToken: any = "";
   private _username: string = "";
@@ -21,11 +22,24 @@ export class UserService {
     this._isAdmin = !this._isAdmin;
     sessionStorage.setItem("isAdmin", "true");
   }
+
+  setIsOwner() {
+    this._isOwner = !this._isOwner;
+    sessionStorage.setItem("isOwner", "true");
+  }
+
   getIsAdmin() {
     if (sessionStorage.getItem("isAdmin") === "true") {
       this._isAdmin = true;
     } else { this._isAdmin = false; }
     return this._isAdmin;
+  }
+
+  getIsOwner() {
+    if (sessionStorage.getItem("isOwner") === "true") {
+      this._isOwner = true;
+    } else { this._isOwner = false; }
+    return this._isOwner;
   }
 
 
@@ -86,6 +100,7 @@ export class UserService {
     this.setExp("");
     sessionStorage.setItem("isLogged", "false");
     sessionStorage.setItem("isAdmin", "false");
+    sessionStorage.setItem("isOwner", "false");
     this.router.navigate(['/home']);
   }
 

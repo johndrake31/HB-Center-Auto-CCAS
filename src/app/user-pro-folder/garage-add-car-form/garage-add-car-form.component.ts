@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CarAdsService } from 'src/app/car-ads.service';
+import { UserService } from 'src/app/user.service';
 
 
 @Component({
@@ -16,11 +17,16 @@ export class GarageAddCarFormComponent implements OnInit {
   formSubmitted = false;
   selectedFile: File = null;
 
-  constructor(private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
+  constructor(private userServe: UserService, private carServe: CarAdsService, private route: ActivatedRoute, private router: Router, private fb: FormBuilder) { }
 
 
 
   ngOnInit(): void {
+
+    if (!this.userServe.getIsOwner()) {
+      this.router.navigate(['/home']);
+    }
+
     this.garageid = this.route.snapshot.paramMap.get('id');
 
     this.form = this.fb.group({
