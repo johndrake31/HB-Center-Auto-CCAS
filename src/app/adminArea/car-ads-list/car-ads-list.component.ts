@@ -40,12 +40,12 @@ export class CarAdsListComponent implements OnInit {
       //console.log(this.form.value.adref);
 
       this.carServe.getAdById(this.form.value.adref).subscribe(
-        err => console.log('HTTP Error', err),
         (data: any) => {
           if (data.car_ad_index) {
             console.log(data.car_ad_index);
             this.carAds = Array(data.car_ad_index);
-
+          } else {
+            alert("Sorry no results for that Ref. Please type in only a number");
           }
         })
       this.formReset();

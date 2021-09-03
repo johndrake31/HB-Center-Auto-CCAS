@@ -2,6 +2,26 @@
     <h1 class="text-center text-white bg-dark py-4">ADMIN AREA</h1>
     <button class="btn btn-light btn-lg mb-4 mr-2" routerLink="/home" >Home Page</button>
     <button (click)="logout()" class="btn btn-light btn-lg mb-4">Log-Out</button>
+
+    <div class="d-flex flex-column">
+        <h1 class="text-white">QUICK STATS TOTALS</h1>
+        <br>
+        <div class="quickstats d-flex">
+            <div class="bg-white round text-center py-5 mr-3">
+                <h4 class="text-black">Users:</h4>
+                <p class="text-black">{{userArr}}</p>
+            </div>
+            <div class="bg-white round text-center py-5 mr-3">
+                <h4 class="text-black">Garages:</h4>
+                <p class="text-black">{{garageArr}}</p>
+            </div>
+            <div class="bg-white round text-center py-5 mr-3">
+                <h4 class="text-black">Ads:</h4>
+                <p class="text-black">{{carAdsArr}}</p>
+            </div>
+          
+        </div>
+    </div>
     <div class="d-flex flex-column">
         <br>
         <br>

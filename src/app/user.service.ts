@@ -38,6 +38,11 @@ export class UserService {
     return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index/" + id, { headers })
   }
 
+  getAllUsers(): Observable<any> {
+    const headers = { 'Authorization': "Bearer " + this.getToken() };
+    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index/", { headers })
+  }
+
 
 
   updateUserInfos(id: number, userData: any): Observable<any> {
