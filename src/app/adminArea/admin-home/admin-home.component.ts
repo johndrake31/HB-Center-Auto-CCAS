@@ -11,27 +11,22 @@ import { UserService } from 'src/app/user.service';
 })
 export class AdminHomeComponent implements OnInit {
 
-  userArr: any = 0;
-  garageArr: any = 0;
-  carAdsArr: any = 0;
+  userArr: any = "loading";
+  garageArr: any = "loading";
+  carAdsArr: any = "loading";
 
   constructor(private userServe: UserService, private garageServ: GarageService, private carAdsServ: CarAdsService, private router: Router) { }
 
   ngOnInit(): void {
-    if (!this.userServe.getIsAdmin()) {
-      this.router.navigate(['/home']);
-    }
+
     this.userServe.getAllUsers().subscribe((data: any) => {
       this.userArr = data.users.length;
-      console.log(this.userArr);
     })
     this.garageServ.getGarages().subscribe((data: any) => {
       this.garageArr = data.garages.length;
-      console.log(this.garageArr);
     })
     this.carAdsServ.getAds().subscribe((data: any) => {
       this.carAdsArr = data.ads.length;
-      console.log(this.carAdsArr);
     })
 
   }

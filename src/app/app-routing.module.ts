@@ -22,6 +22,8 @@ import { UpdateUserProComponent } from './adminArea/update-user-pro/update-user-
 import { UpdateProGarageComponent } from './adminArea/update-pro-garage/update-pro-garage.component';
 import { CarAdsListComponent } from './adminArea/car-ads-list/car-ads-list.component';
 import { AdminCarAdUpdateComponent } from './adminArea/admin-car-ad-update/admin-car-ad-update.component';
+import { AuthGuard } from './auth.guard';
+import { AuthProUserGuard } from './auth-pro-user.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,26 +36,27 @@ const routes: Routes = [
   { path: 'conditions-utilisation', component: ConditionsUtilisationComponent },
   { path: 'conditions-generales', component: ConditionsGeneralesComponent },
 
-  //User Pro et Garage Routes
   { path: 'login', component: LoginComponent },
-  { path: 'userpro', component: ProfileProComponent },
-  { path: 'mes-info', component: ProfileProInfoFormComponent },
-  { path: 'mes-garages', component: GarageListComponent },
-  { path: 'create-car-ad/:id', component: GarageAddCarFormComponent },
-  { path: 'update-ad-info/:id', component: GarageAdsUpdateFormComponent },
 
-  { path: 'garage/:id', component: GarageComponent },
-  { path: 'add-garage', component: GarageAjouterComponent },
+
+  //User Pro-Garage Routes
+  { path: 'userpro', canActivate: [AuthProUserGuard], component: ProfileProComponent },
+  { path: 'mes-info', canActivate: [AuthProUserGuard], component: ProfileProInfoFormComponent },
+  { path: 'mes-garages', canActivate: [AuthProUserGuard], component: GarageListComponent },
+  { path: 'create-car-ad/:id', canActivate: [AuthProUserGuard], component: GarageAddCarFormComponent },
+  { path: 'update-ad-info/:id', canActivate: [AuthProUserGuard], component: GarageAdsUpdateFormComponent },
+  { path: 'garage/:id', canActivate: [AuthProUserGuard], component: GarageComponent },
+  { path: 'add-garage', canActivate: [AuthProUserGuard], component: GarageAjouterComponent },
 
   // ADMIN ROUTES
-  { path: 'admin-menu', component: AdminHomeComponent },
-  { path: 'add-user', component: RegesterUserComponent },
-  { path: 'user-list', component: UserListComponent },
-  { path: 'garage-list', component: GarageListAdminComponent },
-  { path: 'car-list', component: CarAdsListComponent },
-  { path: 'update-user-pro/:id', component: UpdateUserProComponent },
-  { path: 'update-pro-garage/:id', component: UpdateProGarageComponent },
-  { path: 'admin-car-ad-update/:id', component: AdminCarAdUpdateComponent },
+  { path: 'admin-menu', canActivate: [AuthGuard], component: AdminHomeComponent },
+  { path: 'add-user', canActivate: [AuthGuard], component: RegesterUserComponent },
+  { path: 'user-list', canActivate: [AuthGuard], component: UserListComponent },
+  { path: 'garage-list', canActivate: [AuthGuard], component: GarageListAdminComponent },
+  { path: 'car-list', canActivate: [AuthGuard], component: CarAdsListComponent },
+  { path: 'update-user-pro/:id', canActivate: [AuthGuard], component: UpdateUserProComponent },
+  { path: 'update-pro-garage/:id', canActivate: [AuthGuard], component: UpdateProGarageComponent },
+  { path: 'admin-car-ad-update/:id', canActivate: [AuthGuard], component: AdminCarAdUpdateComponent },
 
 
   //Nothing else below this line
