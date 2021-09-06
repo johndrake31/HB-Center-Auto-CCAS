@@ -70,15 +70,16 @@
         </div>
       </li>
 
+      <!-- button to validate menu selections -->
       <li class="nav-item active"> 
         <button (click)="myBigValider()" class="my-drop-toggle myBtn nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Submit"|uppercase}}</button>
       </li>
 
+      <!-- reset car ads and menu selectors -->
       <li class="nav-item active"> 
         <button (click)="resetCarAds()" class="my-drop-toggle myBtn btnReset nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">{{"Reset"|uppercase}}</button>
       </li>
      
-
     </ul>
   </div>
 </nav>
