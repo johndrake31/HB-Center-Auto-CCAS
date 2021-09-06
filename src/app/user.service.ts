@@ -45,37 +45,40 @@ export class UserService {
 
   getUserInfos(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
+    return this.http.get<any>("http://powerful-badlands-63524.herokuapp.com/api/user/show", { headers })
   }
   getUserInfosAdmin(id: number): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index/" + id, { headers })
+    return this.http.get<any>("http://powerful-badlands-63524.herokuapp.com/api/user/index/" + id, { headers })
   }
 
   getAllUsers(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index/", { headers })
+    return this.http.get<any>("http://powerful-badlands-63524.herokuapp.com/api/user/index/", { headers })
   }
 
 
+  userLogin(userSignin: any): Observable<any> {
+    return this.http.post<any>("http://193.70.0.244:7777/api/login_check", userSignin)
+  }
 
   updateUserInfos(id: number, userData: any): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/user/edit/" + id, userData, { headers })
+    return this.http.patch<any>("http://powerful-badlands-63524.herokuapp.com/api/user/edit/" + id, userData, { headers })
   }
   // ADMIN
   addUserPro(userData: any): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/register", userData, { headers })
+    return this.http.post<any>("http://powerful-badlands-63524.herokuapp.com/api/register", userData, { headers })
   }
 
   getUsersForAdmin(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/user/index", { headers })
+    return this.http.get<any>("http://powerful-badlands-63524.herokuapp.com/api/user/index", { headers })
   }
   deleteUserForAdmin(id: number): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/user/delete/" + id, { headers })
+    return this.http.delete<any>("http://powerful-badlands-63524.herokuapp.com/api/user/delete/" + id, { headers })
   }
 
 
@@ -84,7 +87,7 @@ export class UserService {
     let myJsonRefresh = JSON.stringify(this.getRefreshToken())
     console.log(myJsonRefresh);
 
-    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/token/refresh", myJsonRefresh)
+    return this.http.post<any>("http://powerful-badlands-63524.herokuapp.com/api/token/refresh", myJsonRefresh)
   }
 
 

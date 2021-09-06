@@ -28,9 +28,8 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.formSubmitted = true;
     if (this.form.valid) {
-      // console.log(this.form.value);
 
-      this.http.post("http://193.70.0.244:7777/api/login_check", this.form.value).subscribe(
+      this.userServ.userLogin(this.form.value).subscribe(
         (data: any) => {
 
           const token: any = jwt_decode(data.token);
@@ -40,15 +39,10 @@ export class LoginComponent implements OnInit {
           this.userServ.setToken(data.token);
           this.userServ.setRefreshToken(data.refresh_token);
 
-          // console.log(token.roles);
-
-
-
           this.userServ.setRoles(token.roles);
           this.userServ.setIsLogged();
           this.form.reset();
           this.formSubmitted = false;
-
 
           if (token.roles.indexOf('ROLE_ADMIN') >= 0) {
             this.userServ.setIsAdmin();

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CarAdsService } from 'src/app/car-ads.service';
 import { GarageService } from 'src/app/garage.service';
 import { UserService } from 'src/app/user.service';
@@ -15,7 +15,7 @@ export class AdminHomeComponent implements OnInit {
   garageArr: any = "loading";
   carAdsArr: any = "loading";
 
-  constructor(private userServe: UserService, private garageServ: GarageService, private carAdsServ: CarAdsService, private router: Router) { }
+  constructor(private userServe: UserService, private garageServ: GarageService, private carAdsServ: CarAdsService) { }
 
   ngOnInit(): void {
 
