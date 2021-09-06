@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       // console.log(this.form.value);
 
-      this.http.post("https://powerful-badlands-63524.herokuapp.com/api/login_check", this.form.value).subscribe(
+      this.http.post("http://193.70.0.244:7777/api/login_check", this.form.value).subscribe(
         (data: any) => {
 
           const token: any = jwt_decode(data.token);
