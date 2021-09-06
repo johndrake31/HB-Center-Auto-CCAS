@@ -21,15 +21,13 @@ export class GarageAdsComponent implements OnInit {
   @Output() removeAdbyId = new EventEmitter<any>();
 
   // life cyc hooks
-  constructor(private userServe: UserService, private carServe: CarAdsService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userServe: UserService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
 
     if (!this.userServe.getIsOwner()) {
       this.router.navigate(['/home']);
     }
-
     this.garageid = this.route.snapshot.paramMap.get('id')
-
   }
 
   deleteAd(id: any) {
