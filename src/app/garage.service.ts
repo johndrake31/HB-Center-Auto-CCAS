@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
+import { environmentHomeUrl } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,26 +15,26 @@ export class GarageService {
 
   getGarages(): Observable<any> {
     const headers = this.headers;
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage", { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/garage", { headers })
   }
 
   getGarageById(id: any): Observable<any> {
     const headers = this.headers;
-    return this.http.get<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/show/" + id, { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/garage/show/" + id, { headers })
   }
 
   createGarages(body: any): Observable<any> {
     const headers = this.headers;
-    return this.http.post<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/add", body, { headers })
+    return this.http.post<any>(environmentHomeUrl.url + "/api/garage/add", body, { headers })
   }
 
   updateGarages(id, body: any): Observable<any> {
     const headers = this.headers;
-    return this.http.patch<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/edit/" + id, body, { headers })
+    return this.http.patch<any>(environmentHomeUrl.url + "/api/garage/edit/" + id, body, { headers })
   }
 
   deleteGarage(id: any): Observable<any> {
     const headers = this.headers;
-    return this.http.delete<any>("https://powerful-badlands-63524.herokuapp.com/api/garage/remove/" + id, { headers })
+    return this.http.delete<any>(environmentHomeUrl.url + "/api/garage/remove/" + id, { headers })
   }
 }
