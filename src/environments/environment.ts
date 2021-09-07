@@ -5,6 +5,9 @@
 export const environment = {
   production: false
 };
+export const environmentHomeUrl = {
+  url: "http://vps-dd09afd2.vps.ovh.net:7777"
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
