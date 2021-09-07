@@ -46,40 +46,40 @@ export class UserService {
 
   getUserInfos(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>(environmentHomeUrl + "/api/user/show", { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/user/show", { headers })
   }
   getUserInfosAdmin(id: number): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>(environmentHomeUrl + "/api/user/index/" + id, { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/user/index/" + id, { headers })
   }
 
   getAllUsers(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>(environmentHomeUrl + "/api/user/index/", { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/user/index/", { headers })
   }
 
 
   userLogin(userSignin: any): Observable<any> {
-    return this.http.post<any>(environmentHomeUrl + "/api/login_check", userSignin)
+    return this.http.post<any>(environmentHomeUrl.url + "/api/login_check", userSignin)
   }
 
   updateUserInfos(id: number, userData: any): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.patch<any>(environmentHomeUrl + "/api/user/edit/" + id, userData, { headers })
+    return this.http.patch<any>(environmentHomeUrl.url + "/api/user/edit/" + id, userData, { headers })
   }
   // ADMIN
   addUserPro(userData: any): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.post<any>(environmentHomeUrl + "/api/register", userData, { headers })
+    return this.http.post<any>(environmentHomeUrl.url + "/api/register", userData, { headers })
   }
 
   getUsersForAdmin(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.get<any>(environmentHomeUrl + "/api/user/index", { headers })
+    return this.http.get<any>(environmentHomeUrl.url + "/api/user/index", { headers })
   }
   deleteUserForAdmin(id: number): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
-    return this.http.delete<any>(environmentHomeUrl + "/api/user/delete/" + id, { headers })
+    return this.http.delete<any>(environmentHomeUrl.url + "/api/user/delete/" + id, { headers })
   }
 
 
@@ -88,7 +88,7 @@ export class UserService {
     let myJsonRefresh = JSON.stringify(this.getRefreshToken())
     console.log(myJsonRefresh);
 
-    return this.http.post<any>(environmentHomeUrl + "/api/token/refresh", myJsonRefresh)
+    return this.http.post<any>(environmentHomeUrl.url + "/api/token/refresh", myJsonRefresh)
   }
 
 
