@@ -3,7 +3,7 @@
 
     <button routerLink="/admin-menu" class="btn btn-lg btn-light my-5">Admin Area</button>
     
-    <h1 class="text-center text-white">Véhicules les plus récents</h1>
+    <h1 class="text-center text-white">The Most Recent Car Listings</h1>
     <button class="btn btn-dark text-light my-3 mr-3 "
     *ngFor="let n of numSequence(carAds.length/10);
       let i = index;" (click)="changeSlice(i)"

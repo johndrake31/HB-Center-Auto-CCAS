@@ -137,6 +137,8 @@ export class UserService {
     sessionStorage.setItem("token", data);
   }
   getToken(): any {
+    // console.log("token:" + sessionStorage.getItem("token"));
+
     return sessionStorage.getItem("token");
   }
 

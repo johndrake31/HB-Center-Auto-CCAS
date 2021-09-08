@@ -21,13 +21,11 @@ export class CarAdsService {
   }
   getAdsByGarage(id: any): Observable<any> {
     const headers = this.headers;
-    let mydata = this.http.get<any>(environmentHomeUrl.url + `/api/ads/garage/${id}`, { headers });
-    return mydata;
+    return this.http.get<any>(environmentHomeUrl.url + `/api/ads/garage/${id}`, { headers });
   }
   getAdById(id: any): Observable<any> {
     const headers = this.headers;
-    let mydata = this.http.get<any>(environmentHomeUrl.url + `/api/ads/show/${id}`, { headers });
-    return mydata;
+    return this.http.get<any>(environmentHomeUrl.url + `/api/ads/show/${id}`, { headers });
   }
 
   deleteAdById(id: any): Observable<any> {

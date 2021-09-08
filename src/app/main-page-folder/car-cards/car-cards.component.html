@@ -7,7 +7,6 @@
       alt="picture of {{inputCars.brand}} {{inputCars.model}}"> -->
       <img src="http://vps-dd09afd2.vps.ovh.net:7777/images/cars/{{inputCars.image}}"
       alt="picture of {{inputCars.brand}} {{inputCars.model}}">
-      <p class="text-hov">Cliquez pour plus d'informations</p>
     </div>
 
     <div class="info" (click)="moreClicked = !moreClicked">
@@ -16,20 +15,20 @@
       <p *ngIf="moreClicked" class="fade-in-image">{{inputCars.description}}</p>
 
       <h3>{{inputCars.price | currency: '€'}}</h3>
-      <button class="btn btn-info btn-sm mb-4" *ngIf="!moreClicked" >plus d'informations</button>
-      <button class="btn btn-info btn-sm mb-4" *ngIf="moreClicked" >moins d'informations</button>
+      <button class="btn btn-info btn-sm mb-4" *ngIf="!moreClicked" >More Info</button>
+      <button class="btn btn-info btn-sm mb-4" *ngIf="moreClicked" >Less Info</button>
 
     </div>
     <!-- hidden until needed for more info overflow or light box? -->
     <div *ngIf="moreClicked" class="click-for-more fade-in-image" (click)="moreClicked = !moreClicked">
-      <h4>l'Année: <em>{{inputCars.year}}</em></h4>
-      <h4>Kilomètrage: <em>{{inputCars.kilometers}}</em></h4>
-      <h4>Carburant: <em>{{inputCars.fuel}}</em></h4>
+      <h4>Year: <em>{{inputCars.year}}</em></h4>
+      <h4>Kilometers: <em>{{inputCars.kilometers}}</em></h4>
+      <h4>Fuel: <em>{{inputCars.fuel}}</em></h4>
       
-      <p> réf: #{{inputCars.id}}</p>
+      <p> ref: {{inputCars.id}}</p>
     </div>
 
-    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.idVoiture}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.idVoiture}}">Contact pour plus d'informations</a>
+    <a *ngIf="moreClicked" class="btn btn-dark text-light mt-3 mr-3" target="_blank" href="mailto:info@Centre-Auto-Ccas.com?subject=Informations%20sur%20la%20voiture%20az14pk{{inputCars.idVoiture}}&body= Bonojur M. Lodevie, %0dJe voudrais en savoir plus sur une certaine voiture. %0dvoici le numéro de référence: #{{inputCars.idVoiture}}">Contact us about this car</a>
   </div>
 </div>
 

@@ -17,7 +17,7 @@ export class GarageAdsComponent implements OnInit {
   sureDelete = false;
   moreClicked = false;
   garageid: any
-  @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "https://car-images-ccas.s3.eu-west-3.amazonaws.com/ford-bronco-1978-yellow-16-32-56-612be73bd74d8.jpg", null, 1234);
+  @Input() inputCars: any = new Car(6, "ford", "lots of information", "2020", 12345, "FORD", "Ranger", "gasoline", null, "google.com", null, 1234);
   @Output() removeAdbyId = new EventEmitter<any>();
 
   // life cyc hooks
