@@ -150,8 +150,10 @@ export class MenuComponent implements OnInit {
     // if fuelType is set do the 3rd filter
     if (this.searchObj.fuelType) {
       filterTable = filterTable.filter((carAd: Car) =>
-        carAd.fuel == this.searchObj.fuelType
+        carAd.fuel.toLocaleLowerCase() == this.searchObj.fuelType.toLocaleLowerCase()
       );
+      console.log(this.searchObj.fuelType);
+
     }
     // if year is set do the 4th filter
     if (this.searchObj.year) {
