@@ -19,10 +19,12 @@ export class CarAdsService {
   getAds(): Observable<Car[]> {
     return this.http.get<Car[]>(environmentHomeUrl.url + "/api/classified");
   }
+
   getAdsByGarage(id: any): Observable<any> {
     const headers = this.headers;
     return this.http.get<any>(environmentHomeUrl.url + `/api/ads/garage/${id}`, { headers });
   }
+
   getAdById(id: any): Observable<any> {
     const headers = this.headers;
     return this.http.get<any>(environmentHomeUrl.url + `/api/ads/show/${id}`, { headers });

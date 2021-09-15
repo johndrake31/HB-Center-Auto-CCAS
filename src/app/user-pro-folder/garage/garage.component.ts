@@ -28,9 +28,10 @@ export class GarageComponent implements OnInit {
     // 
     this.garageServ.getGarageById(this.garageid).subscribe((data: any) => {
       this.garage = data.garage_index;
-    })
-    this.carServe.getAdsByGarage(this.garageid).subscribe((data2: any) => {
-      this.carAds = data2.ads
+
+      this.carServe.getAdsByGarage(this.garageid).subscribe((data2: any) => {
+        this.carAds = data2.ads
+      })
     })
 
   }
