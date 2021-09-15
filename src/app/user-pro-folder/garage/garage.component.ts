@@ -25,7 +25,6 @@ export class GarageComponent implements OnInit {
 
     this.garageid = this.route.snapshot.paramMap.get('id')
 
-    // 
     this.garageServ.getGarageById(this.garageid).subscribe((data: any) => {
       this.garage = data.garage_index;
 

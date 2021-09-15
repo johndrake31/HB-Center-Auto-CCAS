@@ -147,12 +147,19 @@ export class MenuComponent implements OnInit {
         carAd.model == this.searchObj.model
       );
     }
-    // if fuelType is set do the 3rd filter
+    // if fuelType is set do the 3rd filter toLowerCase
     if (this.searchObj.fuelType) {
-      filterTable = filterTable.filter((carAd: Car) =>
-        carAd.fuel.toLocaleLowerCase() == this.searchObj.fuelType.toLocaleLowerCase()
-      );
-      console.log(this.searchObj.fuelType);
+
+
+      filterTable = filterTable.filter((carAd: Car) => {
+        let CarFuel = carAd.fuel.toLowerCase();
+        let seachFuelType = this.searchObj.fuelType.toLowerCase();
+        // console.log("ads " + CarFuel);
+        // console.log("obj " + seachFuelType);
+        return CarFuel == seachFuelType;
+
+      })
+      // console.log(this.searchObj.fuelType);
 
     }
     // if year is set do the 4th filter
