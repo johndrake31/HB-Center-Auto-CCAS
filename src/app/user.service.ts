@@ -43,7 +43,6 @@ export class UserService {
     return this._isOwner;
   }
 
-
   getUserInfos(): Observable<any> {
     const headers = { 'Authorization': "Bearer " + this.getToken() };
     return this.http.get<any>(environmentHomeUrl.url + "/api/user/show", { headers })
