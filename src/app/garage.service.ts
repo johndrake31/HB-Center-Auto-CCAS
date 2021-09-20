@@ -11,30 +11,32 @@ export class GarageService {
 
   constructor(private http: HttpClient, private userServ: UserService) { }
 
-  headers = { 'Authorization': "Bearer " + this.userServ.getToken() };
+  private getHeaders = () => {
+    return { 'Authorization': "Bearer " + this.userServ.getToken() }
+  };
 
   getGarages(): Observable<any> {
-    const headers = this.headers;
+    const headers = this.getHeaders();
     return this.http.get<any>(environmentHomeUrl.url + "/api/garage", { headers })
   }
 
   getGarageById(id: any): Observable<any> {
-    const headers = this.headers;
+    const headers = this.getHeaders();
     return this.http.get<any>(environmentHomeUrl.url + "/api/garage/show/" + id, { headers })
   }
 
   createGarages(body: any): Observable<any> {
-    const headers = this.headers;
+    const headers = this.getHeaders();
     return this.http.post<any>(environmentHomeUrl.url + "/api/garage/add", body, { headers })
   }
 
   updateGarages(id, body: any): Observable<any> {
-    const headers = this.headers;
+    const headers = this.getHeaders();
     return this.http.patch<any>(environmentHomeUrl.url + "/api/garage/edit/" + id, body, { headers })
   }
 
   deleteGarage(id: any): Observable<any> {
-    const headers = this.headers;
+    const headers = this.getHeaders();
     return this.http.delete<any>(environmentHomeUrl.url + "/api/garage/remove/" + id, { headers })
   }
 }

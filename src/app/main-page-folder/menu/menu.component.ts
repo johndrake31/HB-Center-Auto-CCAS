@@ -159,7 +159,7 @@ export class MenuComponent implements OnInit {
         return CarFuel == seachFuelType;
 
       })
-      // console.log(this.searchObj.fuelType);
+      //console.log(filterTable);
 
     }
     // if year is set do the 4th filter
